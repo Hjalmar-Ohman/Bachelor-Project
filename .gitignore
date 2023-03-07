@@ -1,0 +1,8 @@
+# Python Cache
+__pycache__
+
+# Environment
+venv/
+
+# Database
+Server/database.db
