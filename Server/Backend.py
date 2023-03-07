@@ -12,27 +12,7 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String, nullable=False)
-    last_name = db.Column(db.String, nullable=False)
-    email = db.Column(db.String, nullable=False, unique = True)
-    is_admin = db.Column(db.Boolean, nullable=False)
-    password_hash = db.Column(db.String, nullable=False)
-    
 
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password).decode("utf8")
-
-    def __repr__(self):
-        return "<User {}: {} {} {}".format(
-            self.id, self.name, self.email, self.is_admin
-        )
-
-    def seralize(self):
-        return dict(
-            id=self.id, name=self.name, email=self.email, is_admin=self.is_admin
-        )
     
 class Tool(db.Model):
     id = db.Coloumn(db.Integer, primary_key = True)
@@ -66,7 +46,11 @@ def signUp():
 def signUp():
     return
 
-@app.route("/Tools/<int:input_id>/boka", methods=["POST"])
+@app.route("/<int:user_id>/Tools", methods=["POST"])
+def signUp():
+    return
+
+@app.route("/Tools/<int:input_id>/book", methods=["POST"])
 def signUp():
     return
 
