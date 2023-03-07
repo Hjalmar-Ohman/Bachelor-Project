@@ -1,23 +1,24 @@
 from flask import Blueprint, abort, jsonify
 from jinja2 import TemplateNotFound
 
+import Backend
 
 toolApp = Blueprint("toolApp", __name__)
 
 
 @toolApp.route("/Tools")
 def Tools():
-    try:
-        return jsonify("JOELS FUNKTION")
-    except TemplateNotFound:
-        abort(404)
+    tools = []
+    # for i in db.tools:
+    #   tools.add(db.Tools.serialize)
+    return jsonify(tools)
 
 
-@toolApp.route("/Tools/<int:input_id>", methods=["POST"])
+@toolApp.route("/Tools/<int:toolID>", methods=["POST"])
 def ToolInfo():
-    return
+    return jsonify("get by key(toolID).seralize")
 
 
 @toolApp.route("/Tools/<int:input_id>/booked", methods=["POST"])
 def BookTool():
-    return
+    return jsonify("JOELS FUNKTION")
