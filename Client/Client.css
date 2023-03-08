@@ -1,0 +1,46 @@
+
+ body{
+    background-color: blueviolet;
+    background-image: url("../Pictures/firstPage.jpg");
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-color: rgb(158, 158, 158);
+    background-size:100%;
+    background-position: top;
+ }
+
+ .container-fluid{
+    width: 100%;
+    margin-left:0px;
+ }
+ .homeContainer {
+    width: 100%;
+    height: 1500px;
+    
+
+ }
+.font{
+    font-family: 'JelleeBold';
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+}
+
+ h1{
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+ }
+ .navbarItem {
+    margin-left: 60%;
+    margin-right: 15%;
+
+ }
+ .navbarLogo{
+    margin-left: 15%;
+ }
+
+ #view-home{
+    margin-left: 100px;
+ }
+
