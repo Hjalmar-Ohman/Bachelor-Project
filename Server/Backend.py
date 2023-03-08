@@ -57,12 +57,12 @@ class User(db.Model):
 
     def __repr__(self):
         return "<User {}: {} {} {}".format(
-            self.id, self.name, self.email, self.is_admin
+            self.id, self.fname, self.lname, self.email
         )
 
     def seralize(self):
         return dict(
-            id=self.id, name=self.name, email=self.email, is_admin=self.is_admin
+            id=self.id, fname=self.fname, lname=self.lname, email=self.email
         )
 
 
@@ -72,6 +72,8 @@ def signUp2():
     return signUp(db, User)
 
 @app.route("/login", methods=["POST"])
+def login2():
+    return login(db, bcrypt, User)
 
 
 @app.route("/start")
