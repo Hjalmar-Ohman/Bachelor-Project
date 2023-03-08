@@ -10,23 +10,21 @@ from flask_jwt_extended import (
     get_jwt_identity,
 )
 
-#from Tools import toolApp
+# from Tools import toolApp
 
 
+# app.add_url_rule('/test', 'test', test)
 
-#app.add_url_rule('/test', 'test', test)
-
-#app.route("/test", methods=["POST"])
-#test()
+# app.route("/test", methods=["POST"])
+# test()
 
 
 app = Flask(__name__)
-app.config.from_pyfile('Config.py')
+app.config.from_pyfile("Config.py")
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
-
 
 
 class Tool(db.Model):
@@ -49,9 +47,9 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String, nullable=False)
     lname = db.Column(db.String, nullable=False)
-    email = db.Column(db.String, nullable=False, unique = True)
+    email = db.Column(db.String, nullable=False, unique=True)
     password_hash = db.Column(db.String, nullable=False)
-    
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password).decode("utf8")
 
@@ -66,33 +64,31 @@ class User(db.Model):
         )
 
 
-app.add_url_rule('/test', 'test', test)
+app.add_url_rule("/test", "test", test)
+
+
 @app.route("/signup", methods=["POST"])
 def signUp2():
     return signUp(db, User)
 
+
 @app.route("/login", methods=["POST"])
-
-
 @app.route("/start")
 def start():
     return jsonify("Seems to be working just 'bout fine")
 
 
+# app.route("/Tools", methods=["POST"])
+# def signUp():
+#   return
 
+# @app.route("/<int:user_id>/Tools", methods=["POST"])
+# def signUp():
+#   return
 
-
-#app.route("/Tools", methods=["POST"])
-#def signUp():
- #   return
-
-#@app.route("/<int:user_id>/Tools", methods=["POST"])
-#def signUp():
- #   return
-
-#@app.route("/Tools/<int:input_id>/book", methods=["POST"])
-#def signUp():
- #   return
+# @app.route("/Tools/<int:input_id>/book", methods=["POST"])
+# def signUp():
+#   return
 
 
 if __name__ == "__main__":
