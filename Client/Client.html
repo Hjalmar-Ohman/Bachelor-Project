@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css"/>
+    <link rel="stylesheet" href="client.css">
+
+    <title>Gabbe & Lombas Bilshopp</title>
+  </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
+  <body>
+    <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
+        <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px;">Tool In a Box</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbarItem">
+            <a id ="homeButton" class="nav-item nav-link active font" href="home">Hem <span class="sr-only">(current)</span></a>
+            <a id ="toolButton"class="nav-item nav-link font" href="verktyg">Verktyg</a>
+            <a id ="regButton"class="nav-item nav-link font" href="reg">Registrera</a>
+
+            <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 20px" href="login">Logga in</a>
+            <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+    
+    </div>
+
+    <script id="view-home" type="text/html" style ="padding: 0px">
+        <div class ="homeContainer">
+            
+
+        </div>
+    </script>
+
+    <script id="view-contact" type="text/html">
+        <p class="text-center", style = "margin-left: 0%;">Behöver du hämta ett nytt bord, hjälpa din kompis att flytta eller helt enkelt dra iväg och lyssna på "Hit the road jack". Vi hjälper dig med din bil idag!</p>
+        <div class ="oppetider-box">
+            <h1>Kontakt</h1>
+            <p style = "margin: auto; width:90%"> Här nedan kommer företagets Gabbe & Lombas Biluthyrnings kontaktuppgifter. Vill ni skicka ett meddelande via hemsidan,
+            vänligen scrolla vidare!</p>
+            <p><strong>Adress:</strong> Bildagat 1, 12345 Bilstaden</p>
+            <p><strong>Telefon:</strong> 07000001111</p>
+            <p><strong>Mail</strong> bilstadensbilhandlare @ glbiluthyrning.se</p>
+            <p style = "font-weight: bold">Kontatkformulär:</p>  
+            <form> 
+            <div class="form-group">
+              <label for="formEmail">Email address</label>
+              <input type="email" class="form-control" id="formEmail" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="formName">Full name</label>
+                <input type="name" class="form-control" id="formName" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label for="formMessage">Message</label>
+                <textarea class="form-control" id="formMessage" placeholder="Please write your message here" rows="3"></textarea>
+            </div>
+            <button id = "messageButton" type="button" class="btn btn-outline-success btn-block" style ="margin-bottom: 10px;">Send Message</button>
+            </form>
+        </div>
+    </script>
+
+    <script id="view-reg" type="text/html">
+      <p class="text-center", style = "margin-left: 0%;">Behöver du hämta ett nytt bord, hjälpa din kompis att flytta eller helt enkelt dra iväg och lyssna på "Hit the road jack". Vi hjälper dig med din bil idag!</p>
+      <div class ="oppetider-box">
+          <h1>Registrera dig</h1>
+          <p style = "font-weight: bold">Registreringsformulär:</p>  
+          <form> 
+          <div class="form-group">
+            <label for="formEmail">E-postadress:</label>
+            <input type="email" class="form-control" id="regEmail" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+              <label for="formName">Namn:</label>
+              <input type="name" class="form-control" id="regName" placeholder="Your name:">
+          </div>
+          <div class="form-group">
+              <label for="formMessage">Lösenord:</label>
+              <input type="losen" class="form-control" id="regLosen" placeholder="Välj ett lösenord">
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Adminrättigheter? (0 - nej, 1 - ja):</label>
+            <input type="losen" class="form-control" id="regAdmin" value="0">
+        </div>
+          <button id = "regButton" type="button" class="btn btn-outline-success btn-block" onclick = "newUser()" style ="margin-bottom: 10px;">Registrera mig!</button>
+          </form>
+      </div>
+  </script>
+
+  <script id="view-login" type="text/html">
+    <p class="text-center", style = "margin-left: 0%;">Behöver du hämta ett nytt bord, hjälpa din kompis att flytta eller helt enkelt dra iväg och lyssna på "Hit the road jack". Vi hjälper dig med din bil idag!</p>
+    <div class ="oppetider-box">
+        <h1>Logga in</h1>
+        <p style = "font-weight: bold">Logga in:</p>  
+        <form> 
+        <div class="form-group">
+          <label for="formEmail">E-postadress:</label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="formMessage">Lösenord:</label>
+            <input type="losen" class="form-control" id="loginLosen" placeholder="Välj ett lösenord">
+        </div>
+        <button id = "regButton" type="button" class="btn btn-outline-success btn-block" onclick = "login()" style ="margin-bottom: 10px;">Logga in</button>
+        </form>
+    </div>
+</script>
+
+    <script id="view-cars" type="text/html">
+        <div style="height: 1600px; width: 70%; background-color: aliceblue; margin-left:15%;"></div>
+    </script>
+
+    <div class="modal fade bd-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content" id="myModalContent">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content" id="myAddModalContent">
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="client.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
