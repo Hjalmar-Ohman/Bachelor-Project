@@ -3,20 +3,13 @@ from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from Users import *
 from Config import *
+from Tools import *
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
     jwt_required,
     get_jwt_identity,
 )
-
-# from Tools import toolApp
-
-
-# app.add_url_rule('/test', 'test', test)
-
-# app.route("/test", methods=["POST"])
-# test()
 
 
 app = Flask(__name__)
@@ -78,17 +71,22 @@ def start():
     return jsonify("Seems to be working just 'bout fine")
 
 
-# app.route("/Tools", methods=["POST"])
-# def signUp():
-#   return
+from Tools import tools
 
-# @app.route("/<int:user_id>/Tools", methods=["POST"])
-# def signUp():
-#   return
 
-# @app.route("/Tools/<int:input_id>/book", methods=["POST"])
-# def signUp():
-#   return
+@app.route("/Tools")
+def tools2():
+    return tools()
+
+
+@app.route("/<int:user_id>/Tools")
+def toolInfo2():
+    return toolInfo()
+
+
+@app.route("/Tools/<int:input_id>/bookings")
+def toolBookings2():
+    return toolBookings()
 
 
 if __name__ == "__main__":
