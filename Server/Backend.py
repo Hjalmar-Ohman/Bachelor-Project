@@ -24,9 +24,12 @@ class Tool(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
+    pictureURL = db.Column(db.String, nullable=True)  # ANVÄNDS ALDRIG
 
     def __repr__(self):
-        return "<Tool {}: {} {} {}".format(self.id, self.price, self.name)
+        return "<Tool {}: {} {} {}".format(
+            self.id, self.price, self.name, self.pictureURL
+        )
 
     def seralize(self):
         return dict(
@@ -71,19 +74,21 @@ def start():
     return jsonify("Seems to be working just 'bout fine")
 
 
-@app.route("/Tools")
+@app.route("/tools", methods=["GET", "POST"])
 def tools2():
-    return tools()
+    return tools(Tool, db)
 
 
-@app.route("/Tools/<int:user_id>", methods=["POST", "PUT", "GET"])
-def tool2():
-    return tool()
+@app.route("/tools/<int:input_id>", methods=["GET", "PUT"])
+def tool2(input_id):
+    toolID = input_id
+    return tool(Tool, db, toolID)
 
 
-@app.route("/Tools/<int:input_id>/bookings")
-def toolBookings2():
-    return toolBookings()
+@app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
+def toolBook2(input_id):
+    toolID = input_id
+    return toolBook(toolID)
 
 
 if __name__ == "__main__":

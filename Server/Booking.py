@@ -50,9 +50,8 @@ def user_bookings(user_id):
 
     return Backend.jsonify(bookings_list)
 
-    # Funktionen tar in tool id, tar alla bokningar som hör till det verktyget och lägger de i en lista.
 
-
+# Funktionen tar in tool id, tar alla bokningar som hör till det verktyget och lägger de i en lista.
 def tool_bookings(tool_id):
     all_bookings = Booking.query.all()
     bookings_list = []
@@ -63,9 +62,8 @@ def tool_bookings(tool_id):
 
     return Backend.jsonify(bookings_list)
 
-    # Kallas på i user/int/mytools method = delete. Tar in tool id, kontrollerar user via token identity och tar bort bokningen.
 
-
+# Kallas på i user/int/mytools method = delete. Tar in tool id, kontrollerar user via token identity och tar bort bokningen.
 def cancel_booking(tool_id):
     current_user = Backend.get_jwt_token()
     all_bookings = Booking.query.all()
