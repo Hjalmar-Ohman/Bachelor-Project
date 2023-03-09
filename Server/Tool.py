@@ -43,4 +43,6 @@ def toolBook(toolID):
     if request.method == "GET":
         return tool_bookings(toolID)
     elif request.method == "POST":
-        book_tool(toolID, hour, day, year)
+        return book_tool(toolID, hour, day, year)
+    elif request.method == "DELETE":
+        return delete_tool_bookings()
