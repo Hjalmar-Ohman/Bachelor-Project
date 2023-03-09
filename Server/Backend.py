@@ -3,7 +3,7 @@ from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from Users import *
 from Config import *
-from Tools import *
+from Tool import *
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
@@ -71,17 +71,14 @@ def start():
     return jsonify("Seems to be working just 'bout fine")
 
 
-from Tools import tools
-
-
 @app.route("/Tools")
 def tools2():
     return tools()
 
 
-@app.route("/<int:user_id>/Tools")
-def toolInfo2():
-    return toolInfo()
+@app.route("/Tools/<int:user_id>", methods=["POST", "PUT", "GET"])
+def tool2():
+    return tool()
 
 
 @app.route("/Tools/<int:input_id>/bookings")

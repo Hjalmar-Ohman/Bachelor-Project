@@ -1,4 +1,5 @@
-from flask import jsonify
+from flask import jsonify, request
+from Booking import *
 
 
 def tools():
@@ -8,8 +9,10 @@ def tools():
     return jsonify(tools)
 
 
-def toolInfo():
-    return jsonify("verktyget. get by key(toolID).seralize")
+def tool():
+    if request.method == "POST":
+        book_tool(1, 2, 3, 4)
+    return
 
 
 def toolBookings():
