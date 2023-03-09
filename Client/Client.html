@@ -14,7 +14,7 @@
   </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
   <body>
     <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
-        <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px;">Tool In a Box</a>
+        <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white">Tool In a Box</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,7 +28,9 @@
             <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
           </div>
         </div>
+    
     </nav>
+    <!--<div class="contactBoxLine" style ="margin-top: 0;"></div>-->
 
     <div class="container-fluid">
     
@@ -36,8 +38,36 @@
 
     <script id="view-home" type="text/html" style ="padding: 0px">
         <div class ="homeContainer">
-            
-
+            <div class = "homeBookContainer"> 
+                <h1 class = "font welcomeText">Boka och hämta smidigt idag</h1>
+                <P class = "font welcomeUnderText"> Välj, betala, hämta, nu! </P>
+                <button class=" font welcomeButton btn btn-info"> Boka NU</button>
+            </div>
+            <div class="contactBoxLine"></div>
+            <div class="contactBox">
+                <div class="leftContactBox">
+                    <div class="openingHoursBox">
+                        <h1 class = "font welcomeText"> Öppettider</h1>
+                        <P class = "font welcomeUnderText">Måndag: 05-24 </P>
+                        <P class = "font welcomeUnderText">Tisdag: 05-24 </P>
+                        <P class = "font welcomeUnderText">Onsdag: 05-24 </P>
+                        <P class = "font welcomeUnderText">Torsdag: 05-24 </P>
+                        <P class = "font welcomeUnderText">Fredag: 05-24 </P>
+                        <P class = "font welcomeUnderText">Lördag: 05-24 </P>
+                        <P class = "font welcomeUnderText">Söndag: 05-24 </P>
+                    </div>
+                    <div class="aboutUsBox">
+                        <h1 class = "font welcomeText"> Om oss</h1>
+                        <P class = "font welcomeUnderText">Adress: Colonia</P>
+                        <P class = "font welcomeUnderText">Mail: toolin@box.se</P>
+                        <P class = "font welcomeUnderText">Tel: 0700000000</P>
+                    </div>
+                </div>
+                <div class="rightConactBox">
+                    <h2 class="font" style="margin-left: 5%;">Hitta hit</h2>
+                    <div class ="contactMapBox"></div>
+                </div>
+            </div>
         </div>
     </script>
 
