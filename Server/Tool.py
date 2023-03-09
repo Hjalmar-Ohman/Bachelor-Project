@@ -43,6 +43,6 @@ def toolBook(toolID):
     if request.method == "GET":
         return tool_bookings(toolID)
     elif request.method == "POST":
-        return book_tool(toolID, hour, day, year)
+        return book_tool(toolID, 1, 1, 1)  # TODO: ta in datan från json front end
     elif request.method == "DELETE":
-        return delete_tool_bookings()
+        return  # delete_tool_bookings()
