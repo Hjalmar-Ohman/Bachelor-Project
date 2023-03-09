@@ -34,7 +34,27 @@ def signUp(db, User):
         return "Konto registrerat"
 
 
-def login():
+
+  
+def login(db, bcrypt, User):
+   if request.method == "POST":
+    data = request.get_json()
+    inputemail = data.get("email")
+    password = data.get("password")
+    
+   
+
+    usr_temp = User.query.filter_by(email=inputemail).first_or_404()
+
+    if (inputemail == usr_temp.email) & (bcrypt.check_password_hash(usr_temp.password_hash, password)):
+            
+            access_token = create_access_token(identity = inputemail)
+            dict = {"token" : access_token, "user" : usr_temp.seralize()}
+            print(dict["user"])
+            return jsonify(dict)
+    else:
+
+        return jsonify("fel lösenord eller användarnamn"), 401
     return
 
 #@User_page.route("/<int:user_id>/mytools", methods=["GET"])

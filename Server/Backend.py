@@ -54,14 +54,10 @@ class User(db.Model):
         self.password_hash = generate_password_hash(password).decode("utf8")
 
     def __repr__(self):
-        return "<User {}: {} {} {}".format(
-            self.id, self.name, self.email, self.is_admin
-        )
+        return "<User {}: {} {} {}".format(self.id, self.fname, self.lname, self.email)
 
     def seralize(self):
-        return dict(
-            id=self.id, name=self.name, email=self.email, is_admin=self.is_admin
-        )
+        return dict(id=self.id, fname=self.fname, lname=self.lname, email=self.email)
 
 
 app.add_url_rule("/test", "test", test)
@@ -73,6 +69,10 @@ def signUp2():
 
 
 @app.route("/login", methods=["POST"])
+def login2():
+    return login(db, bcrypt, User)
+
+
 @app.route("/start")
 def start():
     return jsonify("Seems to be working just 'bout fine")
