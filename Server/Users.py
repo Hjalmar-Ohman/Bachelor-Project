@@ -29,7 +29,7 @@ def signUp(db, User):
         db.session.add(user)
         db.session.commit()
 
-        #send_mail()
+        send_mail()
 
         return "Konto registrerat"
 

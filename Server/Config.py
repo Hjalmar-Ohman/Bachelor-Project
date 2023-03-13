@@ -13,5 +13,12 @@ from flask_jwt_extended import (
 SQLALCHEMY_DATABASE_URI = "sqlite:///database.db"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 JWT_SECRET_KEY = "Super_secret_key"
+MAIL_SERVER = "smtp.gmail.com"
+MAIL_PORT = 465
+MAIL_USERNAME = "test.toolinabox.test@gmail.com"
+MAIL_PASSWORD = "csuidjxfahjlgtpe"
+MAIL_USE_TLS = False
+MAIL_USE_SSL = True
+
 
 

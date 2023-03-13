@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, abort, request
 from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
 from Users import *
 from Config import *
 from Tool import *
@@ -13,7 +14,16 @@ from flask_jwt_extended import (
 
 
 app = Flask(__name__)
+mail = Mail(app)
 app.config.from_pyfile("Config.py")
+
+# app.config['MAIL_SERVER']="smtp.gmail.com"
+# app.config['MAIL_PORT'] = 465
+# app.config['MAIL_USERNAME'] = "test.toolinabox.test@gmail.com"
+# app.config['MAIL_PASSWORD'] = "csuidjxfahjlgtpe"
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -85,7 +95,7 @@ class Booking(db.Model):
             year=self.year
         )
 
-app.add_url_rule("/test", "test", test)
+
 
 
 @app.route("/signup", methods=["POST"])
@@ -96,6 +106,11 @@ def signUp2():
 @app.route("/login", methods=["POST"])
 def login2():
     return login(db, bcrypt, User)
+
+@app.route("/TestEmail", methods=["GET"])
+def test_email():
+    send_mail(mail)
+    return "sent"
 
 
 @app.route("/start")
