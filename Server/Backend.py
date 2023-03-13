@@ -20,6 +20,9 @@ bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
 
+
+
+
 class Tool(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
@@ -55,6 +58,32 @@ class User(db.Model):
     def seralize(self):
         return dict(id=self.id, fname=self.fname, lname=self.lname, email=self.email)
 
+
+class Booking(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
+    tool_id = db.Column(db.Integer, db.ForeignKey(Tool.id))
+    hour = db.Column(db.Integer, nullable = False)
+    day = db.Column(db.Integer, nullable = False)
+    year = db.Column(db.Integer, nullable = False)
+
+    user_id = db.Column(
+        db.Integer, db.ForeignKey(User.id)
+    )
+    tool_id = db.Column(
+        db.Integer, db.ForeignKey(Tool.id)
+    )
+    hour = db.Column(db.Integer, nullable=False)
+    day = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+
+    def serialize(self):
+        return dict(
+            tool_id=self.tool_id,
+            hour=self.hour,
+            day=self.day,
+            year=self.year
+        )
 
 app.add_url_rule("/test", "test", test)
 
