@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css"/>
+    <link rel="stylesheet" href="client.css">
+    <link rel="stylesheet" href="loginout.css">
+
+    <title>Gabbe & Lombas Bilshopp</title>
+  </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
+  <body>
+    <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
+        <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white">Tool In a Box</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbarItem">
+            <a id ="homeButton" class="nav-item nav-link active font" href="home">Hem <span class="sr-only">(current)</span></a>
+            <a id ="toolButton"class="nav-item nav-link font" href="verktyg">Verktyg</a>
+            <a id ="regButton" class="nav-item nav-link font" href="reg"  data-toggle="modal" data-target="#myRegModal">Registrera</a>
+
+            <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 20px" href="login" data-toggle="modal" data-target="#myModal">Logga in</a>
+            <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
+          </div>
+        </div>
+    
+    </nav>
+    <!--<div class="contactBoxLine" style ="margin-top: 0;"></div>-->
+
+    <div class="container-fluid">
+    
+    </div>
+    
+    <script id="view-reg" type="text/html">
+
+        <div id="myRegModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
+            <div class="modal-dialog modal-dialog-centered modal-lg">   
+                   <div class="modal-content">
+                    <div class="boxaround">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="pictureLeft" >
+                            <img src="../Pictures/register.jpeg" alt="pictureregister" width="500px"  height="340px";>
+
+                        </div>
+
+                        <div class="formboxRight">
+                            <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Registrera dig </label>
+                         <form> 
+                             <div class="form-group">
+                               <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
+                             </div>
+                             <div class="form-group">
+                                <input type="name" class="form-control" id="regName" placeholder="Ditt namn">
+                            </div>
+                             <div class="form-group">
+  
+                                 <input type="losen" class="form-control" id="loginLosen" placeholder="Välj ett lösenord">
+                             </div>
+   
+                             </form>
+                            
+                             <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block" onclick = "register()" style ="margin-bottom: 10px;">Skicka</button>
+                            </div> 
+                        </div>     
+                     </div>            
+                 </div>
+               </div>
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="client.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
