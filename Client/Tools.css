@@ -1,0 +1,88 @@
+.toolsHeaderText{
+    text-align: center;
+    color:rgb(250, 215, 118);
+    background-color: white;
+    font-size:50px;
+    padding-top: 1rem;
+    width: auto;
+    padding: 1rem;
+}
+.searchBar{
+    width: 100%;
+    border-radius: 30px;
+    padding: 1rem;
+    background-color: blue;
+
+}
+.searchBar input{
+    background-color: transparent;
+    padding: 10px;
+}
+.searchBar img{
+    position: right;
+    height: 25px;
+    width: auto;
+}
+
+.cardsHolder{
+    width: 100%;
+    min-width: 400px;
+    text-align: center;
+}
+.card {
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    margin: 1rem;
+    width: 350px;
+    height: 450px;
+    box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+    border-radius: 0.9rem;
+    background-color: rgb(91, 176, 249);
+  }
+  .product-image {
+    height: 230px;
+    width: min-content;
+    margin:auto;
+    transition: transform 500ms ease-in-out;
+    filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+  }
+  .product-image img {
+    height: 230px;
+    width:auto;
+  }
+  .card:hover .product-image {
+    transform: translate(-1.5rem, -7rem) rotate(-20deg);
+  }
+  .product-info {
+    text-align: center;
+  }
+  .product-info h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .product-info p {
+    margin: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .price {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0.8rem;
+  }
+  .buy-btn {
+    background-color: rgb(249, 245, 195);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+  }
+  .buy-btn:hover {
+    background-color: rgb(250, 215, 118);
+  }
