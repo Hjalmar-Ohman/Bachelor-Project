@@ -1,0 +1,24 @@
+.formboxRight{
+    margin-right: 4%;
+    margin-top: 5%;
+    float: right;
+}
+.formboxRightlogin{
+    margin-right: 4%;
+    margin-top: 8%;
+    float: right;
+}
+.pictureLeft {
+
+    float: left;
+    object-fit: fill;
+
+}
+
+#logInButton{
+    margin-top: 15%;
+}
+
+#forgotPassword{
+    margin-bottom: 10%;
+}
