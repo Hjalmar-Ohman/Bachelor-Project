@@ -12,10 +12,12 @@
  .container-fluid{
     width: 100%;
     margin-left:0px;
+    height: 100%;
+    min-height: 900px;
  }
  .homeContainer {
     width: 100%;
-    height: 1500px;
+    height: auto;
  }
  .font{
     font-family: 'JelleeBold';
@@ -27,7 +29,7 @@
  .homeBookContainer{
    margin-top: 8%;
    margin-left: 25%;
-   height: 30%;
+   height: 30rem;
    width: 50%;
    background-color: rgb(0, 0, 0, 0.45);
    border-radius: 50px;
@@ -47,13 +49,12 @@
  .welcomeButton{
    text-align: center;
    font-size: 30px;
-   margin-top: 8%;
    width: 25%;
    margin-left: 37.5%;
    
  }
  .contactBoxLine{
-   margin-top: 17%;
+   margin-top: 5rem;
    width: 100%;
    height: 2px;
    background-color: rgb(0, 0, 0);
@@ -61,14 +62,15 @@
 .contactBox{
    
    width: 100%;
-   height: 30%;
-   background-color: rgba(73, 73, 73, 0.4);
+   height: 100%;
+   background-color: yellow;
 
 }
 .leftContactBox{
    float:left;
    width: 50%;
    height: 600px;
+   background-color: rgb(0, 0, 0, 0.3);
 }
 .openingHoursBox{
    float: left;
@@ -81,6 +83,7 @@
 .rightConactBox{
    float: right;
    width: 50%;
+   background-color: rgb(0, 0, 0, 0.3);
 }
 .contactMapBox{
    background-image: url("../Pictures/map.png");
@@ -101,9 +104,4 @@
  #view-home{
     margin-left: 100px;
  }
-
- #view-reg{
-   margin-top: 0%;
-}
-
 
