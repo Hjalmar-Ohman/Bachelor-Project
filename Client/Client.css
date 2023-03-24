@@ -1,7 +1,7 @@
 
  body{
     background-color: blueviolet;
-    background-image: url("../Pictures/firstPage.jpg");
+    background-image: url("../Pictures/Firstpage.jpeg");
     background-repeat: no-repeat;
     background-attachment:scroll;
     background-color: rgb(158, 158, 158);
@@ -24,6 +24,11 @@
     font-weight: normal;
     font-style: normal;
     color: white;
+}
+
+.font2{
+   font-family: 'baskerville';
+   color: white;
 }
  /*First page*/
  .homeBookContainer{
