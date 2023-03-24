@@ -1,10 +1,10 @@
 
  body{
     background-color: blueviolet;
-    background-image: url("../Pictures/Firstpage.jpeg");
+    background-image: url("../Pictures/homepic.jpg");
     background-repeat: no-repeat;
     background-attachment:scroll;
-    background-color: rgb(158, 158, 158);
+    background-color: rgb(249, 248, 248);
     background-size:100%;
     background-position: top;
  }
@@ -28,7 +28,7 @@
 
 .font2{
    font-family: 'baskerville';
-   color: white;
+   color: rgb(42, 41, 41);
 }
  /*First page*/
  .homeBookContainer{
@@ -42,8 +42,9 @@
  }
  .welcomeText{
    text-align: center;
-   color:rgb(250, 215, 118);
+   color:rgb(221, 185, 79);
    font-size:50px;
+   font-style: bold;
    padding-top: 10%;
  }
  .welcomeUnderText{
@@ -61,21 +62,20 @@
  .contactBoxLine{
    margin-top: 5rem;
    width: 100%;
-   height: 2px;
-   background-color: rgb(0, 0, 0);
+   height: 120px;
+   background-color: rgb(48, 44, 38);
  }
 .contactBox{
    
    width: 100%;
    height: 100%;
-   background-color: yellow;
-
+   background-color: rgb(248, 248, 248);
 }
 .leftContactBox{
    float:left;
    width: 50%;
    height: 600px;
-   background-color: rgb(0, 0, 0, 0.3);
+   background-color: rgb(248, 248, 248);
 }
 .openingHoursBox{
    float: left;
@@ -88,12 +88,15 @@
 .rightConactBox{
    float: right;
    width: 50%;
-   background-color: rgb(0, 0, 0, 0.3);
+   background-color: rgb(248, 248, 248);
 }
 .contactMapBox{
+   margin-top: 2rem;
+   margin-right: 2rem;
    background-image: url("../Pictures/map.png");
    background-size: 100%;
    height: 500px;
+   
 }
 /*End of first page*/
 
