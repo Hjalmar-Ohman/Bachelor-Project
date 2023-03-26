@@ -15,7 +15,7 @@ def test():
     return "ser ut att fungera"
 
 
-def signUp(db, User):
+def signUp(db, User, mail):
 
     if request.method == "POST":
         data = request.get_json()
@@ -29,7 +29,7 @@ def signUp(db, User):
         db.session.add(user)
         db.session.commit()
 
-        send_mail()
+        sign_up_mail(mail, user)
 
         return "Konto registrerat"
 
@@ -54,6 +54,14 @@ def login(db, bcrypt, User):
 
             return jsonify("fel lösenord eller användarnamn"), 401
         return
+    
+def delete_user(db, User):
+    if request.method == "DELETE":
+        data = request.get_json()
+        inputemail = data.get("email")
+        db.session.delete(User.query.filter_by(email=inputemail).first_or_404())
+        db.session.commit()
+        return "user deleted"
 
 
 # @User_page.route("/<int:user_id>/mytools", methods=["GET"])

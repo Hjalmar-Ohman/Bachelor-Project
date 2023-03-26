@@ -20,7 +20,7 @@ app.config.from_pyfile("Config.py")
 # app.config['MAIL_SERVER']="smtp.gmail.com"
 # app.config['MAIL_PORT'] = 465
 # app.config['MAIL_USERNAME'] = "test.toolinabox.test@gmail.com"
-# app.config['MAIL_PASSWORD'] = "csuidjxfahjlgtpe"
+# app.config['MAIL_PASSWORD'] = "bpnqqfohzzgeacxi"
 # app.config['MAIL_USE_TLS'] = False
 # app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -100,7 +100,7 @@ class Booking(db.Model):
 
 @app.route("/signup", methods=["POST"])
 def signUp2():
-    return signUp(db, User)
+    return signUp(db, User, mail)
 
 
 @app.route("/login", methods=["POST"])
@@ -134,6 +134,9 @@ def toolBook2(input_id):
     toolID = input_id
     return toolBook(toolID)
 
+@app.route("/user/delete", methods=["DELETE"])
+def delete_user2():
+    return delete_user(db, User)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
