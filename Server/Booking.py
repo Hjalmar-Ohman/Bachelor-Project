@@ -8,13 +8,13 @@ import Tools
 
 # Denna funktion ska kallas på i approuten /Tools/<int:input_id>/booked.
 # Tanken är att använda User id som identity när token skapas (går ju lätt att ändra om vi vill använda något annat som identity)
-def book_tool(tool_id, hour, day, year):
+def book_tool(db, tool_id, hour, day, year):
     current_user = Backend.get_jwt_identity()
     new_booking = Backend.Booking(
         user_id=current_user, tool_id=tool_id, hour=hour, day=day, year=year
     )
-    Backend.db.session.add(new_booking)
-    Backend.db.session.commit()
+    db.session.add(new_booking)
+    db.session.commit()
 
     return "Booking successful"
 
@@ -44,19 +44,29 @@ def tool_bookings(tool_id):
 
 
 # Kallas på i user/int/mytools method = delete. Tar in tool id, kontrollerar user via token identity och tar bort bokningen.
-def cancel_booking(tool_id):
+def cancel_booking(db, tool_id):
     current_user = Backend.get_jwt_token()
     all_bookings = Backend.Booking.query.all()
 
     for b in all_bookings:
         if b.tool_id == tool_id:
             if b.user_id == current_user:
-                Backend.db.session.delete(b)
-                Backend.db.session.commit()
+                db.session.delete(b)
+                db.session.commit()
 
     return "Booking cancelled"
 
 
 # Ska vi behandla varje timme som en separat bokning eller lägga in en start- och stopptimme?
-def edit_booking(tool_id):
-    return
+def edit_booking(db, tool_id, hour):
+    current_user = Backend.get_jwt_token()
+    all_bookings = Backend.Booking.query.all()
+
+    for b in all_bookings:
+        if b.tool_id == tool_id:
+            if b.user_id == current_user:
+                Backend.Booking.query.get(b.id).hour = hour
+                db.session.commit()
+                return "Booking edited"
+    return "Booking not found"
+    
