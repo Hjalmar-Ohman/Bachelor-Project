@@ -5,7 +5,7 @@ from flask_mail import Mail, Message
 from Users import *
 from Config import *
 from Tool import *
-import stripe
+from stripe_functionality import *
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
@@ -117,6 +117,16 @@ def test_email():
 def checkout():
     return
 
+@app.route("/test/checkout", methods=["GET"])
+def test_checkout():
+    return process_payment(1100, 1)
+@app.route("/test/checkout/success", methods=["GET"])
+def checkout_success():
+    return("Tack för ditt köp")
+
+@app.route("/test/checkout/cancel", methods=["GET"])
+def checkout_failed():
+    return("köp misslyckades")
 
 @app.route("/start")
 def start():
