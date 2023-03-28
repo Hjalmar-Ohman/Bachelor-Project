@@ -1,10 +1,11 @@
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort, request, redirect
 from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
 from Users import *
 from Config import *
 from Tool import *
+import stripe
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
@@ -111,6 +112,10 @@ def login2():
 def test_email():
     send_mail(mail)
     return "sent"
+
+@app.route("/Tools/<int:input_id>/Checkout", methods=["POST"])
+def checkout():
+    return
 
 
 @app.route("/start")
