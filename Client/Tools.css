@@ -1,0 +1,189 @@
+.toolsHeaderText{
+    text-align: center;
+    color:rgb(250, 215, 118);
+    background-color: white;
+    font-size:50px;
+    padding-top: 1rem;
+    width: auto;
+    padding: 1rem;
+}
+.searchBar{
+  margin-top: 1rem;
+    width: 100%;
+    border-radius: 30px;
+    padding: 1rem;
+    background:rgb(255, 255,255, 0.7);
+    align-items: center;
+    justify-content: center;
+
+}
+.searchBar input{
+    background-color: transparent;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    flex: 1;
+    width: 90%;
+
+
+}
+.searchBar img{
+    height: 40px;
+    width: auto;
+}
+.searchBar button{
+  border:0px;
+  background-color: transparent;
+  float: right;
+}
+
+.cardsHolder{
+    width: 100%;
+    min-width: 400px;
+    text-align: center;
+}
+.card {
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    margin: 1rem;
+    width: 350px;
+    height: 450px;
+    box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+    border-radius: 0.9rem;
+    background-color: rgb(91, 176, 249);
+  }
+  .product-image {
+    width: min-content;
+    margin:auto;
+    transition: transform 500ms ease-in-out;
+    filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+  }
+  .product-image img {
+    height: 230px;
+    width:auto;
+  }
+  .card:hover .product-image {
+    transform: translate(-1.5rem, -7rem) rotate(-20deg);
+  }
+  .product-info {
+    text-align: center;
+  }
+  .product-info h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .product-info p {
+    margin: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .price {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0.8rem;
+  }
+  .buy-btn {
+    background-color: rgb(249, 245, 195);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+  }
+  .buy-btn:hover {
+    background-color: rgb(250, 215, 118);
+  }
+
+  .modalPosition{
+    left: 50%;
+    top:50%;
+    margin-left: -500px;
+    margin-top: -300px;
+  }
+
+  .bookModal{
+    width: 1000px; 
+    height: 600px;
+    left:50%;
+    right:50%;
+    background-color: white;
+  }
+  .bookModalLeft{
+    width: 40%; 
+    height: auto; 
+    
+    float:left;
+    text-align: center;
+  }
+  .bookModalRight{
+    width: 60%; 
+    float: right;
+  }
+  .calendar{
+    overflow-y: scroll;
+    height:500px;
+  }
+  .modalHeader{
+    color: rgb(250, 215, 118);
+    padding: 1rem;
+    text-align: center;
+  }
+  .modalInfo{
+    padding: 1rem;
+    color:black;
+  }
+  .boka-btn {
+    background-color: rgb(249, 245, 195);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+    margin:auto;
+    margin-top: 0.8rem;
+  }
+  .boka-btn:hover {
+    background-color: rgb(250, 215, 118);
+  }
+
+table{
+  font-family:sans-serif;
+		  width: 100%;
+		  border-spacing: 0;
+	  	border-collapse: separate;
+		  table-layout: fixed;
+		  margin-bottom: 50px;
+      border: 1px solid;
+      text-align: center;
+}
+tbody{
+
+}
+tr{
+}
+td{
+  height:1rem;
+  width:100%;
+  border: 1px solid;
+  cursor: pointer;
+}
+td:hover{
+  background-color: green;
+}
+.day{
+  background-color: rgb(44, 93, 239);
+}
+.hour:hover{
+  background-color: transparent;
+  cursor: auto;
+}
+.oddRow{
+  background-color: rgb(80, 122, 248);
+}
+.evenRow{
+  background-color: rgb(119, 152, 250);
+}

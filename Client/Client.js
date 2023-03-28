@@ -14,7 +14,7 @@ function loadPage() {
    $("div.container-fluid").html($("#view-cars").html())
 }
 function loadRegPage() {
-
+   
    $("div.container-fluid").html($("#view-reg").html())
 }
 function loadLoginPage() {
@@ -32,7 +32,7 @@ function loadLoginPage() {
     e.preventDefault();
     loadPage();
  });
- 
+
 
  $('#toolButton').click(function (e) {
    e.preventDefault();
