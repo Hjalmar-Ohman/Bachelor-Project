@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort, request, redirect
+from flask import Flask, jsonify, abort, request, redirect, send_from_directory
 from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
@@ -14,7 +14,7 @@ from flask_jwt_extended import (
 )
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../Client", static_url_path="/")
 mail = Mail(app)
 app.config.from_pyfile("Config.py")
 
@@ -98,6 +98,9 @@ class Booking(db.Model):
 
 
 
+@app.route("/")
+def client():
+    return app.send_static_file('Stripe_test.html')
 
 @app.route("/signup", methods=["POST"])
 def signUp2():
@@ -117,9 +120,14 @@ def test_email():
 def checkout():
     return
 
+@app.route("/get_stripe_key")
+def get_key():
+    return jsonify(PUBLIC_STRIPE_KEY)
+
 @app.route("/test/checkout", methods=["GET"])
 def test_checkout():
-    return process_payment(1100, 1)
+   return process_payment(1100, 1)
+
 @app.route("/test/checkout/success", methods=["GET"])
 def checkout_success():
     return("Tack för ditt köp")
