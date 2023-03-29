@@ -8,8 +8,7 @@ PUBLIC_STRIPE_KEY = "pk_test_51MqGmBBclQZfILguPT3YglTQxsjnR9gUMF7SgTvW6x0gI8igEL
 stripe.api_key = SECRET_STRIPE_KEY
 
 def process_payment(price, quantity):
-    price_str = str(price) #gör price till en string (pga JSON format)
-    quantity_str = str(quantity)
+    
     success = False
     if request.method == "POST":
         data = request.get_json()
@@ -21,15 +20,15 @@ def process_payment(price, quantity):
         'product_data': {
           'name': 'cool product',
         },
-        'unit_amount': price_str,
+        'unit_amount': price,
       },
-      'quantity': quantity_str,
+      'quantity': quantity,
     }],
     mode='payment',
     success_url='http://localhost:5000/test/checkout/success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url='http://localhost:5000/test/checkout/cancel',
     )
-        session_id = session['id']
+        print(session['id'])
 
  
 

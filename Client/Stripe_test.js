@@ -20,7 +20,7 @@ function get_stripe_public_key(){
         success: function (key) {
             
             stripe = Stripe(key) 
-            stripe_ceckout()            
+                   
 
         },
         error: function () {
@@ -35,18 +35,25 @@ function get_stripe_public_key(){
 function stripe_ceckout(){
 
     $.ajax({
-        type: "GET",
+        type: "PUT",
         url: host + "/test/checkout",
         dataType: "json",
         contentType: "application/json",
         //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth')},
-        success: function (data) {
+        data: JSON.stringify({
             
-            return stripe.redirectToCheckout({session_id: data.session_id})           
+            "price": "1200",
+            "quantity": "7"
+        }),
+        success: function (data) {
+            unit_amount = JSON.stringify(3)
+            console.log(data.session_id)
+            return stripe.redirectToCheckout({sessionId: data.session_id}, unit_amount)           
 
         },
         error: function () {
-            alert("error2")
+            console.log("error2")  
+            //return stripe.redirectToCheckout({session_id: data.session_id}) 
             
         }
     });
@@ -56,5 +63,6 @@ function stripe_ceckout(){
 $(document).ready(function () {
 
     viewBuy()
+    get_stripe_public_key()
 
 })

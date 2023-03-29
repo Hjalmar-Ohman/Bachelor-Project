@@ -113,7 +113,7 @@ def login2():
 
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    send_mail(mail)
+    #send_mail(mail)
     return "sent"
 
 @app.route("/Tools/<int:input_id>/Checkout", methods=["POST"])
@@ -124,9 +124,12 @@ def checkout():
 def get_key():
     return jsonify(PUBLIC_STRIPE_KEY)
 
-@app.route("/test/checkout", methods=["GET"])
+@app.route("/test/checkout", methods=["PUT"])
 def test_checkout():
-   return process_payment(1100, 1)
+   
+
+
+   return process_payment(request.get_json()["price"], request.get_json()["quantity"])
 
 @app.route("/test/checkout/success", methods=["GET"])
 def checkout_success():
