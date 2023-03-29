@@ -113,7 +113,7 @@ def login2():
 
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    #send_mail(mail)
+    #send_mail(mail) legacy, behöver "EmailFunctionality.py" vilket skapar circular dependecies
     return "sent"
 
 @app.route("/Tools/<int:input_id>/Checkout", methods=["POST"])

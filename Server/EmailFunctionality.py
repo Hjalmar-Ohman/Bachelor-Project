@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_mail import Mail, Message
-from Backend import app
+#from Backend import app
 
 
 
@@ -17,9 +17,9 @@ with open('SignUpEmailTemplate.html', 'r') as f:
 
 
 
-def print_email_creds():
-    print(app.config['MAIL_USERNAME'])
-    print(app.config['MAIL_PASSWORD'])
+def print_email_creds(): #legacy, behöver ta med app
+   # print(app.config['MAIL_USERNAME'])
+    #print(app.config['MAIL_PASSWORD'])
     return
 
 def send_mail(mail):
@@ -38,7 +38,7 @@ def sign_up_mail(mail, user):
     mail.send(email)
     return "sent"
 
-def booking_mail(mail, user, box_code):
+def booking_mail(mail, user):
     return
 
 
