@@ -138,7 +138,7 @@
     height:500px;
   }
   .modalHeader{
-    color: rgb(250, 215, 118);
+    color: rgb(245, 190, 52);
     padding: 1rem;
     text-align: center;
   }
@@ -147,16 +147,18 @@
     color:black;
   }
   .boka-btn {
-    background-color: rgb(249, 245, 195);
+    background-color: rgb(245, 190, 52);
     padding: 0.6rem 3.5rem;
     font-weight: 600;
     font-size: 1rem;
     transition: 300ms ease;
     margin:auto;
     margin-top: 0.8rem;
+    color: white;
+    font-style: bold;
   }
   .boka-btn:hover {
-    background-color: rgb(250, 215, 118);
+    background-color: rgb(250, 170, 118);
   }
 
 table{
@@ -180,15 +182,16 @@ td:hover{
   background-color: green;
 }
 .day{
-  background-color: rgb(44, 93, 239);
+  background-color: rgb(245, 190, 52);
+  color: white;
 }
 .hour:hover{
   background-color: transparent;
   cursor: auto;
 }
 .oddRow{
-  background-color: rgb(80, 122, 248);
+  background-color: rgb(251, 252, 252);
 }
 .evenRow{
-  background-color: rgb(119, 152, 250);
+  background-color: rgb(102, 102, 102);
 }
