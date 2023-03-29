@@ -23,6 +23,7 @@ app.config.from_pyfile("Config.py")
 # app.config['MAIL_PASSWORD'] = "bpnqqfohzzgeacxi"
 # app.config['MAIL_USE_TLS'] = False
 # app.config['MAIL_USE_SSL'] = True
+
 mail = Mail(app)
 
 db = SQLAlchemy(app)
@@ -30,18 +31,16 @@ bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
 
-
-
-
 class Tool(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
-    pictureURL = db.Column(db.String, nullable=True)  # ANVÄNDS ALDRIG
+    weight = db.Column(db.Integer, nullable=False)
+    size = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
-        return "<Tool {}: {} {} {}".format(
-            self.id, self.price, self.name, self.pictureURL
+        return "<Tool {}: {} {} {} {}".format(
+            self.id, self.price, self.name, self.weight, self.size
         )
 
     def seralize(self):
@@ -49,6 +48,8 @@ class Tool(db.Model):
             id=self.id,
             price=self.price,
             name=self.name,
+            weight=self.weight,
+            size=self.size,
         )
 
 
@@ -73,29 +74,18 @@ class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(User.id))
     tool_id = db.Column(db.Integer, db.ForeignKey(Tool.id))
-    hour = db.Column(db.Integer, nullable = False)
-    day = db.Column(db.Integer, nullable = False)
-    year = db.Column(db.Integer, nullable = False)
+    hour = db.Column(db.Integer, nullable=False)
+    day = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.Integer, nullable=False)
 
-    user_id = db.Column(
-        db.Integer, db.ForeignKey(User.id)
-    )
-    tool_id = db.Column(
-        db.Integer, db.ForeignKey(Tool.id)
-    )
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
+    tool_id = db.Column(db.Integer, db.ForeignKey(Tool.id))
     hour = db.Column(db.Integer, nullable=False)
     day = db.Column(db.Integer, nullable=False)
     year = db.Column(db.Integer, nullable=False)
 
     def serialize(self):
-        return dict(
-            tool_id=self.tool_id,
-            hour=self.hour,
-            day=self.day,
-            year=self.year
-        )
-
-
+        return dict(tool_id=self.tool_id, hour=self.hour, day=self.day, year=self.year)
 
 
 @app.route("/signup", methods=["POST"])
@@ -106,6 +96,7 @@ def signUp2():
 @app.route("/login", methods=["POST"])
 def login2():
     return login(db, bcrypt, User)
+
 
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
@@ -123,20 +114,28 @@ def tools2():
     return tools(Tool, db)
 
 
-@app.route("/tools/<int:input_id>", methods=["GET", "PUT"])
+@app.route("/tools/search/<string:input_id>", methods=["GET"])
+def search_tool2():
+    return search_tool(Tool, db, "a")
+
+
+@app.route("/tools/<int:input_id>", methods=["GET", "PUT", "DELETE"])
 def tool2(input_id):
     toolID = input_id
     return tool(Tool, db, toolID)
 
 
 @app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
+@jwt_required()
 def toolBook2(input_id):
     toolID = input_id
-    return toolBook(toolID)
+    return tool_book(toolID)
+
 
 @app.route("/user/delete", methods=["DELETE"])
 def delete_user2():
     return delete_user(db, User)
+
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

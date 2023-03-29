@@ -2,10 +2,6 @@ import Backend
 import Users
 import Tools
 
-
-
-
-
 # Denna funktion ska kallas på i approuten /Tools/<int:input_id>/booked.
 # Tanken är att använda User id som identity när token skapas (går ju lätt att ändra om vi vill använda något annat som identity)
 def book_tool(db, tool_id, hour, day, year):
@@ -69,4 +65,3 @@ def edit_booking(db, tool_id, hour):
                 db.session.commit()
                 return "Booking edited"
     return "Booking not found"
-    
