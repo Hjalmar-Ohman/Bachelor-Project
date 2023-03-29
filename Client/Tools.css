@@ -95,7 +95,7 @@
     margin-top: 0.8rem;
   }
   .buy-btn {
-    background-color: rgb(69, 188, 236);
+    background-color: rgb(245, 190, 52);
     padding: 0.6rem 3.5rem;
     font-weight: 600;
     font-size: 1rem;
@@ -104,7 +104,7 @@
     color: white;
   }
   .buy-btn:hover {
-    background-color: rgb(15, 137, 185);
+    background-color: rgb(245, 170, 52);
     border-style: none;
   }
 

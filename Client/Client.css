@@ -27,8 +27,18 @@
 }
 
 .font2{
-   font-family: 'Gill Sans';
-   color: rgb(42, 41, 41);
+  font-family: 'Gill Sans';
+  line-height: 20%;
+ font-size: 20px;
+ text-align: center;
+}
+
+.font3{
+ text-align: center;
+ font-family: 'Gill Sans';
+ color: rgb(124, 124, 124);
+ line-height: 60%;
+ font-size: 20px;
 }
  /*First page*/
  .homeBookContainer{
@@ -39,12 +49,15 @@
    border-radius: 50px;
 
  }
- .welcomeText{
+
+.welcomeText{
    text-align: center;
-   color:rgb(221, 185, 79);
-   font-size:50px;
+   color:rgb(114, 114, 114);
+   font-size:25px;
+   line-height: 200%;
    font-style: bold;
    padding-top: 10%;
+   margin-top: 10%;
  }
  .welcomeUnderText{
    text-align: center;
@@ -56,7 +69,12 @@
    font-size: 30px;
    width: 25%;
    margin-left: 37.5%;
-   
+   background-color: rgb(245, 190, 52);
+   transition: 300ms ease;
+ }
+
+ .welcomeButton:hover{
+  background-color: rgb(245, 170, 52);
  }
  .contactBoxLine{
    margin-top: 5rem;
@@ -103,10 +121,44 @@
  .navbarItem {
     margin-left: 60%;
     margin-right: 15%;
-
+    
  }
- .navbarLogo{
-    margin-left: 15%;
+
+/*Knapparna i navbaren*/
+ #homeButton {
+  transition: 300ms ease;
+ }
+ #toolButton {
+  transition: 300ms ease;
+ }
+ #regButton {
+  transition: 300ms ease;
+ }
+ #loginButton {
+  transition: 300ms ease;
+ }
+ #logoutButton {
+  transition: 300ms ease;
+ }
+ #homeButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #toolButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #regButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #loginButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #logoutButtonButton:hover{
+  color:rgb(245, 190, 52);
+ }
+/* Slut på knapparna i navbaren*/
+
+ .product-image{
+    margin-right: 30%;
  }
 
  #view-home{
