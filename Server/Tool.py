@@ -24,8 +24,10 @@ def tools(Tool, db):
 
 def search_tool(Tool, db, keyword):
     if request.method == "GET":
-        tools = Tool.query.filter(Tool.name.contains(keyword)).all()
-        return jsonify([tool.serialize() for tool in tools])
+        list = []
+        for tool in Tool.query.filter(Tool.name.contains(keyword)).all():
+            list.append(tool.seralize())
+        return jsonify(list)
 
 
 def tool(Tool, db, toolID):

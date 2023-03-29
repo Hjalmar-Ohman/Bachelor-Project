@@ -13,6 +13,10 @@ from flask_jwt_extended import (
     get_jwt_identity,
 )
 
+# Notera:
+# alla app-routs som innehåller /test/ någonstans i url:n är
+# endast till för testning av backend och implementationen av funktionalitet
+
 
 app = Flask(__name__, static_folder="../Client", static_url_path="/")
 mail = Mail(app)
@@ -36,12 +40,12 @@ class Tool(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
-    weight = db.Column(db.Integer, nullable=False)
-    size = db.Column(db.Integer, nullable=False)
+    properties = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
 
     def __repr__(self):
         return "<Tool {}: {} {} {} {}".format(
-            self.id, self.price, self.name, self.weight, self.size
+            self.id, self.price, self.name, self.properties, self.description
         )
 
     def seralize(self):
@@ -49,8 +53,8 @@ class Tool(db.Model):
             id=self.id,
             price=self.price,
             name=self.name,
-            weight=self.weight,
-            size=self.size,
+            properties=self.properties,
+            description=self.description,
         )
 
 
@@ -104,9 +108,10 @@ def login2():
     return login(db, bcrypt, User)
 
 
+# till för backend testning
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    # send_mail(mail)
+    # send_mail(mail) legacy, behöver "EmailFunctionality.py" vilket skapar circular dependecies
     return "sent"
 
 
@@ -120,17 +125,20 @@ def get_key():
     return jsonify(PUBLIC_STRIPE_KEY)
 
 
+# till för backend testning
 @app.route("/test/checkout", methods=["PUT"])
 def test_checkout():
 
     return process_payment(request.get_json()["price"], request.get_json()["quantity"])
 
 
+# till för backend testning
 @app.route("/test/checkout/success", methods=["GET"])
 def checkout_success():
     return "Tack för ditt köp"
 
 
+# till för backend testning
 @app.route("/test/checkout/cancel", methods=["GET"])
 def checkout_failed():
     return "köp misslyckades"
@@ -146,6 +154,7 @@ def tools2():
     return tools(Tool, db)
 
 
+# Exempelvis http://localhost:5000/tools/search?keyword=Hammer
 @app.route("/tools/search", methods=["GET"])
 def search_tool2():
     keyword = request.args.get("keyword")

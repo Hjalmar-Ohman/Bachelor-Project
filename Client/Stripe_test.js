@@ -46,9 +46,9 @@ function stripe_ceckout(){
             "quantity": "7"
         }),
         success: function (data) {
-            unit_amount = JSON.stringify(3)
+           
             console.log(data.session_id)
-            return stripe.redirectToCheckout({sessionId: data.session_id}, unit_amount)           
+            return stripe.redirectToCheckout({sessionId: data.session_id})           
 
         },
         error: function () {
