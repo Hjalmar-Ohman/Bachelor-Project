@@ -22,13 +22,10 @@ def tools(Tool, db):
         return "Added new tool."
 
 
-def search_tool(Tool, db, toolID):
+def search_tool(Tool, db, keyword):
     if request.method == "GET":
-        return "eyo"
-        """list = []
-        for tool in Tool.query.all():
-            list.append(tool.seralize())
-        return jsonify(list)"""
+        tools = Tool.query.filter(Tool.name.contains(keyword)).all()
+        return jsonify([tool.serialize() for tool in tools])
 
 
 def tool(Tool, db, toolID):

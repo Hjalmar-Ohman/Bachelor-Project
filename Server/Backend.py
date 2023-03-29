@@ -1,10 +1,11 @@
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort, request, redirect, send_from_directory
 from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
 from Users import *
 from Config import *
 from Tool import *
+from stripe_functionality import *
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
@@ -13,7 +14,7 @@ from flask_jwt_extended import (
 )
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../Client", static_url_path="/")
 mail = Mail(app)
 app.config.from_pyfile("Config.py")
 
@@ -88,6 +89,11 @@ class Booking(db.Model):
         return dict(tool_id=self.tool_id, hour=self.hour, day=self.day, year=self.year)
 
 
+@app.route("/")
+def client():
+    return app.send_static_file("Stripe_test.html")
+
+
 @app.route("/signup", methods=["POST"])
 def signUp2():
     return signUp(db, User, mail)
@@ -100,8 +106,34 @@ def login2():
 
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    send_mail(mail)
+    # send_mail(mail)
     return "sent"
+
+
+@app.route("/Tools/<int:input_id>/Checkout", methods=["POST"])
+def checkout():
+    return
+
+
+@app.route("/get_stripe_key")
+def get_key():
+    return jsonify(PUBLIC_STRIPE_KEY)
+
+
+@app.route("/test/checkout", methods=["PUT"])
+def test_checkout():
+
+    return process_payment(request.get_json()["price"], request.get_json()["quantity"])
+
+
+@app.route("/test/checkout/success", methods=["GET"])
+def checkout_success():
+    return "Tack för ditt köp"
+
+
+@app.route("/test/checkout/cancel", methods=["GET"])
+def checkout_failed():
+    return "köp misslyckades"
 
 
 @app.route("/start")
@@ -114,9 +146,10 @@ def tools2():
     return tools(Tool, db)
 
 
-@app.route("/tools/search/<string:input_id>", methods=["GET"])
+@app.route("/tools/search", methods=["GET"])
 def search_tool2():
-    return search_tool(Tool, db, "a")
+    keyword = request.args.get("keyword")
+    return search_tool(Tool, db, keyword)
 
 
 @app.route("/tools/<int:input_id>", methods=["GET", "PUT", "DELETE"])
