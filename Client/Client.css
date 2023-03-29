@@ -27,7 +27,7 @@
 }
 
 .font2{
-   font-family: 'baskerville';
+   font-family: 'Gill Sans';
    color: rgb(42, 41, 41);
 }
  /*First page*/
@@ -61,11 +61,10 @@
  .contactBoxLine{
    margin-top: 5rem;
    width: 100%;
-   height: 120px;
-   background-color: rgb(48, 44, 38);
+   height: 20px;
+   background-color: rgb(4, 4, 3);
  }
 .contactBox{
-   
    width: 100%;
    height: 100%;
    background-color: rgb(248, 248, 248);
@@ -73,7 +72,7 @@
 .leftContactBox{
    float:left;
    width: 50%;
-   height: 600px;
+   height: 1000px;
    background-color: rgb(248, 248, 248);
 }
 .openingHoursBox{
@@ -87,16 +86,18 @@
 .rightConactBox{
    float: right;
    width: 50%;
+   height: 1000px;
+   padding-top: 50px;
    background-color: rgb(248, 248, 248);
 }
 .contactMapBox{
    margin-top: 2rem;
    margin-right: 2rem;
-   background-image: url("../Pictures/map.png");
    background-size: 100%;
    height: 500px;
    
 }
+ 
 /*End of first page*/
 
  .navbarItem {
@@ -110,5 +111,59 @@
 
  #view-home{
     margin-left: 100px;
+ }
+
+ .howitworks{
+   margin-left: auto;
+   margin-right: auto;
+   width: 80%;
+   height: 300px;
+   background-color: rgba(0,0,0,0.5);
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+ }
+
+ .howitworkstext-container {
+   display: flex;
+   justify-content: left;
+ }
+
+ .cards-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+ }
+
+ .howitworkstext{
+   text-align: left;
+   font-size: 30px;
+ }
+
+ .welcomecards {
+   align-items: center;
+   margin-left: 2rem;
+   float: left;
+   margin-bottom: 1rem;
+ }
+
+ @media screen and (max-width: 768px) {
+   .welcomecards {
+     width: 20%;
+   }
+ }
+ 
+ @media screen and (min-width: 768px) {
+   .welcomecards {
+     width: 25%;
+   }
+ }
+ 
+ @media screen and (min-width: 992px) {
+   .welcomecards {
+     width: 25%;
+   }
  }
 

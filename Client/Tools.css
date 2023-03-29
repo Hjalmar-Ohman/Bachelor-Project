@@ -42,7 +42,7 @@
     min-width: 400px;
     text-align: center;
 }
-.card {
+.toolcards{
     position: relative;
     display: inline-block;
     padding: 1rem;

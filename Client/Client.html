@@ -16,7 +16,12 @@
   </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
   <body>
     <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
-        <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white" onclick="loadPage()" >Tool In a Box </a>
+      <div class="logotype"> 
+        <div class="product-image">
+          <img src="../Pictures/logotype.png" alt="logo Image" draggable="false" onclick="loadPage()" style="width: 200px; height: 100px"/>
+        </div>
+      <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white" onclick="loadPage()" ></a>
+      </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,9 +44,9 @@
       <div class="container-fluid">
       </div>
       
-      <div class="contactBoxLine">
-      </div>
       <div class="contactBox">
+        <div class="contactBoxLine">
+        </div>
           <div class="leftContactBox">
               <div class="openingHoursBox">
                   <h1 class = "font2 welcomeText"> Öppettider</h1>
@@ -61,8 +66,9 @@
               </div>
           </div>
           <div class="rightConactBox">
-  
-              <div class ="contactMapBox"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6529.92279814412!2d15.57656780752961!3d58.403659367494726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46596f6923f07913%3A0x5f91d8e14d8b6a57!2sStudiev%C3%A4gen%201%2C%20583%2029%20Link%C3%B6ping!5e0!3m2!1ssv!2sse!4v1680011315369!5m2!1ssv!2sse" 
+            width="650" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+            <div class ="contactMapBox"></div>
           </div>
       </div>
     </div>
@@ -74,7 +80,32 @@
                 <P class = "font welcomeUnderText"> </P>
                 <button class=" font welcomeButton btn btn-info" onclick="loadCarsPage()"> Boka NU</button>
             </div>
-
+            <div class="howitworks">
+              <div class="howitworkstext-container">
+                <p class = "font howitworkstext" >Vårt koncept</p>
+                </div>  
+                <div class="cards-container">
+              <div class="card welcomecards">
+                <img class="card-img-top" src="../Pictures/Firstpage.jpeg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Boka på hemsidan</p>
+                </div>
+              </div>
+              <div class="card welcomecards">
+                <img class="card-img-top" src="../Pictures/Firstpage.jpeg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Få koden på mail</p>
+                </div>
+              </div>
+              <div class="card welcomecards" >
+                <img class="card-img-top" src="../Pictures/Firstpage.jpeg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Hämta verktyget i boxen</p>
+                </div>
+              </div>
+             </div>
+            </div>
+            </div>
     </script>
 
     <script id="view-cars" type="text/html">
@@ -84,7 +115,7 @@
                   <button type="submit"><img src="../Pictures/tools/hammer.png"></button>
            </form>
            <div class="cardsHolder">
-              <div class="card">
+              <div class="card toolcards">
                   <div class="product-image">
                     <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                   </div>
@@ -97,7 +128,7 @@
                     <button class="buy-btn" for="ruta">Boka nu</button>
                   </div>
               </div>
-              <div class="card">
+              <div class="card toolcards">
                   <div class="product-image">
                     <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                   </div>
@@ -110,7 +141,7 @@
                     <button class="buy-btn">Boka nu</button>
                   </div>
               </div>
-              <div class="card">
+              <div class="card toolcards">
                   <div class="product-image">
                     <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                   </div>
@@ -123,7 +154,7 @@
                     <button class="buy-btn">Boka nu</button>
                   </div>
               </div>
-              <div class="card">
+              <div class="card toolcards">
                 <div class="product-image">
                   <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                 </div>
@@ -136,7 +167,7 @@
                   <button class="buy-btn">Boka nu</button>
                 </div>
               </div>
-              <div class="card">
+              <div class="card toolcards">
                 <div class="product-image">
                   <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                 </div>
@@ -149,7 +180,7 @@
                   <button class="buy-btn">Boka nu</button>
                 </div>
                </div>
-                  <div class="card">
+                  <div class="card toolcards">
                     <div class="product-image">
                       <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                     </div>
@@ -510,7 +541,7 @@
                   <div class="boxaround">
                       <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
                       <div class="pictureLeft" >
-                          <img src="../Pictures/register.jpeg" alt="pictureregister" width="500px"  height="340px";>
+                          <img src="../Pictures/registerpic.jpg" alt="pictureregister" width="500px"  height="340px";>
 
                       </div>
 
@@ -545,7 +576,7 @@
             <div class="boxaround">
                 <button type="button" class="close" data-dismiss="modal" onclick="loadpage()">&times;</button>
                 <div class="pictureLeft" >
-                    <img src="../Pictures/login.jpeg" alt="pictureregister" width="500px"  height="340px";>
+                    <img src="../Pictures/loginpic.jpg" alt="pictureregister" width="500px"  height="340px";>
 
                 </div>
 
