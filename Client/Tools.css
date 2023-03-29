@@ -43,42 +43,48 @@
     text-align: center;
 }
 .toolcards{
-    position: relative;
-    display: inline-block;
-    padding: 1rem;
-    margin: 1rem;
-    width: 350px;
-    height: 450px;
-    box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
-    border-radius: 0.9rem;
-    background-color: rgb(91, 176, 249);
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
+  margin: 1rem;
+  width: 350px;
+  height: 450px;
+  box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+  border-radius: 0rem;
+  background-color: rgba(1, 12, 4, 0.3);
+  opacity: 1;
   }
   .product-image {
     width: min-content;
     margin:auto;
-    transition: transform 500ms ease-in-out;
+    transition: transform 300ms ease-in-out;
     filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+    opacity: 1;
   }
   .product-image img {
     height: 230px;
     width:auto;
+    opacity: 1;
   }
   .card:hover .product-image {
-    transform: translate(-1.5rem, -7rem) rotate(-20deg);
+    transform: translate(0rem, 0rem) rotate(0deg) scale(1.2);
   }
   .product-info {
     text-align: center;
   }
   .product-info h2 {
+    color: white;
     font-size: 1.4rem;
     font-weight: 600;
   }
   .product-info p {
+    color: white;
     margin: 0.4rem;
     font-size: 0.8rem;
     font-weight: 600;
   }
   .price {
+    color: white;
     font-size: 1.2rem;
     font-weight: 500;
   }
@@ -89,14 +95,17 @@
     margin-top: 0.8rem;
   }
   .buy-btn {
-    background-color: rgb(249, 245, 195);
+    background-color: rgb(245, 190, 52);
     padding: 0.6rem 3.5rem;
     font-weight: 600;
     font-size: 1rem;
     transition: 300ms ease;
+    border-style: none;
+    color: white;
   }
   .buy-btn:hover {
-    background-color: rgb(250, 215, 118);
+    background-color: rgb(245, 170, 52);
+    border-style: none;
   }
 
   .modalPosition{
@@ -160,11 +169,7 @@ table{
       border: 1px solid;
       text-align: center;
 }
-tbody{
 
-}
-tr{
-}
 td{
   height:1rem;
   width:100%;
