@@ -50,20 +50,21 @@
 
  }
 
-.welcomeText{
-   text-align: center;
-   color:rgb(114, 114, 114);
-   font-size:25px;
-   line-height: 200%;
-   font-style: bold;
-   padding-top: 10%;
-   margin-top: 10%;
- }
- .welcomeUnderText{
-   text-align: center;
-   font-size: 30px;
 
- }
+ .welcomeText{
+    text-align: center;
+    color:rgb(114, 114, 114);
+    font-size:40px;
+    line-height: 200%;
+    font-style: bold;
+    padding-top: 10%;
+    margin-top: 10%;
+  }
+  .welcomeUnderText{
+    text-align: center;
+    font-size: 30px;
+ 
+  }
  .welcomeButton{
    text-align: center;
    font-size: 30px;
@@ -118,28 +119,31 @@
  
 /*End of first page*/
 
- .navbarItem {
-    margin-left: 60%;
-    margin-right: 15%;
-    
- }
 
 /*Knapparna i navbaren*/
  #homeButton {
+  margin-left: 60%;
   transition: 300ms ease;
+  font-size: 25px;
  }
  #toolButton {
   transition: 300ms ease;
+  font-size: 25px;
  }
  #regButton {
   transition: 300ms ease;
+  font-size: 25px;
  }
  #loginButton {
   transition: 300ms ease;
+  font-size: 25px;
+  margin-right: 20 px;
  }
  #logoutButton {
   transition: 300ms ease;
+  font-size: 25px;
  }
+
  #homeButton:hover{
   color:rgb(245, 190, 52);
  }
