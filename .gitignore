@@ -1,5 +1,13 @@
-# Database
-server/database.db
+# Python Cache
+__pycache__
+
+# Environment
+venv/
+# Python Cache
+__pycache__
+
+# Environment
+venv/
 
 # Database
-server/venv
+Server/database.db
