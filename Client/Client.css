@@ -150,24 +150,26 @@
   font-size: 25px;
  }
 
- #toolButton:hover{
+ #toolButton:hover, #toolButton.active{
   color:rgb(245, 190, 52);
  }
- #bookingsButton:hover{
+ #bookingsButton:hover, #bookingsButton.active{
   color:rgb(245, 190, 52);
  }
- #accountButton:hover{
+ #accountButton:hover, #accountButton.active{
   color:rgb(245, 190, 52);
  }
- #regButton:hover{
+ #regButton:hover, #regButton.active{
   color:rgb(245, 190, 52);
  }
- #loginButton:hover{
+ #loginButton:hover, #loginButton.active{
   color:rgb(245, 190, 52);
  }
  #logoutButtonButton:hover{
   color:rgb(245, 190, 52);
  }
+
+
 /* Slut på knapparna i navbaren*/
 
 .modalknapp{

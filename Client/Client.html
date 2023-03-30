@@ -28,13 +28,13 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <!-- Olika menyalternativen -->
-            <a id ="toolButton"class="nav-item nav-link font" href="verktyg">Verktyg</a>
-            <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal">Registrera</a>
-            <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar">Mina Bokningar</a>
-            <a id = "accountButton"class="nav-item nav-link font" href="konto">Mitt konto</a>
+          
+            <a id ="toolButton"class="nav-item nav-link font" href="verktyg"onclick="this.classList.toggle('active')">Verktyg </a>
+            <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal"onclick="this.classList.toggle('active')">Registrera</a>
+            <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar"onclick="this.classList.toggle('active')">Mina Bokningar</a>
+            <a id = "accountButton"class="nav-item nav-link font" href="konto" onclick="this.classList.toggle('active')">Mitt konto</a>
 
-            <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal">Logga in</a>
+            <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal"onclick="this.classList.toggle('active')">Logga in</a>
             <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
           
         </div>

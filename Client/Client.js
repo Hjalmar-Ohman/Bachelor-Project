@@ -131,4 +131,17 @@ function navToggle(){
    $('#logoutButton').toggleClass('d-none', !signedIn);
 }
 
+const links = document.querySelectorAll(".nav-link");
+
+links.forEach(link => {
+link.addEventListener("click", function() {
+// Ta bort "active" från alla länkar som har den
+links.forEach(l => {
+l.classList.remove("active");
+});
+// Lägg till "active" på den klickade länken
+link.classList.add("active");
+});
+});
+
 
