@@ -33,11 +33,12 @@
 
 /* font för "Om oss" styckena */
 .font3{
- text-align: center;
+ text-align: left;
  font-family: 'Gill Sans';
  color: rgb(124, 124, 124);
  line-height: 60%;
  font-size: 20px;
+margin-left: 20%;
 }
  /*First page*/
  .homeBookContainer{
@@ -46,21 +47,38 @@
    height: 30rem;
    width: 50%;
    border-radius: 50px;
-
  }
 
+
+ .text{
+  text-align: center;
+ }
+ 
+ .map{
+  float: left;
+ }
+
+
 /*Font för "Öppettider" */
+
  .welcomeText{
-    text-align: center;
+    text-align: left;
     color:rgb(114, 114, 114);
     font-size:40px;
     line-height: 200%;
     font-style: bold;
-    padding-top: 10%;
     margin-top: 10%;
   }
 
+
+  .welcomeUnderText{
+    text-align: center;
+    font-size: 30px;
+ 
+  }
+
   /* Knappen för "Boka NU" */
+
  .welcomeButton{
    text-align: center;
    font-size: 30px;
@@ -80,9 +98,11 @@
  .contactBoxLine{
    margin-top: 5rem;
    width: 100%;
-   height: 20px;
-   background-color: rgb(4, 4, 3);
+   height: 2px;
+   background-color: rgb(78, 78, 77);
+   z-index: 10;
  }
+
 
  /* Hela containern under contactBoxline */
 .contactBox{
@@ -92,16 +112,24 @@
 }
 
 /* Vänstra delen */
+
 .leftContactBox{
    float:left;
-   width: 50%;
-   height: 1000px;
+   width: 100%;
+   height: 800px;
    background-color: rgb(248, 248, 248);
 }
 .openingHoursBox{
    float: left;
    width: 50%;
 }
+
+
+
+
+ 
+/*End of first page*/
+
 .aboutUsBox{
    float: left;
    width: 50%;
@@ -114,8 +142,6 @@
    padding-top: 50px;
    background-color: rgb(248, 248, 248);
 }
-
-
 
 
 /*Knapparna i navbaren*/
