@@ -1,4 +1,4 @@
-
+/* Bakrunden till hela hemsidan */
  body{
     background-color: blueviolet;
     background-image: url("../Pictures/hem1.ppeg.jpg");
@@ -9,16 +9,21 @@
     background-position: top;
  }
 
+ /* Containern som fylls på med olika information beroende på vilken sida man är på */
  .container-fluid{
     width: 100%;
     margin-left:0px;
     height: 100%;
     min-height: 900px;
  }
+
+ /* Containern för "hem" */
  .homeContainer {
     width: 100%;
     height: auto;
  }
+
+ /* font för texten på hemsidan */
  .font{
     font-family: 'Gill Sans';
     font-weight: normal;
@@ -26,13 +31,7 @@
     color: white;
 }
 
-.font2{
-  font-family: 'Gill Sans';
-  line-height: 20%;
- font-size: 20px;
- text-align: center;
-}
-
+/* font för "Om oss" styckena */
 .font3{
  text-align: left;
  font-family: 'Gill Sans';
@@ -50,6 +49,7 @@ margin-left: 20%;
    border-radius: 50px;
  }
 
+
  .text{
   text-align: center;
  }
@@ -57,6 +57,9 @@ margin-left: 20%;
  .map{
   float: left;
  }
+
+
+/*Font för "Öppettider" */
 
  .welcomeText{
     text-align: left;
@@ -67,11 +70,15 @@ margin-left: 20%;
     margin-top: 10%;
   }
 
+
   .welcomeUnderText{
     text-align: center;
     font-size: 30px;
  
   }
+
+  /* Knappen för "Boka NU" */
+
  .welcomeButton{
    text-align: center;
    font-size: 30px;
@@ -82,9 +89,12 @@ margin-left: 20%;
    transition: 300ms ease;
  }
 
+ /* Gör att knappen över ändrar färg när man hovrar över den */
  .welcomeButton:hover{
   background-color: rgb(245, 170, 52);
  }
+
+ /* Linjen mellan containerfluid och kontakt/karta */
  .contactBoxLine{
    margin-top: 5rem;
    width: 100%;
@@ -92,6 +102,16 @@ margin-left: 20%;
    background-color: rgb(78, 78, 77);
    z-index: 10;
  }
+
+
+ /* Hela containern under contactBoxline */
+.contactBox{
+   width: 100%;
+   height: 100%;
+   background-color: rgb(248, 248, 248);
+}
+
+/* Vänstra delen */
 
 .leftContactBox{
    float:left;
@@ -106,8 +126,22 @@ margin-left: 20%;
 
 
 
+
  
 /*End of first page*/
+
+.aboutUsBox{
+   float: left;
+   width: 50%;
+}
+/* Högra delen */
+.rightConactBox{
+   float: right;
+   width: 50%;
+   height: 1000px;
+   padding-top: 50px;
+   background-color: rgb(248, 248, 248);
+}
 
 
 /*Knapparna i navbaren*/
@@ -168,7 +202,7 @@ margin-left: 20%;
   background-color: rgb(245, 190, 52);
   border-color: rgb(245, 190, 52);
 }
-
+/* För placering av loga*/
  .product-image{
     margin-right: 30%;
  }
@@ -177,6 +211,7 @@ margin-left: 20%;
     margin-left: 100px;
  }
 
+ /* Containern på första sidan för att se hur konceptet fungerar */
  .howitworks{
    margin-left: auto;
    margin-right: auto;
@@ -190,7 +225,7 @@ margin-left: 20%;
   margin-top: 5rem;
  }
 
-
+/* Här ligger symboler och texter */
  .cards-container {
    width: 100%;
    height: 300px;
@@ -199,7 +234,7 @@ margin-left: 20%;
    justify-content: center;
    margin-left: 0;
  }
-
+/* Varje "par" av symbol och text sparas i denna */
  .welcomecards {
    align-items: center;
    float: left;
@@ -207,14 +242,14 @@ margin-left: 20%;
    margin-left: 1rem;
    text-align: center;
  }
-
+/* Symbolerna */
  .card-img-top{
    height: 100px;
    width: 100px;
    margin-top: 1rem;
    color: green;
  }
-
+/* Texterna */
  .card-text{
    color: white;
    margin-top: 1rem;
@@ -222,6 +257,7 @@ margin-left: 20%;
    font-size: 30px; 
  }
 
+ /* Nedanstående justerar så att symbolerna kan komprimeras */
  @media screen and (max-width: 768px) {
    .welcomecards {
      width: 20%;

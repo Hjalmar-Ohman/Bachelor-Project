@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="Account.css">
 
     <title>Tool in a Box</title>
-  </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
+  </head> <!-- Navbaren med logan och de olika alternativen -->
   <body>
     <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
       <div class="logotype"> 
         <div class="product-image">
+          <!-- När man trycker på logan så skickas man till hemsk -->
           <img src="../Pictures/logotype.png" alt="logo Image" draggable="false" onclick="loadPage()" style="width: 150px; height: 75px; margin-left: 70%; margin-top: 7%"/>
         </div>
-      <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white" onclick="loadPage()" ></a>
       </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -40,13 +40,20 @@
         </div>
     
     </nav>
-    <!--<div class="contactBoxLine" style ="margin-top: 0;"></div>-->
 
    
       
       <div class="container-fluid">
       </div>
       
+
+    <div>
+      <!-- Denna container fylls på beroende på vilken sida användaren är på -->
+      <div class="container-fluid">
+      </div>
+      <!--Nedanstående syns på varje sida och innehåller information samt karta -->
+      <div class="contactBox">
+
         <div class="contactBoxLine">
         </div>
           <div class="leftContactBox">
@@ -82,18 +89,19 @@
             </div>
             <p class="text"> © 2023 Tool in A Box </p>
           </div>
-       
-         
-   
-    
-  
+
+    <!-- Hem -->
+
     <script id="view-home" type="text/html" style ="padding: 0px">
         <div class ="homeContainer">
             <div class = "homeBookContainer"> 
                 <h1 class = "font welcomeText" style="color: white;" >Boka och hämta smidigt idag </h1>
-                <P class = "font welcomeUnderText"> </P>
-                <button class=" font welcomeButton btn" onclick="loadCarsPage()"> Boka NU</button>
+                <P> </P>
+                <!-- När man trycker på denna knappen skickas användaren till sidan för "tools" om man är inloggad och 
+                annars ska man skickas till modalen för att logga in-->
+                <button class=" font welcomeButton btn" onclick="loadToolsPage()"> Boka NU</button>
             </div>
+            <!-- Containern som beskriver, mha symboler, hur processen ser ut för att hyra ett verktyg -->
             <div class="howitworks">
                 <div class="cards-container">
               <div class="welcomecards">
@@ -119,12 +127,14 @@
             </div>
     </script>
 
+    <!-- Sidan för att visa användarens bokningar, ska kunna hämta alla aktiva bokningar -->
     <script id="view-bookings" type="text/html" style ="padding: 0px">
       <div class ="bookingsContainer">
         <h1 class = "font mybookingstext">Mina bokningar</h1>
                
                 <div class="bookedTool">
                     <div class="cardBody">
+                      <!--När man trycker på denna knapp ska bokningen försvinna och kommunicera det till databasen-->
                       <a href="#" class="btn btn-primary avbokaknapp " onclick="alert ('Avbokad');">Avboka</a>
                       <h5 class="cardTitle font">Hammare</h5>
                       <p class="cardText font">Torsdag 15:00 - Torsdag 19:00</p>
@@ -141,7 +151,7 @@
       </div>
   </script>
 
-
+  <!-- Sidan för att se användarens uppgifter -->
     <script id="view-account" type="text/html" style ="padding: 0px">
       <div class ="homeContainer">
           <div class = "homeBookContainer"> 
@@ -153,6 +163,7 @@
               <p class = "font5"> anna@svensson.se</p>
               <h5 class = "font5"> Lösenord </h5>
               <p class = "font5"> ********</p>
+              <!-- Här ska man kunna ändra sina uppgifter -->
               <button class=" font accountButton btn" onclick="loadaccountPage()"> Ändra </button>
               
 
@@ -160,13 +171,14 @@
           </div>
           </div>
   </script>
-
-    <script id="view-cars" type="text/html">
+  <!-- Sidan för att se alla verktyg som finns att boka -->
+    <script id="view-tools" type="text/html">
       <div style="width: 60%; margin-left:20%;">
            <form action="" class="searchBar">
                   <input type="text" placeholder="Sök efter ditt verktyg" class="font">
                   <button type="submit"><img src="../Pictures/search.png"></button>
            </form>
+           <!--Detta ska egentligen uppdateras dynamiskt-->
            <div class="cardsHolder">
               <div class="card toolcards">
                   <div class="product-image">
@@ -248,7 +260,7 @@
                 </div>
       </div>
 
-
+      <!-- Modalen för att se mer information om verktyget, kalendern för hur den är bokad samt möjligheten till boka/betala-->
       <div class="modal" tabindex="-1" role="dialog" id="mymodal">
         <div class="modal-dialog modalPosition" role="document">
           <div class="modal-content">
@@ -265,6 +277,7 @@
                 <p class ="font modalInfo">En hammare består av huvud och skaft. Skaftet kan vara av trä, metall eller glasfiber. Det fästs i det elliptiskt koniska ögat i huvudet och kilas fast med metall- eller träkil i ett sågat spår i skaftet (om detta är av trä). Det hela kan förstärkas med epoxylim som fyller ut luckor i ögat mellan skaft och huvud. Ytterligare förstärkning kan förekomma med järnhakar genom ögat. Hakarna spikas fast mot skaftet.</p>
             </div>
             <div class="bookModalRight">
+            <!-- Kalendern för de olika verktygen -->
             <div class="calendar">
               <table>
                 <thead>
@@ -565,6 +578,7 @@
                 </tbody>
               </table>
             </div>
+            <!-- Knappen ska skicka användaren vidare till stripe med information om verktyget samt tider användaren vill boka -->
             <button class="btn boka-btn">Boka & Betala</button>
           </div>
             <!--
@@ -589,7 +603,7 @@
     </script>
 
    
-
+    <!-- Modalen för att registrera en användare -->
       <div id="myRegModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
           <div class="modal-dialog modal-dialog-centered modal-lg">   
                  <div class="modal-content">
@@ -625,7 +639,7 @@
              </div>
 
 
-  
+    <!-- Modalen för att logga in -->
     <div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
     <div class="modal-dialog modal-dialog-centered modal-lg">   
            <div class="modal-content">
