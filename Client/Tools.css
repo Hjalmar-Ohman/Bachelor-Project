@@ -168,7 +168,7 @@ table{
 	  	border-collapse: separate;
 		  table-layout: fixed;
 		  margin-bottom: 50px;
-      border: 1px solid;
+      border: 0px solid;
       text-align: center;
 }
 
@@ -194,4 +194,8 @@ td:hover{
 }
 .evenRow{
   background-color: rgb(102, 102, 102);
+}
+
+#Må0001{
+    background-color: brown;
 }
