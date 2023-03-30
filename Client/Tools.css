@@ -1,0 +1,201 @@
+.toolsHeaderText{
+    text-align: center;
+    color:rgb(250, 215, 118);
+    background-color: white;
+    font-size:50px;
+    padding-top: 1rem;
+    width: auto;
+    padding: 1rem;
+}
+.searchBar{
+  margin-top: 1rem;
+    width: 100%;
+    border-radius: 30px;
+    padding: 1rem;
+    background:rgb(255, 255,255, 0.7);
+    align-items: center;
+    justify-content: center;
+
+}
+.searchBar input{
+    background-color: transparent;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    flex: 1;
+    width: 90%;
+
+
+}
+.searchBar img{
+    height: 40px;
+    width: auto;
+}
+.searchBar button{
+  border:0px;
+  background-color: transparent;
+  float: right;
+}
+
+.cardsHolder{
+    width: 100%;
+    min-width: 400px;
+    text-align: center;
+}
+.toolcards{
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
+  margin: 1rem;
+  width: 350px;
+  height: 450px;
+  box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+  border-radius: 0rem;
+  background-color: rgba(1, 12, 4, 0.3);
+  opacity: 1;
+  }
+  .product-image {
+    width: min-content;
+    margin:auto;
+    transition: transform 300ms ease-in-out;
+    filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+    opacity: 1;
+  }
+  .product-image img {
+    height: 230px;
+    width:auto;
+    opacity: 1;
+  }
+  .card:hover .product-image {
+    transform: translate(0rem, 0rem) rotate(0deg) scale(1.2);
+  }
+  .product-info {
+    text-align: center;
+  }
+  .product-info h2 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .product-info p {
+    color: white;
+    margin: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .price {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0.8rem;
+  }
+  .buy-btn {
+    background-color: rgb(245, 190, 52);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+    border-style: none;
+    color: white;
+  }
+  .buy-btn:hover {
+    background-color: rgb(245, 170, 52);
+    border-style: none;
+  }
+
+  .modalPosition{
+    left: 50%;
+    top:50%;
+    margin-left: -500px;
+    margin-top: -300px;
+  }
+
+  .bookModal{
+    width: 1000px; 
+    height: 600px;
+    left:50%;
+    right:50%;
+    background-color: white;
+  }
+  .bookModalLeft{
+    width: 40%; 
+    height: auto; 
+    
+    float:left;
+    text-align: center;
+  }
+  .bookModalRight{
+    width: 60%; 
+    float: right;
+  }
+  .calendar{
+    overflow-y: scroll;
+    height:500px;
+  }
+  .modalHeader{
+    color: rgb(245, 190, 52);
+    padding: 1rem;
+    text-align: center;
+  }
+  .modalInfo{
+    padding: 1rem;
+    color:black;
+  }
+  .boka-btn {
+    background-color: rgb(245, 190, 52);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+    margin:auto;
+    margin-top: 0.8rem;
+    color: white;
+    font-style: bold;
+  }
+  .boka-btn:hover {
+    background-color: rgb(250, 170, 118);
+  }
+
+table{
+  font-family:sans-serif;
+		  width: 100%;
+		  border-spacing: 0;
+	  	border-collapse: separate;
+		  table-layout: fixed;
+		  margin-bottom: 50px;
+      border: 0px solid;
+      text-align: center;
+}
+
+td{
+  height:1rem;
+  width:100%;
+  border: 1px solid;
+  cursor: pointer;
+}
+td:hover{
+  background-color: green;
+}
+.day{
+  background-color: rgb(245, 190, 52);
+  color: white;
+}
+.hour:hover{
+  background-color: transparent;
+  cursor: auto;
+}
+.oddRow{
+  background-color: rgb(251, 252, 252);
+}
+.evenRow{
+  background-color: rgb(102, 102, 102);
+}
+
+#Må0001{
+    background-color: brown;
+}

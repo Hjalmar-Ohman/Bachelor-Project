@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css"/>
+    <link rel="stylesheet" href="client.css">
+    <link rel="stylesheet" href="LogInOut.css">
+    <link rel="stylesheet" href="Tools.css">
+
+    <title>Gabbe & Lombas Bilshopp</title>
+  </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
+  <body>
+    <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
+      <div class="logotype"> 
+        <div class="product-image">
+          <img src="../Pictures/logotype.png" alt="logo Image" draggable="false" onclick="loadPage()" style="width: 150px; height: 75px; margin-left: 70%; margin-top: 7%"/>
+        </div>
+      <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white" onclick="loadPage()" ></a>
+      </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          
+            <a id ="homeButton" class="nav-item nav-link active font" href="home"style= "right-margin: 10%;">Hem <span class="sr-only">(current)</span></a>
+            <a id ="toolButton"class="nav-item nav-link font" href="verktyg">Verktyg</a>
+            <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal">Registrera</a>
+
+            <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal">Logga in</a>
+            <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
+          
+        </div>
+    
+    </nav>
+    <!--<div class="contactBoxLine" style ="margin-top: 0;"></div>-->
+
+    <div>
+      
+      <div class="container-fluid">
+      </div>
+      
+      <div class="contactBox">
+        <div class="contactBoxLine">
+        </div>
+          <div class="leftContactBox">
+              <div class="openingHoursBox">
+                  <h1 class = "welcomeText"> Öppettider</h1>
+                  <P class = "font3">Mån-Fre 00-24 </P>
+                  <P class = "font3 ">Lör-Sön 05-24 </P>
+                
+                 
+                  <h1 class = "welcomeText" style="margin-top: 20%;"> Följ oss</h1>
+                  <div class="facebook-image">
+                    <img src="../Pictures/Ikoner/facebook.png" alt="Facebook Image" draggable="false" style="width: 50px; height: 50px; float: left; margin-left: 20%" />
+                  </div>
+                  <div class="twitter-image">
+                    <img src="../Pictures/Ikoner/twitter.png" alt="Twitter Image" draggable="false" style="width: 50px; height: 50px; float: left; margin-left: 10%"/>
+                  </div>
+                  <div class="instagram-image">
+                    <img src="../Pictures/Ikoner/instagram.png" alt="Instagram Image" draggable="false" style="width: 50px; height: 50px; float:left; margin-left: 10%"/>
+                  </div>
+                  <h1 class = "welcomeText" style="margin-top: 35%;"> Betalningsalternativ</h1>
+                  <div class="mastercard-image">
+                    <img src="../Pictures/Ikoner/mastercard.png" alt="Mastercard Image" draggable="false" style="width: 40px; height: 25px; float: left; margin-left: 20%; margin-top:10px" />
+                  </div>
+                  <div class="visa-image">
+                    <img src="../Pictures/Ikoner/Visa.png" alt="Visa Image" draggable="false" style="width: 50px; height: 20px; float: left; margin-left: 10%; margin-top:15px"/>
+                  </div>
+                  <div class="Amex-image">
+                    <img src="../Pictures/Ikoner/amex.png" alt="AMEX Image" draggable="false" style="width: 50px; height: 50px; float:left; margin-left: 10%; margin-top:0.001px"/>
+                  </div>
+              </div>
+                  <div class="aboutUsBox">
+                  <h1 class = "welcomeText"> Om oss</h1>
+                  <P class = "font3 ">Adress Studievägen 1</P>
+                  <P class = "font3 ">E-post toolin@box.se</P>
+                  <P class = "font3 ">Telefon 0700000000</P>
+              </div>
+          </div>
+          <div class="rightConactBox">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6529.92279814412!2d15.57656780752961!3d58.403659367494726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46596f6923f07913%3A0x5f91d8e14d8b6a57!2sStudiev%C3%A4gen%201%2C%20583%2029%20Link%C3%B6ping!5e0!3m2!1ssv!2sse!4v1680011315369!5m2!1ssv!2sse" 
+            width="650" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+            <div class ="contactMapBox"></div>
+          </div>
+      </div>
+    </div>
+
+    <script id="view-home" type="text/html" style ="padding: 0px">
+        <div class ="homeContainer">
+            <div class = "homeBookContainer"> 
+                <h1 class = "font welcomeText" style="color: white;" >Boka och hämta smidigt idag </h1>
+                <P class = "font welcomeUnderText"> </P>
+                <button class=" font welcomeButton btn btn-info" onclick="loadCarsPage()"> Boka NU</button>
+            </div>
+            <div class="howitworks">
+                <div class="cards-container">
+              <div class="welcomecards">
+                <img class="card-img-top" src="../Pictures/iconboka.png" alt="Card image cap">
+                <div >
+                  <p class=" font card-text">BOKA</p>
+                </div>
+              </div>
+              <div class=" welcomecards">
+                <img class="card-img-top" src="../Pictures/iconmail.png" alt="Card image cap">
+                <div >
+                  <p class=" font card-text">FÅ DIN KOD</p>
+                </div>
+              </div>
+              <div class=" welcomecards" >
+                <img class="card-img-top" src="../Pictures/iconhamta.png" alt="Card image cap">
+                <div ></div>
+                  <p class=" font card-text">HÄMTA</p>
+                </div>
+              </div>
+             </div>
+            </div>
+            </div>
+    </script>
+
+    <script id="view-cars" type="text/html">
+      <div style="width: 60%; margin-left:20%;">
+           <form action="" class="searchBar">
+                  <input type="text" placeholder="Sök efter ditt verktyg" class="font">
+                  <button type="submit"><img src="../Pictures/tools/hammer.png"></button>
+           </form>
+           <div class="cardsHolder">
+              <div class="card toolcards">
+                  <div class="product-image">
+                    <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                  </div>
+                  <div class="product-info">
+                    <h2>Hammare Biltema</h2>
+                    <p>Tvofast, pålitlig och användbar!</p>
+                    <div class="price">10 kr/h</div>
+                  </div>
+                  <div class="btn">
+                    <button class="buy-btn" for="ruta">Boka nu</button>
+                  </div>
+              </div>
+              <div class="card toolcards">
+                  <div class="product-image">
+                    <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                  </div>
+                  <div class="product-info">
+                    <h2>Hammare Biltema</h2>
+                    <p>Tvofast, pålitlig och användbar!</p>
+                    <div class="price">10 kr/h</div>
+                  </div>
+                  <div class="btn">
+                    <button class="buy-btn">Boka nu</button>
+                  </div>
+              </div>
+              <div class="card toolcards">
+                  <div class="product-image">
+                    <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                  </div>
+                  <div class="product-info">
+                    <h2>Hammare Biltema</h2>
+                    <p>Tvofast, pålitlig och användbar!</p>
+                    <div class="price">10 kr/h</div>
+                  </div>
+                  <div class="btn">
+                    <button class="buy-btn">Boka nu</button>
+                  </div>
+              </div>
+              <div class="card toolcards">
+                <div class="product-image">
+                  <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                </div>
+                <div class="product-info">
+                  <h2>Hammare Biltema</h2>
+                  <p>Tvofast, pålitlig och användbar!</p>
+                  <div class="price">10 kr/h</div>
+                </div>
+                <div class="btn">
+                  <button class="buy-btn">Boka nu</button>
+                </div>
+              </div>
+              <div class="card toolcards">
+                <div class="product-image">
+                  <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                </div>
+                <div class="product-info">
+                  <h2>Hammare Biltema</h2>
+                  <p>Tvofast, pålitlig och användbar!</p>
+                  <div class="price">10 kr/h</div>
+                </div>
+                <div class="btn">
+                  <button class="buy-btn">Boka nu</button>
+                </div>
+               </div>
+                  <div class="card toolcards">
+                    <div class="product-image">
+                      <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                    </div>
+                    <div class="product-info">
+                      <h2>Hammare Biltema</h2>
+                      <p>Tvofast, pålitlig och användbar!</p>
+                      <div class="price">10 kr/h</div>
+                    </div>
+                    <div class="btn">
+                      <button class="buy-btn" data-toggle="modal" data-target="#mymodal">Boka nu</button>
+                    </div>
+                </div>
+      </div>
+      <div class="modal" tabindex="-1" role="dialog" id="mymodal">
+        <div class="modal-dialog modalPosition" role="document">
+          <div class="modal-content">
+            
+            <div class="bookModal">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="bookModalLeft">
+                <h1 class="font modalHeader">Hammare Biltema</h1>
+                <div class="product-image">
+                  <img src="../Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
+                </div>
+                <p class ="font modalInfo">En hammare består av huvud och skaft. Skaftet kan vara av trä, metall eller glasfiber. Det fästs i det elliptiskt koniska ögat i huvudet och kilas fast med metall- eller träkil i ett sågat spår i skaftet (om detta är av trä). Det hela kan förstärkas med epoxylim som fyller ut luckor i ögat mellan skaft och huvud. Ytterligare förstärkning kan förekomma med järnhakar genom ögat. Hakarna spikas fast mot skaftet.</p>
+            </div>
+            <div class="bookModalRight">
+            <div class="calendar">
+              <table>
+                <thead>
+                  <tr>
+                    <h1 class="font modalHeader">Vecka X</h1>
+                  </tr>
+                  <tr class="day">
+                    <th><-</th>
+                    <th>
+                      <span class="day">Måndag</span>
+                    </th>
+                    <th>
+                      <span class="day">Tisdag</span>
+                    </th>
+                    <th>
+                      <span class="day">Onsdag</span>
+                    </th>
+                    <th>
+                      <span class="day">Torsdag</span>
+                    </th>
+                    <th>
+                      <span class="day">Fredag</span>
+                    </th>
+                    <th>
+                      <span class="day">Lördag</span>
+                    </th>
+                    <th>
+                      <span class="day">Söndag</span>
+                    </th>
+                    <th>-></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class ="oddRow">
+                    <td class="hour"><span>00:00 01:00</span></td>
+                    <td id="Må0001" onclick = "klickad()"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>01:00 02:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>02:00 03:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>03:00  04:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>04:00 05:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>05:00 06:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>06:00 07:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                  
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>07:00 08:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>08:00  09:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>09:00 10:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+  
+                  </tr>                    
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>10:00 11:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>                    
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>11:00 12:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>12:00 13:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>13:00 14:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>14:00 15:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>15:00 16:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>16:00 17:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>17:00 18:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>18:00 19:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>19:00 20:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>20:00 21:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                   
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>21:00 22:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  
+                  </tr>
+                  <tr class ="oddRow">
+                    <td class="hour" ><span>22:00 23:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+            
+                  </tr>
+                  <tr class ="evenRow">
+                    <td class="hour" ><span>23:00 00:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button class="btn boka-btn">Boka & Betala</button>
+          </div>
+            <!--
+              <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            -->
+          </div>
+        </div>
+      </div>
+
+    </script>
+
+   
+
+      <div id="myRegModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
+          <div class="modal-dialog modal-dialog-centered modal-lg">   
+                 <div class="modal-content">
+                  <div class="boxaround">
+                      <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
+                      <div class="pictureLeft" >
+                          <img src="../Pictures/registerpic.jpg" alt="pictureregister" width="500px"  height="340px";>
+
+                      </div>
+
+                      <div class="formboxRight">
+                          <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Registrera dig </label>
+                       <form> 
+                           <div class="form-group">
+                             <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
+                           </div>
+                           <div class="form-group">
+                              <input type="name" class="form-control" id="regName" placeholder="Ditt namn">
+                          </div>
+                           <div class="form-group">
+
+                               <input type="losen" class="form-control" id="loginLosen" placeholder="Välj ett lösenord">
+                           </div>
+ 
+                           </form>
+                          
+                           <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block" onclick = "register()" style ="margin-bottom: 10px;">Skicka</button>
+                          </div> 
+                      </div>     
+                   </div>            
+               </div>
+             </div>
+
+
+  
+    <div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">   
+           <div class="modal-content">
+            <div class="boxaround">
+                <button type="button" class="close" data-dismiss="modal" onclick="loadpage()">&times;</button>
+                <div class="pictureLeft" >
+                    <img src="../Pictures/loginpic.jpg" alt="pictureregister" width="500px"  height="340px";>
+
+                </div>
+
+                <div class="formboxRightlogin">
+                  <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Inloggningsuppgifter </label>
+                 <form> 
+                     <div class="form-group">
+                       <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
+                     </div>
+                     <div class="form-group">
+
+                         <input type="losen" class="form-control" id="loginLosen" placeholder="Ditt lösenord">
+                     </div>
+                     <a id ="forgotPassword" class="link-warning" href="password">Glömt lösenord?</a>
+                     </form>
+                     <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block" onclick = "login()" style ="margin-bottom: 10px;">Logga in</button>
+                    </div> 
+
+                </div>     
+             </div>            
+         </div>
+       </div>
+ 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="tools.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
