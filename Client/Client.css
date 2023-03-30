@@ -71,6 +71,7 @@
    width: 25%;
    margin-left: 37.5%;
    background-color: rgb(245, 190, 52);
+   border-color:  rgb(245, 190, 52);
    transition: 300ms ease;
  }
 
