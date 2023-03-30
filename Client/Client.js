@@ -6,7 +6,6 @@ function loadPage() {
  }
 
  function loadContactPage() {
-
     $("div.container-fluid").html($("#view-contact").html())
  }
 
@@ -14,6 +13,9 @@ function loadPage() {
    $("div.container-fluid").html($("#view-cars").html())
 }
 
+function loadBookingsPage() {
+   $("div.container-fluid").html($("#view-bookings").html())
+}
 function loadAccountPage() {
    $("div.container-fluid").html($("#view-account").html())
 }
@@ -43,6 +45,11 @@ function loadLoginPage() {
    e.preventDefault();
    loadCarsPage();
    }); 
+
+$('#bookingsButton').click(function (e) {
+   e.preventDefault();
+   loadBookingsPage();
+}); 
 
 $('#regButton').click(function (e) {
    e.preventDefault();

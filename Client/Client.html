@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="client.css">
     <link rel="stylesheet" href="LogInOut.css">
     <link rel="stylesheet" href="Tools.css">
+    <link rel="stylesheet" href="Bookings.css">
     <link rel="stylesheet" href="Account.css">
 
-    <title>Gabbe & Lombas Bilshopp</title>
+    <title>Tool in a Box</title>
   </head> <!-- Fram hit kodas bara vad som ska stå högst upp-->
   <body>
     <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
@@ -125,6 +126,29 @@
             </div>
     </script>
 
+    <script id="view-bookings" type="text/html" style ="padding: 0px">
+      <div class ="bookingsContainer">
+        <h1 class = "font mybookingstext">Mina bokningar</h1>
+               
+                <div class="bookedTool">
+                    <div class="cardBody">
+                      <a href="#" class="btn btn-primary avbokaknapp " onclick="alert ('Avbokad');">Avboka</a>
+                      <h5 class="cardTitle font">Hammare</h5>
+                      <p class="cardText font">Torsdag 15:00 - Torsdag 19:00</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bookedTool">
+                    <div class="cardBody">
+                      <a href="#" class="btn btn-primary avbokaknapp">Avboka</a>
+                      <h5 class="cardTitle font"> Såg</h5>
+                      <p class="cardText font">Lördag 11:00 - Söndag 15:00</p>
+                    </div>
+                  </div>
+      </div>
+  </script>
+
+
     <script id="view-account" type="text/html" style ="padding: 0px">
       <div class ="homeContainer">
           <div class = "homeBookContainer"> 
@@ -232,6 +256,8 @@
                     </div>
                 </div>
       </div>
+
+
       <div class="modal" tabindex="-1" role="dialog" id="mymodal">
         <div class="modal-dialog modalPosition" role="document">
           <div class="modal-content">
@@ -599,7 +625,7 @@
  
                            </form>
                           
-                           <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block" onclick = "register()" style ="margin-bottom: 10px;">Skicka</button>
+                           <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp" onclick = "register()" style ="margin-bottom: 10px;">Skicka</button>
                           </div> 
                       </div>     
                    </div>            
@@ -630,7 +656,7 @@
                      </div>
                      <a id ="forgotPassword" class="link-warning" href="password">Glömt lösenord?</a>
                      </form>
-                     <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block" onclick = "login()" style ="margin-bottom: 10px;">Logga in</button>
+                     <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp" onclick = "login()" style ="margin-bottom: 10px;">Logga in</button>
                     </div> 
 
                 </div>     
