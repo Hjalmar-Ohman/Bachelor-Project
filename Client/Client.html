@@ -31,7 +31,7 @@
           
             <a id ="toolButton"class="nav-item nav-link font" href="verktyg"onclick="this.classList.toggle('active')">Verktyg </a>
             <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal"onclick="this.classList.toggle('active')">Registrera</a>
-            <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar"onclick="this.classList.toggle('active')">Mina Bokningar</a>
+            <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar"onclick="this.classList.toggle('active')">Mina bokningar</a>
             <a id = "accountButton"class="nav-item nav-link font" href="konto" onclick="this.classList.toggle('active')">Mitt konto</a>
 
             <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal"onclick="this.classList.toggle('active')">Logga in</a>
@@ -90,11 +90,11 @@
     <script id="view-home" type="text/html" style ="padding: 0px">
         <div class ="homeContainer">
             <div class = "homeBookContainer"> 
-                <h1 class = "font welcomeText" style="color: white;" >Boka och hämta smidigt idag </h1>
+                <h1 class = "font welcomeText" style="color: white;" >Gör det själv med hyrda verktyg </h1>
                 <P> </P>
                 <!-- När man trycker på denna knappen skickas användaren till sidan för "tools" om man är inloggad och 
                 annars ska man skickas till modalen för att logga in-->
-                <button class=" font welcomeButton btn" onclick="loadToolsPage()"> Boka NU</button>
+                <button class=" font welcomeButton btn" onclick="loadToolsPage()"> Kom igång</button>
             </div>
             <!-- Containern som beskriver, mha symboler, hur processen ser ut för att hyra ett verktyg -->
             <div class="howitworks">
