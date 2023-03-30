@@ -13,7 +13,12 @@ def book_tool(db, booking, user, tool_id, start_hour, end_hour, day, year):
     current_user = user.query.filter_by(email=current_user_email).first()
 
     new_booking = booking(
-        user_id=current_user.id, tool_id=tool_id, start_hour=start_hour, end_hour=end_hour, day=day, year=year
+        user_id=current_user.id,
+        tool_id=tool_id,
+        start_hour=start_hour,
+        end_hour=end_hour,
+        day=day,
+        year=year,
     )
     db.session.add(new_booking)
     db.session.commit()
@@ -73,4 +78,3 @@ def edit_booking(db, booking, user, tool_id, start_hour, end_hour):
                 db.session.commit()
                 return "Booking edited"
     return "Booking not found"
-    
