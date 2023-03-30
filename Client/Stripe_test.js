@@ -32,7 +32,7 @@ function get_stripe_public_key(){
 
 }
 
-function stripe_ceckout(){
+function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
 
     $.ajax({
         type: "POST",

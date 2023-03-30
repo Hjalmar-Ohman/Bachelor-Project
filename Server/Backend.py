@@ -95,7 +95,7 @@ class Booking(db.Model):
 
 @app.route("/")
 def client():
-    return app.send_static_file("Stripe_test.html")
+    return app.send_static_file("client.html")
 
 
 @app.route("/signup", methods=["POST"])
@@ -121,7 +121,34 @@ def checkout(input_id):
 
 @app.route("/payment_web_hook", methods = ["POST"])
 def payment_hook():
-    return web_hook()
+    print("Web_hook is called")
+    payload = request.get_data()
+    sig_header = request.environ.get('HTTP_STRIPE_SIGNATURE')
+    endpoint_secret = "whsec_328c4c96086acd8e809e0a6557c93419bb3610d12ceeb1949be08d674d487da7"
+    event = None       
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+    # Error om payload innehåller fel typer
+        print("invalid payload")
+        return {}, 400
+    except stripe.error.SignatureVerificationError as e:
+        print("invalid signature")
+        return {}, 400
+
+    # hämtar "check_out eventet",
+    if event['type'] == 'checkout.session.completed':
+        session = stripe.checkout.Session.retrieve(
+        event['data']['object']['id']
+        )
+        line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
+        print(line_items['data'][0]['description'])
+
+
+    return {}, 200
 
 @app.route("/get_stripe_key")
 def get_key():
