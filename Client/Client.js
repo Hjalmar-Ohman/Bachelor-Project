@@ -9,8 +9,8 @@ function loadPage() {
     $("div.container-fluid").html($("#view-contact").html())
  }
 
- function loadCarsPage() {
-   $("div.container-fluid").html($("#view-cars").html())
+ function loadToolsPage() {
+   $("div.container-fluid").html($("#view-tools").html())
 }
 
 function loadBookingsPage() {
@@ -43,7 +43,7 @@ function loadLoginPage() {
 
  $('#toolButton').click(function (e) {
    e.preventDefault();
-   loadCarsPage();
+   loadToolsPage();
    }); 
 
 $('#bookingsButton').click(function (e) {
