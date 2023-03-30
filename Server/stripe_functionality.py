@@ -61,5 +61,7 @@ def web_hook():
         session = stripe.checkout.Session.retrieve(
         event['data']['object']['id']
         )
+        line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
+        print(line_items['data'][0]['description'])
     
     return {}, 200
