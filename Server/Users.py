@@ -55,6 +55,7 @@ def login(db, bcrypt, User):
             return jsonify("fel lösenord eller användarnamn"), 401
         return
     
+#till för testning    
 def delete_user(db, User):
     if request.method == "DELETE":
         data = request.get_json()

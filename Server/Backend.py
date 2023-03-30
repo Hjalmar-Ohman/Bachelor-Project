@@ -118,12 +118,16 @@ def login2():
 #till för backend testning
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    #send_mail(mail) legacy, behöver "EmailFunctionality.py" vilket skapar circular dependecies
+    send_mail(mail) 
     return "sent"
 
 @app.route("/Tools/<int:input_id>/Checkout", methods=["POST"])
-def checkout():
+def checkout(input_id):
     return
+
+@app.route("/payment_web_hook", methods=["POST"])
+def Payment_web_hook():
+    return web_hook()
 
 @app.route("/get_stripe_key")
 def get_key():
@@ -132,10 +136,7 @@ def get_key():
 #till för backend testning
 @app.route("/test/checkout", methods=["PUT"])
 def test_checkout():
-   
-
-
-   return process_payment(request.get_json()["price"], request.get_json()["quantity"])
+   return process_payment(request.get_json()["price"], request.get_json()["quantity"],'1','2','3','4')
 
 #till för backend testning
 @app.route("/test/checkout/success", methods=["GET"])

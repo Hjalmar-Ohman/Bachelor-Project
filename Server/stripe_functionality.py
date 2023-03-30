@@ -7,8 +7,8 @@ PUBLIC_STRIPE_KEY = "pk_test_51MqGmBBclQZfILguPT3YglTQxsjnR9gUMF7SgTvW6x0gI8igEL
 
 stripe.api_key = SECRET_STRIPE_KEY
 
-def process_payment(price, quantity):
-    
+def process_payment(price, quantity, day, week, start_h, finnish_h):
+    #, day, week, start_hour, finnish_hour
     success = False
     if request.method == "POST":
         data = request.get_json()
@@ -18,7 +18,11 @@ def process_payment(price, quantity):
       'price_data': {
         'currency': 'sek',
         'product_data': {
-          'name': 'cool product',
+          'name': 'Bookning:'+'+'+ day +'+'+ week +'+'+ start_h +'+' + finnish_h,
+          #'day': 'day',
+          #'week': 'week',
+          #'start_hour': 'start_hour',
+          #'finnish_hour': 'finnish_hour', 
         },
         'unit_amount': price,
       },
@@ -36,3 +40,30 @@ def process_payment(price, quantity):
         return str(e)
     
     return jsonify({"session_id": session["id"]})
+
+def web_hook():
+    print("Web_hook is called")
+    payload = request.get_data()
+    sig_header = request.environ.get('HTTP_STRIPE_SIGNATURE')
+    endpoint_secret = "whsec_328c4c96086acd8e809e0a6557c93419bb3610d12ceeb1949be08d674d487da7"
+    event = None       
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+    # Error om payload innehåller fel typer
+        print("invalid payload")
+        return {}, 400
+    except stripe.error.SignatureVerificationError as e:
+        print("invalid signature")
+        return {}, 400
+
+    # hämtar "check_out eventet",
+    if event['type'] == 'checkout.session.completed':
+        session = stripe.checkout.Session.retrieve(
+        event['data']['object']['id']
+        )
+    
+    return {}, 200
