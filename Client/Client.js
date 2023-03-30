@@ -6,12 +6,15 @@ function loadPage() {
  }
 
  function loadContactPage() {
-
     $("div.container-fluid").html($("#view-contact").html())
  }
 
  function loadCarsPage() {
    $("div.container-fluid").html($("#view-cars").html())
+}
+
+function loadBookingsPage() {
+   $("div.container-fluid").html($("#view-bookings").html())
 }
 function loadRegPage() {
    
@@ -38,6 +41,11 @@ function loadLoginPage() {
    e.preventDefault();
    loadCarsPage();
    }); 
+
+$('#bookingsButton').click(function (e) {
+   e.preventDefault();
+   loadBookingsPage();
+}); 
 
 $('#regButton').click(function (e) {
    e.preventDefault();

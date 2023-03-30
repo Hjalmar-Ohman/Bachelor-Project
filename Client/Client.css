@@ -178,6 +178,10 @@
  }
 /* Slut på knapparna i navbaren*/
 
+.modalknapp{
+  background-color: rgb(245, 190, 52);
+  border-color: rgb(245, 190, 52);
+}
  .product-image{
     margin-right: 30%;
  }
