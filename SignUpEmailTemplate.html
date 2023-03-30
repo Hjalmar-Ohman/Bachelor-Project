@@ -1,16 +1,141 @@
-<html> 
-    <body>
-        
-        <div style="background-color: black; margin: 0px; padding: 20px;">
-            <h1 style="color:white;">Thank you for regestring an account with us</h1>
-        </div>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Ditt konto är registrerat!</title>
+<style type="text/css">
+    body {
+        margin: 0;
+        background-color: #cccccc;
+    }
+    table {
+        border-spacing: 0;
+    }
+    td {
+        padding: 0;
+    }
+    img {
+        border: 0;
+    }
+    .wrapper {
+        width: 100%;
+        table-layout: fixed;
+        background-color: #cccccc;
+        padding-bottom: 60px;
+    }
+    .main {
+        background-color: #ffffff;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+        border-spacing: 0;
+        font-family: sans-serif;
+        color: #171a1b;
+    }
+    .column {
+        text-align: center;
+    }
 
-        <div style="background-color:gray; margin: 0px; padding: 20px;"> 
-            <p>Some text</p>
-            <p>more text</p>
-            <p>more text</p>
-            <p>more text</p>
-            <p>more text</p>
-            <p>more text</p>
-        </div> 
-    </body> 
+    .banner {
+        position: relative;
+        width: 50%;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner .book-button {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: rgb(245, 190, 52);
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .banner .book-button:hover {
+        background-color: rgb(245, 170, 52);
+    }
+
+    .banner-text {
+        position: absolute;
+        text-align: center;
+        font-family: "Monaco", Courier, monospace;
+        font-size: 20px;
+        width: 100%;
+        top: 30%;
+        left: 50%;
+        color: white;
+        transform: translate(-50%, -50%);
+
+    }
+
+</style>
+</head>     
+<body>
+
+    <center class="wrapper">
+
+        <table class="main" width="100%">
+        
+<!-- TOP BORDER -->
+            <tr>
+                <td height="8" style="background-color: #171a1b"></td>
+            </tr>
+<!-- LOGO SECTION -->
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td class="column" style="padding: 0 0 10px;">
+                                <a href="http://localhost:5000"><img src="img/logotype.png" alt="Logo" width="180" title="Logo"></a>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+<!-- BANNER IMAGE -->
+            <tr>
+                <td class="banner">
+                    <img src="img/Firstpage.jpeg" alt="Banner" width="600" title="Banner" style="max-width: 100%">
+                    <a href="http://localhost:5000"<button class="book-button"> Boka nu </button></a>
+                    <a class="banner-text">Ditt konto är registrerat och du kan nu genomföra din första bokning! </a>
+                </td>
+            </tr>
+            
+                
+<!-- BOTTOM SECTION -->
+            <tr>
+                <td height="98" style="background-color: #ffffff"></td>
+            </tr>
+<!-- BOTTOM BORDER -->
+            <tr>
+                <td height="8" style="background-color: #171a1b"></td>
+            </tr>
+
+        </table>
+    </center>
+        
+</body>
+
+    <!-- <div style="background-color: black; margin: 0px; padding: 20px;">
+        <h1 style="color:white;">Thank you for regestring an account with us</h1>
+    </div>
+
+    <div style="background-color:gray; margin: 0px; padding: 20px;"> 
+        <p>Some text</p>
+        <p>more text</p>
+        <p>more text</p>
+        <p>more text</p>
+        <p>more text</p>
+        <p>more text</p>
+    </div>  -->
