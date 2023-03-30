@@ -73,3 +73,4 @@ def edit_booking(db, booking, user, tool_id, start_hour, end_hour):
                 db.session.commit()
                 return "Booking edited"
     return "Booking not found"
+    

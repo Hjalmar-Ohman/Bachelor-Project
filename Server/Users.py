@@ -2,7 +2,9 @@ from flask import abort, jsonify, request
 from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
+
 from EmailFunctionality import *
+
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
@@ -54,7 +56,8 @@ def login(db, bcrypt, User):
 
             return jsonify("fel lösenord eller användarnamn"), 401
         return
-    
+
+
 def delete_user(db, User):
     if request.method == "DELETE":
         data = request.get_json()
