@@ -8,7 +8,7 @@ PUBLIC_STRIPE_KEY = "pk_test_51MqGmBBclQZfILguPT3YglTQxsjnR9gUMF7SgTvW6x0gI8igEL
 stripe.api_key = SECRET_STRIPE_KEY
 
 def process_payment(price, quantity, day, week, start_h, finnish_h):
-    #, day, week, start_hour, finnish_hour
+   
     success = False
     if request.method == "POST":
         data = request.get_json()
@@ -19,10 +19,6 @@ def process_payment(price, quantity, day, week, start_h, finnish_h):
         'currency': 'sek',
         'product_data': {
           'name': 'Bookning:'+'+'+ day +'+'+ week +'+'+ start_h +'+' + finnish_h,
-          #'day': 'day',
-          #'week': 'week',
-          #'start_hour': 'start_hour',
-          #'finnish_hour': 'finnish_hour', 
         },
         'unit_amount': price,
       },

@@ -35,7 +35,7 @@ function get_stripe_public_key(){
 function stripe_ceckout(){
 
     $.ajax({
-        type: "PUT",
+        type: "POST",
         url: host + "/test/checkout",
         dataType: "json",
         contentType: "application/json",
@@ -43,7 +43,11 @@ function stripe_ceckout(){
         data: JSON.stringify({
             
             "price": "1200",
-            "quantity": "7"
+            "quantity": "7",
+            "day": "mon",
+            "week": "3",
+            "start_h": "16",
+            "finnish_h": "17"
         }),
         success: function (data) {
            
