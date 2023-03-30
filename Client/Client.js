@@ -13,6 +13,11 @@ function loadPage() {
  function loadCarsPage() {
    $("div.container-fluid").html($("#view-cars").html())
 }
+
+function loadAccountPage() {
+   $("div.container-fluid").html($("#view-account").html())
+}
+
 function loadRegPage() {
    
    $("div.container-fluid").html($("#view-reg").html())
@@ -47,6 +52,12 @@ $('#loginButton').click(function (e) {
    e.preventDefault();
    loadLoginPage();
 });
+
+$('#accountButton').click(function (e) {
+   e.preventDefault();
+   loadAccountPage();
+});
+
 $('#logoutButton').click(function (e) {
    e.preventDefault();
    sessionStorage.setItem('auth', '');
