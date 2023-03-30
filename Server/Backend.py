@@ -146,6 +146,18 @@ def payment_hook():
         )
         line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
         print(line_items['data'][0]['description'])
+        print(session)
+
+        day = line_items['data'][0]['description'][10:13]
+        week = line_items['data'][0]['description'][14:16]
+        start_h = line_items['data'][0]['description'][17:19]
+        finnish_h = line_items['data'][0]['description'][20:22]
+        
+        print(day)
+        print(week)
+        print(start_h)
+        print(finnish_h)
+        book_tool_redirect()
 
 
     return {}, 200
@@ -209,6 +221,9 @@ def toolBook2(input_id):
 def delete_user2():
     return delete_user(db, User)
 
+def book_tool_redirect(day, week, start_h, finnish_h): #Används till book_tool är klar
+    user = get_jwt_identity
+    return
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

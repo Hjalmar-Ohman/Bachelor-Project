@@ -45,7 +45,7 @@ function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
             "price": "1200",
             "quantity": "7",
             "day": "mon",
-            "week": "3",
+            "week": "03",
             "start_h": "16",
             "finnish_h": "17"
         }),
@@ -66,7 +66,6 @@ function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
 
 $(document).ready(function () {
 
-    viewBuy()
     get_stripe_public_key()
 
 })
