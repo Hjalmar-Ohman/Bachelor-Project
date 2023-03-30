@@ -30,6 +30,8 @@
             <a id ="homeButton" class="nav-item nav-link active font" href="home"style= "right-margin: 10%;">Hem <span class="sr-only">(current)</span></a>
             <a id ="toolButton"class="nav-item nav-link font" href="verktyg">Verktyg</a>
             <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal">Registrera</a>
+            <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar">Mina Bokningar</a>
+            <a id = "accountButton"class="nav-item nav-link font" href="konto">Mitt konto</a>
 
             <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal">Logga in</a>
             <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
@@ -95,7 +97,7 @@
             <div class = "homeBookContainer"> 
                 <h1 class = "font welcomeText" style="color: white;" >Boka och hämta smidigt idag </h1>
                 <P class = "font welcomeUnderText"> </P>
-                <button class=" font welcomeButton btn btn-info" onclick="loadCarsPage()"> Boka NU</button>
+                <button class=" font welcomeButton btn" onclick="loadCarsPage()"> Boka NU</button>
             </div>
             <div class="howitworks">
                 <div class="cards-container">
@@ -126,7 +128,7 @@
       <div style="width: 60%; margin-left:20%;">
            <form action="" class="searchBar">
                   <input type="text" placeholder="Sök efter ditt verktyg" class="font">
-                  <button type="submit"><img src="../Pictures/tools/hammer.png"></button>
+                  <button type="submit"><img src="../Pictures/search.png"></button>
            </form>
            <div class="cardsHolder">
               <div class="card toolcards">
