@@ -1,0 +1,234 @@
+
+ body{
+    background-color: blueviolet;
+    background-image: url("../Pictures/hem1.ppeg.jpg");
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-color: rgb(249, 248, 248);
+    background-size:100%;
+    background-position: top;
+ }
+
+ .container-fluid{
+    width: 100%;
+    margin-left:0px;
+    height: 100%;
+    min-height: 900px;
+ }
+ .homeContainer {
+    width: 100%;
+    height: auto;
+ }
+ .font{
+    font-family: 'Gill Sans';
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+}
+
+.font2{
+  font-family: 'Gill Sans';
+  line-height: 20%;
+ font-size: 20px;
+ text-align: center;
+}
+
+.font3{
+ text-align: center;
+ font-family: 'Gill Sans';
+ color: rgb(124, 124, 124);
+ line-height: 60%;
+ font-size: 20px;
+}
+ /*First page*/
+ .homeBookContainer{
+   margin-top: 5%;
+   margin-left: 10%;
+   height: 30rem;
+   width: 50%;
+   border-radius: 50px;
+
+ }
+
+
+ .welcomeText{
+    text-align: center;
+    color:rgb(114, 114, 114);
+    font-size:40px;
+    line-height: 200%;
+    font-style: bold;
+    padding-top: 10%;
+    margin-top: 10%;
+  }
+  .welcomeUnderText{
+    text-align: center;
+    font-size: 30px;
+ 
+  }
+ .welcomeButton{
+   text-align: center;
+   font-size: 30px;
+   width: 25%;
+   margin-left: 37.5%;
+   background-color: rgb(245, 190, 52);
+   transition: 300ms ease;
+ }
+
+ .welcomeButton:hover{
+  background-color: rgb(245, 170, 52);
+ }
+ .contactBoxLine{
+   margin-top: 5rem;
+   width: 100%;
+   height: 20px;
+   background-color: rgb(4, 4, 3);
+ }
+.contactBox{
+   width: 100%;
+   height: 100%;
+   background-color: rgb(248, 248, 248);
+}
+.leftContactBox{
+   float:left;
+   width: 50%;
+   height: 1000px;
+   background-color: rgb(248, 248, 248);
+}
+.openingHoursBox{
+   float: left;
+   width: 50%;
+}
+.aboutUsBox{
+   float: left;
+   width: 50%;
+}
+.rightConactBox{
+   float: right;
+   width: 50%;
+   height: 1000px;
+   padding-top: 50px;
+   background-color: rgb(248, 248, 248);
+}
+.contactMapBox{
+   margin-top: 2rem;
+   margin-right: 2rem;
+   background-size: 100%;
+   height: 500px;
+   
+}
+ 
+/*End of first page*/
+
+
+/*Knapparna i navbaren*/
+ #homeButton {
+  margin-left: 60%;
+  transition: 300ms ease;
+  font-size: 25px;
+ }
+ #toolButton {
+  transition: 300ms ease;
+  font-size: 25px;
+ }
+ #regButton {
+  transition: 300ms ease;
+  font-size: 25px;
+ }
+ #loginButton {
+  transition: 300ms ease;
+  font-size: 25px;
+  margin-right: 20 px;
+ }
+ #logoutButton {
+  transition: 300ms ease;
+  font-size: 25px;
+ }
+
+ #homeButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #toolButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #regButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #loginButton:hover{
+  color:rgb(245, 190, 52);
+ }
+ #logoutButtonButton:hover{
+  color:rgb(245, 190, 52);
+ }
+/* Slut på knapparna i navbaren*/
+
+ .product-image{
+    margin-right: 30%;
+ }
+
+ #view-home{
+    margin-left: 100px;
+ }
+
+ .howitworks{
+   margin-left: auto;
+   margin-right: auto;
+   width: 80%;
+   height: 200px;
+   background-color: rgba(0,0,0,0.5);
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+ }
+
+
+ .cards-container {
+   width: 100%;
+   height: 300px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-left: 0;
+ }
+
+ .welcomecards {
+   align-items: center;
+   float: left;
+   margin-bottom: 1rem;
+   margin-left: 1rem;
+   text-align: center;
+ }
+
+ .card-img-top{
+   height: 100px;
+   width: 100px;
+   margin-top: 1rem;
+   color: green;
+ }
+
+ .card-text{
+   color: white;
+   margin-top: 1rem;
+   text-align: center;
+   font-size: 30px; 
+ }
+
+ @media screen and (max-width: 768px) {
+   .welcomecards {
+     width: 20%;
+   }
+ }
+ 
+ @media screen and (min-width: 768px) {
+   .welcomecards {
+     width: 25%;
+   }
+ }
+ 
+ @media screen and (min-width: 992px) {
+   .welcomecards {
+     width: 25%;
+   }
+ }
+
