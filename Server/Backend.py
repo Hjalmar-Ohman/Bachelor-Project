@@ -95,7 +95,7 @@ class Booking(db.Model):
 
 @app.route("/")
 def client():
-    return app.send_static_file("Stripe_test.html")
+    return app.send_static_file("Client.html")
 
 
 @app.route("/signup", methods=["POST"])
