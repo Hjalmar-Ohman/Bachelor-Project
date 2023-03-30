@@ -1,22 +1,21 @@
-function search(keyword) {
+host = window.location.protocol + '//' + location.host
+function search() {
+    var keyword = $('#searchText').val();
+    console.log(keyword);
+
+    /*
     $.ajax({
         url: host + '/tools/search?keyword=' + keyword,
         type: 'GET',
+        data: { 'keyword': keyword },
         dataType: 'json',
-        contentType: 'application/json',
-        headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
-        success: function () {
-            //viewTools();
-            return;
+        success: function (data) {
+            // handle successful response from server
+            console.log(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // handle error response from server
+            console.log(errorThrown);
         }
-    });
-}
-
-$('#searchButton').click(function (e) {
-    e.preventDefault();
-    var keyword = $("#searchText").val();
-    console.log("keyword");
-    //TODO: Hämta keyword från html.
-    //search(keyword);
-});
-
+    });*/
+};
