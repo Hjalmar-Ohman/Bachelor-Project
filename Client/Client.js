@@ -1,6 +1,5 @@
 host = window.location.protocol + '//' + location.host
 function loadPage() {
-
    $("div.container-fluid").html($("#view-home").html())
    navToggle();
 }
@@ -12,6 +11,7 @@ function loadContactPage() {
 
 function loadToolsPage() {
    $("div.container-fluid").html($("#view-tools").html())
+   loadTools();
 }
 function loadRegPage() {
 

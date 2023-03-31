@@ -1,5 +1,0 @@
-
-function klickad(){
-    alert(klickad);
-}
-
