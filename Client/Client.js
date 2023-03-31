@@ -63,38 +63,45 @@ function newUser(){
 
   alert(boolean); 
         $.ajax({
-            url: host + '/sign-up',
+            url: host + '/signup',
             type: 'POST',
             datatype: 'JSON',
             contentType: 'application/json',
             data: JSON.stringify({
-                "name" : regName.value,
-                "email":regEmail.value,
-                "password": regLosen.value,
-                "is_admin":boolean
+                "name" : document.getElementById("regName").value,
+                "email": document.getElementById("regEmail").value,
+                "password": document.getElementById("regLosen").value
+                //"is_admin":boolean
             }),
             success: function() {
                alert("Du är registrerad!");
-                loadPage();
+               loadPage();
+            },
+            error: function(){
+               alert("nu blev det fel")
             }
         })
 }
 
 function login(){
+
    $.ajax({
       url: host + '/login',
       type: 'POST',
       datatype: 'JSON',
       contentType: 'application/json',
       data: JSON.stringify({
-          "email":loginEmail.value,
-          "password": loginLosen.value
+          "email": document.getElementById("loginEmail").value,
+          "password": document.getElementById("loginLosen").value
       }),
       success: function(loginResponse) {
          
-         sessionStorage.setItem('auth', JSON.stringify(loginResponse))
+         sessionStorage.setItem('auth', JSON.stringify(loginResponse.token))
          loadPage();
          alert("Du har loggats in");
+      },
+      error: function(){
+         alert("fel epost eller lösenord")
       }
   })
 }

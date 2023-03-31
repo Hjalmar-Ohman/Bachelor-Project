@@ -60,8 +60,7 @@ class Tool(db.Model):
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    fname = db.Column(db.String, nullable=False)
-    lname = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
     password_hash = db.Column(db.String, nullable=False)
 
@@ -69,10 +68,10 @@ class User(db.Model):
         self.password_hash = generate_password_hash(password).decode("utf8")
 
     def __repr__(self):
-        return "<User {}: {} {} {}".format(self.id, self.fname, self.lname, self.email)
+        return "<User {}: {} {}".format(self.id, self.name, self.email)
 
     def seralize(self):
-        return dict(id=self.id, fname=self.fname, lname=self.lname, email=self.email)
+        return dict(id=self.id, name=self.name,  email=self.email)
 
 
 class Booking(db.Model):
@@ -100,12 +99,19 @@ def client():
 
 @app.route("/signup", methods=["POST"])
 def signUp2():
+    
     return signUp(db, User, mail)
 
 
 @app.route("/login", methods=["POST"])
 def login2():
-    return login(db, bcrypt, User)
+
+    inputemail = request.get_json()["email"]
+    password = request.get_json()["password"]
+
+
+    
+    return login(db, bcrypt, User, inputemail, password)
 
 
 # till för backend testning
@@ -152,12 +158,13 @@ def payment_hook():
         week = line_items['data'][0]['description'][14:16]
         start_h = line_items['data'][0]['description'][17:19]
         finnish_h = line_items['data'][0]['description'][20:22]
+        tool_id = line_items['data'][0]['description'][22:-1]
         
         print(day)
         print(week)
         print(start_h)
         print(finnish_h)
-        book_tool_redirect()
+        book_tool_redirect(day, week, start_h, finnish_h, tool_id)
 
 
     return {}, 200
@@ -173,7 +180,7 @@ def test_checkout():
    
 
 
-   return process_payment(request.get_json()["price"], request.get_json()["quantity"], request.get_json()["day"], request.get_json()["week"], request.get_json()["start_h"], request.get_json()["finnish_h"], )
+   return process_payment(request.get_json()["price"], request.get_json()["quantity"], request.get_json()["day"], request.get_json()["week"], request.get_json()["start_h"], request.get_json()["finnish_h"], request.get_json()["tool_id"])
 
 #till för backend testning
 @app.route("/test/checkout/success", methods=["GET"])
@@ -221,9 +228,18 @@ def toolBook2(input_id):
 def delete_user2():
     return delete_user(db, User)
 
-def book_tool_redirect(day, week, start_h, finnish_h): #Används till book_tool är klar
+
+
+#tillfällig lösning
+def book_tool_redirect(day, week, start_h, finnish_h, tool_id): #Används till book_tool är klar
     user = get_jwt_identity
+
+    #book_tool(input data här)
+
     return
+
+
+
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

@@ -4,8 +4,6 @@ from flask_mail import Mail, Message
 
 
 
-
-
 with open('Test_email.html', 'r') as f:
     html_string = f.read()
 

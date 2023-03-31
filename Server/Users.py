@@ -22,11 +22,10 @@ def signUp(db, User, mail):
     if request.method == "POST":
         data = request.get_json()
         email = data.get("email")
-        fname = data.get("fname")
-        lname = data.get("lname")
+        name = data.get("name")
         password = data.get("password")
 
-        user = User(email=email, fname=fname, lname=lname, password_hash="")
+        user = User(email=email, name=name, password_hash="")
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
@@ -36,18 +35,23 @@ def signUp(db, User, mail):
         return "Konto registrerat"
 
 
-def login(db, bcrypt, User):
-    if request.method == "POST":
-        data = request.get_json()
-        inputemail = data.get("email")
-        password = data.get("password")
-
+def login(db, bcrypt, User, inputemail, password):
+    
+        #data = request.get_json()
+       
+        #print(inputemail)
+        #print(password)
+        print("1")
         usr_temp = User.query.filter_by(email=inputemail).first_or_404()
+        if usr_temp!=None:
+            print(usr_temp)
+        else:
+            print(42)
 
         if (inputemail == usr_temp.email) & (
             bcrypt.check_password_hash(usr_temp.password_hash, password)
         ):
-
+            print(2)
             access_token = create_access_token(identity=inputemail)
             dict = {"token": access_token, "user": usr_temp.seralize()}
             print(dict["user"])
@@ -55,8 +59,7 @@ def login(db, bcrypt, User):
         else:
 
             return jsonify("fel lösenord eller användarnamn"), 401
-        return
-
+        
 
 def delete_user(db, User):
     if request.method == "DELETE":

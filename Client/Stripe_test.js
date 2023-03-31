@@ -47,7 +47,8 @@ function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
             "day": "mon",
             "week": "03",
             "start_h": "16",
-            "finnish_h": "17"
+            "finnish_h": "17",
+            "tool_id": "11",
         }),
         success: function (data) {
            
