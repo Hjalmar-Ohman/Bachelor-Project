@@ -42,10 +42,16 @@ class Tool(db.Model):
     name = db.Column(db.String, nullable=False)
     properties = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=False)
 
     def __repr__(self):
         return "<Tool {}: {} {} {} {}".format(
-            self.id, self.price, self.name, self.properties, self.description
+            self.id,
+            self.price,
+            self.name,
+            self.properties,
+            self.description,
+            self.image,
         )
 
     def seralize(self):
@@ -55,6 +61,7 @@ class Tool(db.Model):
             name=self.name,
             properties=self.properties,
             description=self.description,
+            image=self.image,
         )
 
 
@@ -111,7 +118,7 @@ def login2():
 # till för backend testning
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    send_mail(mail) 
+    send_mail(mail)
     return "sent"
 
 
@@ -119,9 +126,11 @@ def test_email():
 def checkout(input_id):
     return
 
-@app.route("/payment_web_hook", methods = ["POST"])
+
+@app.route("/payment_web_hook", methods=["POST"])
 def payment_hook():
     return web_hook()
+
 
 @app.route("/get_stripe_key")
 def get_key():
@@ -131,12 +140,18 @@ def get_key():
 # till för backend testning
 @app.route("/test/checkout", methods=["POST"])
 def test_checkout():
-   
+
+    return process_payment(
+        request.get_json()["price"],
+        request.get_json()["quantity"],
+        request.get_json()["day"],
+        request.get_json()["week"],
+        request.get_json()["start_h"],
+        request.get_json()["finnish_h"],
+    )
 
 
-   return process_payment(request.get_json()["price"], request.get_json()["quantity"], request.get_json()["day"], request.get_json()["week"], request.get_json()["start_h"], request.get_json()["finnish_h"], )
-
-#till för backend testning
+# till för backend testning
 @app.route("/test/checkout/success", methods=["GET"])
 def checkout_success():
     return "Tack för ditt köp"
