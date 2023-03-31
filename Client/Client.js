@@ -2,7 +2,11 @@ host = window.location.protocol + '//' + location.host
 function loadPage() {
 
     $("div.container-fluid").html($("#view-home").html())
+    links.forEach(l => {
+      l.classList.remove("active");
+      });
     navToggle();
+
  }
 
  function loadContactPage() {
