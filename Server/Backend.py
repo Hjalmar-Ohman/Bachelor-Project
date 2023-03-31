@@ -178,9 +178,18 @@ def get_key():
 @app.route("/test/checkout", methods=["POST"])
 def test_checkout():
    
+   #price
+   quantity = request.get_json()["quantity"]
+   day = request.get_json()["day"]
+   week = request.get_json()["week"]
+   start_h = request.get_json()["start_h"]
+   finnish_h = request.get_json()["finnish_h"]
+   tool_id = request.get_json()["tool_id"]
 
+   tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
+   price = tool_temp.price * 100
 
-   return process_payment(request.get_json()["price"], request.get_json()["quantity"], request.get_json()["day"], request.get_json()["week"], request.get_json()["start_h"], request.get_json()["finnish_h"], request.get_json()["tool_id"])
+   return process_payment(str(price), quantity, day, week, start_h, finnish_h, tool_id)
 
 #till för backend testning
 @app.route("/test/checkout/success", methods=["GET"])

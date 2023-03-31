@@ -36,12 +36,7 @@ def signUp(db, User, mail):
 
 
 def login(db, bcrypt, User, inputemail, password):
-    
-        #data = request.get_json()
        
-        #print(inputemail)
-        #print(password)
-        print("1")
         usr_temp = User.query.filter_by(email=inputemail).first_or_404()
         if usr_temp!=None:
             print(usr_temp)
