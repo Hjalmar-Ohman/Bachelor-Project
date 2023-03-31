@@ -257,6 +257,14 @@ margin-left: 20%;
    font-size: 30px; 
  }
 
+ /*Ikonen som visas i navbaren när fönstret är mindre*/
+ .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(256, 256, 256)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+ }
+ .navbar-toggler-icon:hover{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 190, 52)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+ }
+
  /* Nedanstående justerar så att symbolerna kan komprimeras */
  @media screen and (max-width: 768px) {
    .welcomecards {
