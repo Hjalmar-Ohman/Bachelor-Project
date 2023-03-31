@@ -8,8 +8,10 @@
     padding: 1rem;
 }
 .searchBar{
-  margin-top: 1rem;
-    width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 10%;
+    width: 80%;
     border-radius: 30px;
     padding: 1rem;
     background:rgb(255, 255,255, 0.7);
@@ -24,12 +26,15 @@
     outline: none;
     flex: 1;
     width: 90%;
+    font-size: 25px;
+    color: black;
 
 
 }
 .searchBar img{
     height: 40px;
     width: auto;
+    margin-top: 5px;
 }
 .searchBar button{
   border:0px;
@@ -47,11 +52,11 @@
   display: inline-block;
   padding: 1rem;
   margin: 1rem;
-  width: 350px;
+  width: 270px;
   height: 450px;
   box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
   border-radius: 0rem;
-  background-color: rgba(1, 12, 4, 0.3);
+  background-color: rgba(1, 12, 4, 0.5);
   opacity: 1;
   }
   .product-image {
