@@ -10,8 +10,8 @@ function loadContactPage() {
    $("div.container-fluid").html($("#view-contact").html())
 }
 
-function loadCarsPage() {
-   $("div.container-fluid").html($("#view-cars").html())
+function loadToolsPage() {
+   $("div.container-fluid").html($("#view-tools").html())
 }
 function loadRegPage() {
 
@@ -36,7 +36,7 @@ $('#homeButton').click(function (e) {
 
 $('#toolButton').click(function (e) {
    e.preventDefault();
-   loadCarsPage();
+   loadToolsPage();
 });
 
 $('#regButton').click(function (e) {
