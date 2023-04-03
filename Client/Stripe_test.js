@@ -32,7 +32,7 @@ function get_stripe_public_key(){
 
 }
 
-function stripe_ceckout(){
+function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
 
     $.ajax({
         type: "POST",
@@ -42,12 +42,13 @@ function stripe_ceckout(){
         //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth')},
         data: JSON.stringify({
             
-            "price": "1200",
-            "quantity": "7",
+            
+            "quantity": "1",
             "day": "mon",
-            "week": "3",
+            "week": "03",
             "start_h": "16",
-            "finnish_h": "17"
+            "finnish_h": "17",
+            "tool_id": "1",
         }),
         success: function (data) {
            
@@ -66,7 +67,6 @@ function stripe_ceckout(){
 
 $(document).ready(function () {
 
-    viewBuy()
     get_stripe_public_key()
 
 })

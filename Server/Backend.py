@@ -67,8 +67,7 @@ class Tool(db.Model):
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    fname = db.Column(db.String, nullable=False)
-    lname = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
     password_hash = db.Column(db.String, nullable=False)
 
@@ -76,10 +75,10 @@ class User(db.Model):
         self.password_hash = generate_password_hash(password).decode("utf8")
 
     def __repr__(self):
-        return "<User {}: {} {} {}".format(self.id, self.fname, self.lname, self.email)
+        return "<User {}: {} {}".format(self.id, self.name, self.email)
 
     def seralize(self):
-        return dict(id=self.id, fname=self.fname, lname=self.lname, email=self.email)
+        return dict(id=self.id, name=self.name, email=self.email)
 
 
 class Booking(db.Model):
@@ -102,17 +101,22 @@ class Booking(db.Model):
 
 @app.route("/")
 def client():
-    return app.send_static_file("Client.html")
+    return app.send_static_file("client.html")
 
 
 @app.route("/signup", methods=["POST"])
 def signUp2():
+
     return signUp(db, User, mail)
 
 
 @app.route("/login", methods=["POST"])
 def login2():
-    return login(db, bcrypt, User)
+
+    inputemail = request.get_json()["email"]
+    password = request.get_json()["password"]
+
+    return login(db, bcrypt, User, inputemail, password)
 
 
 # till för backend testning
@@ -129,7 +133,44 @@ def checkout(input_id):
 
 @app.route("/payment_web_hook", methods=["POST"])
 def payment_hook():
-    return web_hook()
+    print("Web_hook is called")
+    payload = request.get_data()
+    sig_header = request.environ.get("HTTP_STRIPE_SIGNATURE")
+    endpoint_secret = (
+        "whsec_328c4c96086acd8e809e0a6557c93419bb3610d12ceeb1949be08d674d487da7"
+    )
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
+    except ValueError as e:
+        # Error om payload innehåller fel typer
+        print("invalid payload")
+        return {}, 400
+    except stripe.error.SignatureVerificationError as e:
+        print("invalid signature")
+        return {}, 400
+
+    # hämtar "check_out eventet",
+    if event["type"] == "checkout.session.completed":
+        session = stripe.checkout.Session.retrieve(event["data"]["object"]["id"])
+        line_items = stripe.checkout.Session.list_line_items(session["id"], limit=1)
+        print(line_items["data"][0]["description"])
+        print(session)
+
+        day = line_items["data"][0]["description"][10:13]
+        week = line_items["data"][0]["description"][14:16]
+        start_h = line_items["data"][0]["description"][17:19]
+        finnish_h = line_items["data"][0]["description"][20:22]
+        tool_id = line_items["data"][0]["description"][22:-1]
+
+        print(day)
+        print(week)
+        print(start_h)
+        print(finnish_h)
+        book_tool_redirect(day, week, start_h, finnish_h, tool_id)
+
+    return {}, 200
 
 
 @app.route("/get_stripe_key")
@@ -141,14 +182,18 @@ def get_key():
 @app.route("/test/checkout", methods=["POST"])
 def test_checkout():
 
-    return process_payment(
-        request.get_json()["price"],
-        request.get_json()["quantity"],
-        request.get_json()["day"],
-        request.get_json()["week"],
-        request.get_json()["start_h"],
-        request.get_json()["finnish_h"],
-    )
+    # price
+    quantity = request.get_json()["quantity"]
+    day = request.get_json()["day"]
+    week = request.get_json()["week"]
+    start_h = request.get_json()["start_h"]
+    finnish_h = request.get_json()["finnish_h"]
+    tool_id = request.get_json()["tool_id"]
+
+    tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
+    price = tool_temp.price * 100
+
+    return process_payment(str(price), quantity, day, week, start_h, finnish_h, tool_id)
 
 
 # till för backend testning
@@ -196,6 +241,17 @@ def toolBook2(input_id):
 @app.route("/user/delete", methods=["DELETE"])
 def delete_user2():
     return delete_user(db, User)
+
+
+# tillfällig lösning
+def book_tool_redirect(
+    day, week, start_h, finnish_h, tool_id
+):  # Används till book_tool är klar
+    user = get_jwt_identity
+
+    # book_tool(input data här)
+
+    return
 
 
 if __name__ == "__main__":

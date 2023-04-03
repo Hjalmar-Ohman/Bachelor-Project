@@ -3,7 +3,6 @@ from flask_mail import Mail, Message
 
 # from Backend import app
 
-
 with open("Test_email.html", "r") as f:
     html_string = f.read()
 
