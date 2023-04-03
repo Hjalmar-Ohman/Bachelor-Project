@@ -204,3 +204,17 @@ td:hover{
 #Må0001{
     background-color: brown;
 }
+
+
+
+#bookModalRightHeader{
+  width: 50%;
+  height: auto;
+  float: left;
+}
+#bookModalRightSelector{
+  width: 50%;
+  height: auto;
+  float: right;
+  background-color: blue;
+}
