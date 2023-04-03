@@ -17,26 +17,6 @@ function addToolCard(tool) {
     card.append(productImage, productInfo, btn);
     cardsHolder.append(card);
 }
-
-
-function search() {
-    var keyword = $("#searchText").val();
-    removeTools();
-
-    $.ajax({
-        url: host + '/tools/search?keyword=' + keyword,
-        type: 'GET',
-        dataType: 'json',
-        contentType: 'application/json',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
-        success: function (tools) {
-            $.each(tools, function (i, tool) {
-                addToolCard(tool);
-            });
-        }
-    });
-}
-
 function loadTools() {
     $.ajax({
         url: host + '/tools',
@@ -51,28 +31,49 @@ function loadTools() {
         }
     });
 }
-
-function removeTools() {
-    $.ajax({
-        url: host + '/tools',
-        type: 'GET',
-        dataType: 'json',
-        contentType: 'application/json',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
-        success: function (tools) {
-            $.each(tools, function (i, tool) {
-                $('#toolID' + tool.id).remove();
-                console.log(tool.id);
-            });
-        }
-    });
-}
-
 $(document).ready(function () {
-    $('#searchText').on('keypress', function (e) {
+    function search() {
+        var keyword = $("#searchText").val();
+        removeTools();
+
+        $.ajax({
+            url: host + '/tools/search?keyword=' + keyword,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json',
+            //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+            success: function (tools) {
+                $.each(tools, function (i, tool) {
+                    addToolCard(tool);
+                });
+            }
+        });
+    }
+
+    function removeTools() {
+        $.ajax({
+            url: host + '/tools',
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json',
+            //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+            success: function (tools) {
+                $.each(tools, function (i, tool) {
+                    $('#toolID' + tool.id).remove();
+                    console.log(tool.id);
+                });
+            }
+        });
+    }
+
+
+    $('#searchText').on('keyup', function (e) {
+        console.log(1);
         if (e.key === 'Enter') {
+            //e.preventDefault();
+            console.log(1);
             search();
-            document.getElementById('#searchText').value = "";
+            $('#searchText').val('');
         }
     });
 });
