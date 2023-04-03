@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="Tools.css">
     <link rel="stylesheet" href="Bookings.css">
     <link rel="stylesheet" href="Account.css">
+    <link rel="stylesheet" href="Howitworks.css">
 
     <title>Tool in a Box</title>
   </head> <!-- Navbaren med logan och de olika alternativen -->
@@ -34,7 +35,7 @@
             <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal"onclick="this.classList.toggle('active')">Registrera</a>
             <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar"onclick="this.classList.toggle('active')">Mina bokningar</a>
             <a id = "accountButton"class="nav-item nav-link font" href="konto" onclick="this.classList.toggle('active')">Mitt konto</a>
-
+            <a id = "howtoButton"class="nav-item nav-link font" href="howto" onclick="this.classList.toggle('active')">Så funkar det</a>
             <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal"onclick="this.classList.toggle('active')">Logga in</a>
             <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout">Logga ut</a>
           
@@ -167,6 +168,30 @@
           </div>
           </div>
   </script>
+
+
+
+   <!-- Sidan för att visa hur bokningssystemet fungerar -->
+   <script id="view-howto" type="text/html" style ="padding: 0px">
+      <div class = "homeBookContainer"> 
+        <div class = "howtoContainer">
+          <div class ="textbox">
+          <h1 class = "font mybookingstext" style="margin-bottom: 5%;">Såhär funkar det</h1>
+          <p class = "font6"> 1. Skapa en användare på toolinabox.se </p>
+          <p class = "font6">2. Sök bland verktygen och klicka in på det verktyg som söks </p>
+          <p class = "font6"> 3. Välj i kalendern bland de lediga tiderna och klicka sedan på boka och betala </p>
+          <p class = "font6"> 4. Följ anvisningarna för betalning</p>
+          <p class = "font6"> 5. Gå in på din e-postadress som du registrerade din användare på och hämta koden du fått skickad till dig </p>
+          <p class = "font6"> 6. Gå till paketboxskåpet som ligger utmarkerad på kartan längst ner på hemsidan</p>
+          <p class = "font6"> 7. Skriv in din kod på skåpet och hämta ut verktyget</p>
+          <p class = "font6"> 8. Innan din bokade tid är slut ska verktyget lämnas tillbaka i skåpet. Detta görs genom att placera verktyget som det var när du hämtade det och stäng sedan skåpet</p>
+        </div>
+      </div>  
+    </div>
+</script>
+
+
+
   <!-- Sidan för att se alla verktyg som finns att boka -->
     <script id="view-tools" type="text/html">
       <div style="width: 80%; margin-left:10%;">
