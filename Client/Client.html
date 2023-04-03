@@ -273,304 +273,161 @@
                 <p class ="font modalInfo">En hammare består av huvud och skaft. Skaftet kan vara av trä, metall eller glasfiber. Det fästs i det elliptiskt koniska ögat i huvudet och kilas fast med metall- eller träkil i ett sågat spår i skaftet (om detta är av trä). Det hela kan förstärkas med epoxylim som fyller ut luckor i ögat mellan skaft och huvud. Ytterligare förstärkning kan förekomma med järnhakar genom ögat. Hakarna spikas fast mot skaftet.</p>
             </div>
             <div class="bookModalRight">
-            <!-- Kalendern för de olika verktygen -->
+              <!-- Kalendern för de olika verktygen -->
+            <div id="rightTop">
+              <div class="bookModalRightHeader"> <h1 class="font dropdowmHeader">Se tilljängliga tider!</h1></div>
+                  <div class="modalBookRightSelector"> 
+                      
+                    <div class="day-select">
+                        <!-- <p>Välj start:</p> -->
+                        <select required id="selectedWeek" onchange="showCalendar(this, selectedDay)">
+                          <option value="" selected disabled>Vilken vecka?</option>
+                          <option value="01">1</option>
+                          <option value="02">2</option>
+                          <option value="03">3</option>
+                          <option value="04">4</option>
+                          <option value="05">5</option>
+                          <option value="06">6</option>
+                          <option value="07">7</option>
+                          <option value="08">8</option>
+                          <option value="09">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+                          <option value="31">31</option>
+                          <option value="32">32</option>
+                          <option value="33">33</option>
+                          <option value="34">34</option>
+                          <option value="35">35</option>
+                          <option value="36">36</option>
+                          <option value="37">37</option>
+                          <option value="38">38</option>
+                          <option value="39">39</option>
+                          <option value="40">40</option>
+                          <option value="41">41</option>
+                          <option value="42">42</option>
+                          <option value="43">43</option>
+                          <option value="44">44</option>
+                          <option value="45">45</option>
+                          <option value="46">46</option>
+                          <option value="47">47</option>
+                          <option value="48">48</option>
+                          <option value="49">49</option>
+                          <option value="50">50</option>
+                          <option value="51">51</option>
+                          <option value="52">52</option>
+                        </select>
+                      </div>
+                      <div class="day-select">
+                        <!-- <p>Välj start:</p> -->
+                        <select required id="selectedDay" onchange="showCalendar(selectedWeek, this)">
+                          <option value="" selected disabled>Vilken dag?</option>
+                          <option value="00">Måndag</option>
+                          <option value="01">Tisdag</option>
+                          <option value="02">Onsdag</option>
+                          <option value="03">Torsdag</option>
+                          <option value="04">Fredag</option>
+                          <option value="05">Lördag</option>
+                          <option value="06">Söndag</option>
+                        
+                        </select>
+                      </div>
+                    </div>
+            </div>
+            
             <div class="calendar">
               <table>
                 <thead>
-                  <tr>
-                    <h1 class="font modalHeader">Vecka X</h1>
-                  </tr>
                   <tr class="day">
-                    <th><-</th>
-                    <th>
-                      <span class="day">Måndag</span>
-                    </th>
-                    <th>
-                      <span class="day">Tisdag</span>
-                    </th>
-                    <th>
-                      <span class="day">Onsdag</span>
-                    </th>
-                    <th>
-                      <span class="day">Torsdag</span>
-                    </th>
-                    <th>
-                      <span class="day">Fredag</span>
-                    </th>
-                    <th>
-                      <span class="day">Lördag</span>
-                    </th>
-                    <th>
-                      <span class="day">Söndag</span>
-                    </th>
-                    <th>-></th>
+                    <th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class ="oddRow">
                     <td class="hour"><span>00:00 01:00</span></td>
                     <td id="Må0001" onclick = "klickad()"></td>
+                    <td class="hour"><span>06:00 07:00</span></td>
                     <td></td>
+                    <td class="hour"><span>12:00 13:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hour"><span>18:00 19:00</span></td>
                     <td></td>
                   
                   </tr>
                   <tr class ="evenRow">
                     <td class="hour" ><span>01:00 02:00</span></td>
                     <td></td>
+                    <td class="hour"><span>07:00 08:00</span></td>
                     <td></td>
+                    <td class="hour"><span>13:00 14:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hour"><span>19:00 20:00</span></td>
                     <td></td>
 
                   </tr>                    
                   <tr class ="oddRow">
                     <td class="hour" ><span>02:00 03:00</span></td>
                     <td></td>
+                    <td class="hour" ><span>08:00 09:00</span></td>
                     <td></td>
+                    <td class="hour" ><span>14:00 15:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hour" ><span>20:00 21:00</span></td>
                     <td></td>
 
                   </tr>                    
                   <tr class ="evenRow">
                     <td class="hour" ><span>03:00  04:00</span></td>
                     <td></td>
+                    <td class="hour" ><span>09:00 10:00</span></td>
                     <td></td>
+                    <td class="hour" ><span>15:00 16:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hour" ><span>21:00 22:00</span></td>
                     <td></td>
 
                   </tr>                    
                   <tr class ="oddRow">
                     <td class="hour" ><span>04:00 05:00</span></td>
                     <td></td>
+                    <td class="hour" ><span>10:00 11:00</span></td>
                     <td></td>
+                    <td class="hour" ><span>16:00 17:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hour" ><span>22:00 23:00</span></td>
                     <td></td>
 
                   </tr>                    
                   <tr class ="evenRow">
                     <td class="hour" ><span>05:00 06:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>06:00 07:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                  
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>07:00 08:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>08:00  09:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>09:00 10:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-  
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>10:00 11:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
                     <td class="hour" ><span>11:00 12:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>12:00 13:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>13:00 14:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>14:00 15:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>15:00 16:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>16:00 17:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
                     <td class="hour" ><span>17:00 18:00</span></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="hour" ><span>23:00 24:00</span></td>
                     <td></td>
 
                   </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>18:00 19:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>19:00 20:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>20:00 21:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                   
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>21:00 22:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>22:00 23:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-            
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>23:00 00:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
+                 
                 </tbody>
               </table>
             </div>

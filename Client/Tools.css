@@ -139,8 +139,9 @@
     float: right;
   }
   .calendar{
-    overflow-y: scroll;
-    height:500px;
+    height:auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   .modalHeader{
     color: rgb(245, 190, 52);
@@ -158,7 +159,8 @@
     font-size: 1rem;
     transition: 300ms ease;
     margin:auto;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
+    
     color: white;
     font-style: bold;
   }
@@ -172,7 +174,6 @@ table{
 		  border-spacing: 0;
 	  	border-collapse: separate;
 		  table-layout: fixed;
-		  margin-bottom: 50px;
       border: 0px solid;
       text-align: center;
 }
@@ -184,7 +185,7 @@ td{
   cursor: pointer;
 }
 td:hover{
-  background-color: green;
+  background-color: rgb(137, 231, 137);
 }
 .day{
   background-color: rgb(245, 190, 52);
@@ -198,7 +199,7 @@ td:hover{
   background-color: rgb(251, 252, 252);
 }
 .evenRow{
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(245, 190, 52, 0.15);
 }
 
 #Må0001{
@@ -207,14 +208,52 @@ td:hover{
 
 
 
-#bookModalRightHeader{
+.bookModalRightHeader{
   width: 50%;
   height: auto;
   float: left;
 }
-#bookModalRightSelector{
+.bookModalRightSelector{
   width: 50%;
   height: auto;
   float: right;
-  background-color: blue;
+
 }
+
+#rightTop{
+  height: 8rem;
+}
+
+
+
+
+/* Dropdownboxes*/
+
+.dropdowmHeader{
+  color: rgb(245, 190, 52);
+  padding-left: 1rem;
+  text-align: center;
+}
+
+.day-select{
+  margin-left: 22rem;
+  margin-top: 1rem;
+}
+.day-select select {
+  width: 10rem;
+  background-color:rgb(250, 215, 118,0.5);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  text-align-last: center;
+  text-align: center;
+ 
+  /*Tar bort pilen ner*/
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.day-select select:checked{
+  background-color:rgb(36, 27, 170);
+}
+
+
