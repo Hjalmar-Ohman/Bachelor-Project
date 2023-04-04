@@ -71,8 +71,22 @@ def get_user(db, User):
 
 def edit_user(db, User):
     if request.method == "PUT":
-        user_tmp = User.query.filter_by(email=toolID).first_or_404()
-        data = request.get_json()
+       current_user_email = get_jwt_identity()
+       user_tmp = User.query.filter_by(email=current_user_email).first_or_404()
+
+       if "name" in request.get_json():
+        setattr(user_tmp, "name", request.get_json()["name"] )
+
+       if "email" in request.get_json():
+        setattr(user_tmp, "email", request.get_json()["email"] )
+
+       if "password" in request.get_json():
+        setattr(user_tmp, "password", request.get_json()["password"] )
+    
+    db.session.commit()
+
+    return "User changed." + str(User.query.filter_by(email=current_user_email).first_or_404())
+
 
     
 

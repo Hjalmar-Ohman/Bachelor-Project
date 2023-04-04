@@ -258,9 +258,9 @@ def get_user2():
     return get_user(db, User)
 
 @app.route("/user/edit", methods=["PUT"])
-def edit_user2(input_id):
-    userID = input_id
-    return edit_user(db, User, userID)
+@jwt_required()
+def edit_user2():
+    return edit_user(db, User)
 
 
 #tillfällig lösning
