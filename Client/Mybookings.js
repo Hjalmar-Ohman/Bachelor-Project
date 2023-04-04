@@ -17,6 +17,7 @@ function dayIntConverter(dayint) {
         return "Söndag";
     }
 }
+
 function addBookingRow(booking) {
     $.ajax({
         url: host + '/tools/' + booking.tool_id,
