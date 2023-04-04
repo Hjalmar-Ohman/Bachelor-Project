@@ -33,11 +33,14 @@ function get_stripe_public_key(){
 }
 
 function stripe_checkout(tool_id, day, week, start_h, finnish_h){
+    var finnish_h_str
+    var start_h_str
 
     user_id = sessionStorage.getItem('user_id')
     console.log(sessionStorage.getItem('user_id'))
 
     quantity = finnish_h - start_h
+    quantity_str = quantity.toString()
 
     if (start_h < 10){
         start_h_str = start_h.toString()
@@ -62,6 +65,12 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
     }
 
+    console.log(week_str)
+    console.log(start_h_str)
+    console.log(finnish_h_str)
+    console.log(user_id)
+    console.log(tool_id)
+    console.log(day)
 
     $.ajax({
         type: "POST",
@@ -73,12 +82,12 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
             
 
             "user_id" : user_id,
-            "quantity": quantity,
+            "quantity": "1",
             "day": day,
-            "week": week,
+            "week": week_str,
             "start_h": start_h_str,
             "finnish_h": finnish_h_str,
-            "tool_id": tool_id,
+            "tool_id": tool_id.toString(),
         }),
         success: function (data) {
            
