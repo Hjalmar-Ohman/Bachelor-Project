@@ -21,6 +21,26 @@ def book_tool(db, booking, user, tool_id, start_hour, end_hour, day, year):
     return "Booking successful"
 
 
+
+
+
+#till för stripe (tar emot id istället)
+def book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week):
+    #current_user_email = get_jwt_identity()
+    current_user = User.query.filter_by(id=user_id).first()
+
+    new_booking = Booking(
+        user_id=current_user.id, tool_id=tool_id, start_hour=start_hour, end_hour=end_hour, day=day, week=week
+    )
+    db.session.add(new_booking)
+    db.session.commit()
+
+    return "Booking successful"
+
+
+
+
+
 # Funktionen tar in User id, tar alla bokningar som hör till den användaren och lägger de i en lista.
 def user_bookings(user_id, booking):
     all_bookings = booking.query.all()

@@ -34,15 +34,17 @@ function get_stripe_public_key(){
 
 function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
 
+    user_id = sessionStorage.getItem('user_id')
+    console.log(sessionStorage.getItem('user_id'))
     $.ajax({
         type: "POST",
         url: host + "/test/checkout",
         dataType: "json",
         contentType: "application/json",
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth')},
+        headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth')},
         data: JSON.stringify({
             
-            
+            "user_id" : user_id,
             "quantity": "1",
             "day": "mon",
             "week": "03",
