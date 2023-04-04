@@ -171,7 +171,7 @@ def payment_hook():
         print("user_id: "+user_id)
         print("tool_id: "+tool_id)
         
-        #book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week)
+        book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week)
 
 
     return {}, 200
