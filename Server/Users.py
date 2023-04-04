@@ -46,10 +46,10 @@ def login(db, bcrypt, User, inputemail, password):
         if (inputemail == usr_temp.email) & (
             bcrypt.check_password_hash(usr_temp.password_hash, password)
         ):
-            print(2)
+            
             access_token = create_access_token(identity=inputemail)
-            dict = {"token": access_token, "user": usr_temp.seralize()}
-            print(dict["user"])
+            dict = {"token": access_token, "user_id": usr_temp.id}
+            print(dict["user_id"])
             return jsonify(dict)
         else:
 
