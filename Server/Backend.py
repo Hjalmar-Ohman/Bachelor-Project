@@ -252,6 +252,10 @@ def toolBook2(input_id):
 def delete_user2():
     return delete_user(db, User)
 
+@app.route("/user/<int:user_id>/bookings", methods=["GET"])
+@jwt_required()
+def user_bookings2(user_id, Booking):
+    return user_bookings(user_id, Booking)
 
 
 #tillfällig lösning

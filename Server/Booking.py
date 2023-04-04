@@ -42,13 +42,13 @@ def book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, 
 
 
 # Funktionen tar in User id, tar alla bokningar som hör till den användaren och lägger de i en lista.
-def user_bookings(user_id, booking):
-    all_bookings = booking.query.all()
+def user_bookings(user_id, Booking):
+    all_bookings = Booking.query.all()
     bookings_list = []
 
     for b in all_bookings:
         if b.user_id == user_id:
-            bookings_list.append(booking.serialize(b))
+            bookings_list.append(b.serialize())
 
     return jsonify(bookings_list)
 

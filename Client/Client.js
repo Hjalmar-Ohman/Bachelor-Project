@@ -23,6 +23,7 @@ function loadPage() {
 
 function loadBookingsPage() {
    $("div.container-fluid").html($("#view-bookings").html())
+   getBookings();
 }
 function loadAccountPage() {
    $("div.container-fluid").html($("#view-account").html())
@@ -173,4 +174,15 @@ link.classList.add("active");
 });
 });
 
-
+function getBookings(){
+     
+   $.ajax({
+         url: host + '/user/<int:user_id>/bookings',
+         type: 'GET',
+         datatype: 'JSON',
+         contentType: 'application/json',
+         success: function(user_bookings) {
+            console.log("success")
+         }
+      });
+   }
