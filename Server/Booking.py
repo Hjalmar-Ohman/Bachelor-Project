@@ -13,7 +13,12 @@ def book_tool(db, booking, user, tool_id, start_hour, end_hour, day, year):
     current_user = user.query.filter_by(email=current_user_email).first()
 
     new_booking = booking(
-        user_id=current_user.id, tool_id=tool_id, start_hour=start_hour, end_hour=end_hour, day=day, year=year
+        user_id=current_user.id,
+        tool_id=tool_id,
+        start_hour=start_hour,
+        end_hour=end_hour,
+        day=day,
+        year=year,
     )
     db.session.add(new_booking)
     db.session.commit()
@@ -21,16 +26,20 @@ def book_tool(db, booking, user, tool_id, start_hour, end_hour, day, year):
     return "Booking successful"
 
 
-
-
-
-#till för stripe (tar emot id istället)
-def book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week):
-    #current_user_email = get_jwt_identity()
+# till för stripe (tar emot id istället)
+def book_tool_by_ids(
+    db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week
+):
+    # current_user_email = get_jwt_identity()
     current_user = User.query.filter_by(id=user_id).first()
 
     new_booking = Booking(
-        user_id=current_user.id, tool_id=tool_id, start_hour=start_hour, end_hour=end_hour, day=day, week=week
+        user_id=current_user.id,
+        tool_id=tool_id,
+        start_hour=start_hour,
+        end_hour=end_hour,
+        day=day,
+        week=week,
     )
     db.session.add(new_booking)
     db.session.commit()
@@ -38,17 +47,14 @@ def book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, 
     return "Booking successful"
 
 
-
-
-
 # Funktionen tar in User id, tar alla bokningar som hör till den användaren och lägger de i en lista.
-def user_bookings(user_id, Booking):
-    all_bookings = Booking.query.all()
+def user_bookings(user_id, booking):
+    all_bookings = booking.query.all()
     bookings_list = []
 
     for b in all_bookings:
         if b.user_id == user_id:
-            bookings_list.append(b.serialize())
+            bookings_list.append(booking.serialize(b))
 
     return jsonify(bookings_list)
 
@@ -93,4 +99,3 @@ def edit_booking(db, booking, user, tool_id, start_hour, end_hour):
                 db.session.commit()
                 return "Booking edited"
     return "Booking not found"
-    
