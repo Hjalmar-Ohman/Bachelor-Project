@@ -11,7 +11,7 @@ function addToolCard(tool) {
     var h2 = $('<h2>' + tool.name + '</h2>');
     var p = $('<p>' + tool.properties + '</p>');
     var price = $('<div class="price">' + tool.price + ' kr/h</div>');
-    var btn = $('<button class="buy-btn" data-toggle="modal" data-target="#mymodal" onclick ="showCalendar(0,0)">Boka nu</button>');
+    var btn = $('<button class="buy-btn" data-toggle="modal" data-target="#mymodal" onclick ="showCalendar(0,0);showBookModalLeft(' + tool.id + ')">Boka nu</button>');
 
     productImage.append(img);
     productInfo.append(h2, p, price);
@@ -81,6 +81,28 @@ $('#searchText').on('keyup', function (e) {
 
 function klickad() {
     alert(klickad);
+}
+
+function showBookModalLeft(toolID) {
+    $.ajax({
+        url: host + '/tools/' + toolID,
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+        success: function (tool) {
+
+            console.log("left funciton");
+            var bookModalLeft = $('.bookModalLeft');
+            $('.bookModalLeft').html("");
+
+            var name = '<h1 class="font modalHeader">' + tool.name + '</h1>';
+            var img = '<div class="product-image"> <img src="' + tool.image + '" alt="Tool Image" draggable="false" /> </div>';
+            var description = '<p class ="font modalInfo">' + tool.description + '</p>';
+
+            bookModalLeft.append(name, img, description);
+        }
+    });
 }
 
 function showCalendar(selectWeek, selectDay) {
