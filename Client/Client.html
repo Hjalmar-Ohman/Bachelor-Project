@@ -6,90 +6,105 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css"/>
-    <link rel="stylesheet" href="client.css">
-    <link rel="stylesheet" href="LogInOut.css">
-    <link rel="stylesheet" href="Tools.css">
-    <link rel="stylesheet" href="Bookings.css">
-    <link rel="stylesheet" href="Account.css">
-    <link rel="stylesheet" href="Howitworks.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css" />
+  <link rel="stylesheet" href="client.css">
+  <link rel="stylesheet" href="LogInOut.css">
+  <link rel="stylesheet" href="Tools.css">
+  <link rel="stylesheet" href="Bookings.css">
+  <link rel="stylesheet" href="Account.css">
+  <link rel="stylesheet" href="Howitworks.css">
 
-    <title>Tool in a Box</title>
-  </head> <!-- Navbaren med logan och de olika alternativen -->
-  <body>
-    <nav class="navbar navbar-expand-lg " style ="background-color: rgba(0,0,0,.4)">
-      <div class="logotype"> 
-        <div class="product-image">
-          <img src="/Pictures/logotype.png" alt="logo Image" draggable="false" onclick="loadPage()" style="width: 150px; height: 75px; margin-left: 70%; margin-top: 7%"/>
-        </div>
-      <a class="navbar-brand navbarLogo font" href="#" style ="font-size:50px; color: white" onclick="loadPage()" ></a>
+  <title>Tool in a Box</title>
+</head> <!-- Navbaren med logan och de olika alternativen -->
+
+<body>
+  <nav class="navbar navbar-expand-lg " style="background-color: rgba(0,0,0,.4)">
+    <div class="logotype">
+      <div class="product-image">
+        <img src="/Pictures/logotype.png" alt="logo Image" draggable="false" onclick="loadPage()"
+          style="width: 150px; height: 75px; margin-left: 70%; margin-top: 7%" />
       </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          
-            <a id ="toolButton"class="nav-item nav-link font" href="verktyg"onclick="this.classList.toggle('active')">Verktyg </a>
-            <a id ="regButton"class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal"onclick="this.classList.toggle('active')">Registrera</a>
-            <a id = "bookingsButton"class="nav-item nav-link font" href="bokningar"onclick="this.classList.toggle('active')">Mina bokningar</a>
-            <a id = "accountButton"class="nav-item nav-link font" href="konto" onclick="this.classList.toggle('active')">Mitt konto</a>
-            <a id = "howtoButton"class="nav-item nav-link font" href="howto" onclick="this.classList.toggle('active')">Så funkar det</a>
-            <a id ="loginButton"class="nav-item nav-link my-2 my-sm-0 font" style = "margin-right: 10px" href="login" data-toggle="modal" data-target="#myModal"onclick="this.classList.toggle('active')">Logga in</a>
-            <a id ="logoutButton"class="nav-item nav-link my-2 my-sm-0 font" href="logout" onclick="logout()">Logga ut</a>
-          
-        </div>
-    
-    </nav>
-      
+      <a class="navbar-brand navbarLogo font" href="#" style="font-size:50px; color: white" onclick="loadPage()"></a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-    <div>
-      <!-- Denna container fylls på beroende på vilken sida användaren är på -->
-      <div class="container-fluid">
+      <a id="toolButton" class="nav-item nav-link font" href="verktyg" onclick="this.classList.toggle('active')">Verktyg
+      </a>
+      <a id="regButton" class="nav-item nav-link font" href="reg" data-toggle="modal" data-target="#myRegModal"
+        onclick="this.classList.toggle('active')">Registrera</a>
+      <a id="bookingsButton" class="nav-item nav-link font" href="bokningar"
+        onclick="this.classList.toggle('active')">Mina bokningar</a>
+      <a id="accountButton" class="nav-item nav-link font" href="konto" onclick="this.classList.toggle('active')">Mitt
+        konto</a>
+      <a id="howtoButton" class="nav-item nav-link font" href="howto" onclick="this.classList.toggle('active')">Så
+        funkar det</a>
+      <a id="loginButton" class="nav-item nav-link my-2 my-sm-0 font" style="margin-right: 10px" href="login"
+        data-toggle="modal" data-target="#myModal" onclick="this.classList.toggle('active')">Logga in</a>
+      <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font" href="logout" onclick="logout()">Logga ut</a>
+
+    </div>
+
+  </nav>
+
+
+  <div>
+    <!-- Denna container fylls på beroende på vilken sida användaren är på -->
+    <div class="container-fluid">
+    </div>
+    <!--Nedanstående syns på varje sida och innehåller information samt karta -->
+    <div class="contactBox">
+
+      <div class="contactBoxLine">
       </div>
-      <!--Nedanstående syns på varje sida och innehåller information samt karta -->
-      <div class="contactBox">
+      <div class="leftContactBox">
+        <div class="openingHoursBox">
+          <h1 class="welcomeText" style="margin-left: 20%"> Öppettider</h1>
+          <P class="font3">Mån-Fre 00-24 </P>
+          <P class="font3 ">Lör-Sön 05-24 </P>
 
-        <div class="contactBoxLine">
-        </div>
-          <div class="leftContactBox">
-              <div class="openingHoursBox">
-                  <h1 class = "welcomeText" style="margin-left: 20%" > Öppettider</h1>
-                  <P class = "font3">Mån-Fre 00-24 </P>
-                  <P class = "font3 ">Lör-Sön 05-24 </P>
+          <h1 class="welcomeText" style="margin-left: 20%;"> Om oss</h1>
+          <P class="font3 ">Adress Studievägen 1</P>
+          <P class="font3 ">E-post toolin@box.se</P>
+          <P class="font3 ">Telefon 0700000000</P>
 
-                  <h1 class = "welcomeText" style="margin-left: 20%;" > Om oss</h1>
-                  <P class = "font3 ">Adress Studievägen 1</P>
-                  <P class = "font3 ">E-post toolin@box.se</P>
-                  <P class = "font3 ">Telefon 0700000000</P>
-              
-                  <h1 class = "welcomeText" style="margin-left: 20%;"> Följ oss</h1>
-                  <div class="facebook-image">
-                    <img src="/Pictures/Ikoner/facebook.png" alt="Facebook Image" draggable="false" style="width: 30px; height: 30px; float: left; margin-left: 20%" />
-                  </div>
-                  <div class="twitter-image">
-                    <img src="/Pictures/Ikoner/twitter.png" alt="Twitter Image" draggable="false" style="width: 30px; height: 30px; float: left; margin-left: 5%"/>
-                  </div>
-                  <div class="instagram-image">
-                    <img src="/Pictures/Ikoner/instagram.png" alt="Instagram Image" draggable="false" style="width: 30px; height: 30px; float:left; margin-left: 5%"/>
-                  </div>   
-              </div>
-
-              <div class="map" >
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6529.92279814412!2d15.57656780752961!3d58.403659367494726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46596f6923f07913%3A0x5f91d8e14d8b6a57!2sStudiev%C3%A4gen%201%2C%20583%2029%20Link%C3%B6ping!5e0!3m2!1ssv!2sse!4v1680011315369!5m2!1ssv!2sse" 
-            width="650" height="500" style="border:0; margin-top: 10%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
-  
-           </div>
-             
-            <div class="contactBoxLine" style="margin-top: 700px;">
-            </div>
-            <p class="text"> © 2023 Tool in A Box </p>
+          <h1 class="welcomeText" style="margin-left: 20%;"> Följ oss</h1>
+          <div class="facebook-image">
+            <img src="/Pictures/Ikoner/facebook.png" alt="Facebook Image" draggable="false"
+              style="width: 30px; height: 30px; float: left; margin-left: 20%" />
           </div>
+          <div class="twitter-image">
+            <img src="/Pictures/Ikoner/twitter.png" alt="Twitter Image" draggable="false"
+              style="width: 30px; height: 30px; float: left; margin-left: 5%" />
+          </div>
+          <div class="instagram-image">
+            <img src="/Pictures/Ikoner/instagram.png" alt="Instagram Image" draggable="false"
+              style="width: 30px; height: 30px; float:left; margin-left: 5%" />
+          </div>
+        </div>
 
-    <!-- Hem -->
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6529.92279814412!2d15.57656780752961!3d58.403659367494726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46596f6923f07913%3A0x5f91d8e14d8b6a57!2sStudiev%C3%A4gen%201%2C%20583%2029%20Link%C3%B6ping!5e0!3m2!1ssv!2sse!4v1680011315369!5m2!1ssv!2sse"
+            width="650" height="500" style="border:0; margin-top: 10%" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-  <script id="view-home" type="text/html" style="padding: 0px">
+        </div>
+
+        <div class="contactBoxLine" style="margin-top: 700px;">
+        </div>
+        <p class="text"> © 2023 Tool in A Box </p>
+      </div>
+
+      <!-- Hem -->
+
+      <script id="view-home" type="text/html" style="padding: 0px">
         <div class ="homeContainer">
             <div class = "homeBookContainer"> 
                 <h1 class = "font welcomeText" style="color: white; margin-top: 18%;" >Gör det själv med hyrda verktyg </h1>
@@ -124,8 +139,8 @@
             </div>
     </script>
 
-    <!-- Sidan för att visa användarens bokningar, ska kunna hämta alla aktiva bokningar -->
-    <script id="view-bookings" type="text/html" style ="padding: 0px">
+      <!-- Sidan för att visa användarens bokningar, ska kunna hämta alla aktiva bokningar -->
+      <script id="view-bookings" type="text/html" style="padding: 0px">
       <div class ="bookingsContainer">
         <h1 class = "font mybookingstext">Mina bokningar</h1>
                
@@ -148,8 +163,8 @@
       </div>
   </script>
 
-  <!-- Sidan för att se användarens uppgifter -->
-    <script id="view-account" type="text/html" style ="padding: 0px">
+      <!-- Sidan för att se användarens uppgifter -->
+      <script id="view-account" type="text/html" style="padding: 0px">
       <div class ="homeContainer">
           <div class = "homeBookContainer"> 
             <div class = "accountContainer">
@@ -171,8 +186,8 @@
 
 
 
-   <!-- Sidan för att visa hur bokningssystemet fungerar -->
-   <script id="view-howto" type="text/html" style ="padding: 0px">
+      <!-- Sidan för att visa hur bokningssystemet fungerar -->
+      <script id="view-howto" type="text/html" style="padding: 0px">
       <div class = "homeBookContainer"> 
         <div class = "howtoContainer">
           <div class ="textbox">
@@ -192,8 +207,8 @@
 
 
 
-  <!-- Sidan för att se alla verktyg som finns att boka -->
-    <script id="view-tools" type="text/html">
+      <!-- Sidan för att se alla verktyg som finns att boka -->
+      <script id="view-tools" type="text/html">
       <div style="width: 80%; margin-left:10%;">
            <form action="" class="searchBar">
                   <input type="text" placeholder="Sök efter ditt verktyg" class="font" />
@@ -622,93 +637,96 @@
 
     </script>
 
-   
-    <!-- Modalen för att registrera en användare -->
-      <div id="myRegModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
-          <div class="modal-dialog modal-dialog-centered modal-lg">   
-                 <div class="modal-content">
-                  <div class="boxaround">
-                      <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
-                      <div class="pictureLeft" >
-                          <img src="/Pictures/registerpic.jpg" alt="pictureregister" width="500px"  height="340px";>
 
-          </div>
-
-                      <div class="formboxRight">
-                          <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Registrera dig </label>
-                       <form> 
-                           <div class="form-group">
-                             <input type="email" class="form-control" id="regEmail" placeholder="Din e-postadress">
-                           </div>
-                           <div class="form-group">
-                              <input type="name" class="form-control" id="regName" placeholder="Ditt namn">
-                         
-                        </div>
-                           <div class="form-group">
-
-                               <input type="losen" class="form-control" id="regLosen" placeholder="Välj ett lösenord">
-                           </div>
- 
-                           </form>
-                          
-                           <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp" data-dismiss="modal" onclick = "register()" style ="margin-bottom: 10px;">Skicka</button>
-                          </div> 
-                      </div>     
-                   </div>            
-               </div>
-             </div>
-
-
-    <!-- Modalen för att logga in -->
-    <div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
-    <div class="modal-dialog modal-dialog-centered modal-lg">   
-           <div class="modal-content">
+      <!-- Modalen för att registrera en användare -->
+      <div id="myRegModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
             <div class="boxaround">
-                <button type="button" class="close" data-dismiss="modal" onclick="loadpage()">&times;</button>
-                <div class="pictureLeft" >
-                    <img src="/Pictures/loginpic.jpg" alt="pictureregister" width="500px"  height="340px";>
+              <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
+              <div class="pictureLeft">
+                <img src="/Pictures/registerpic.jpg" alt="pictureregister" width="500px" height="340px" ;>
 
-          </div>
-
-          <div class="formboxRightlogin">
-            <label for="formMessage"
-              style="font-family:sans-serif; font-weight: bold; font-size: larger;">Inloggningsuppgifter </label>
-            <form>
-              <div class="form-group">
-                <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
               </div>
-              <div class="form-group">
 
-                <input type="losen" class="form-control" id="loginLosen" placeholder="Ditt lösenord">
+              <div class="formboxRight">
+                <label for="formMessage"
+                  style="font-family:sans-serif; font-weight: bold; font-size: larger;">Registrera dig </label>
+                <form>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="regEmail" placeholder="Din e-postadress">
+                  </div>
+                  <div class="form-group">
+                    <input type="name" class="form-control" id="regName" placeholder="Ditt namn">
+
+                  </div>
+                  <div class="form-group">
+
+                    <input type="losen" class="form-control" id="regLosen" placeholder="Välj ett lösenord">
+                  </div>
+
+                </form>
+
+                <button id="logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp"
+                  data-dismiss="modal" onclick="register()" style="margin-bottom: 10px;">Skicka</button>
               </div>
-              <a id="forgotPassword" class="link-warning" href="password">Glömt lösenord?</a>
-            </form>
-            <button id="logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp" data-dismiss="modal" onclick="login()"
-              style="margin-bottom: 10px;">Logga in</button>
+            </div>
           </div>
-
         </div>
       </div>
-    </div>
-  </div>
 
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!-- Modalen för att logga in -->
+      <div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="boxaround">
+              <button type="button" class="close" data-dismiss="modal" onclick="loadpage()">&times;</button>
+              <div class="pictureLeft">
+                <img src="/Pictures/loginpic.jpg" alt="pictureregister" width="500px" height="340px" ;>
 
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="client.js"></script>
-  <script type="text/javascript" src="tools.js"></script>
-  <script type="text/javascript" src="Search.js"></script>
-  <script type="text/javascript" src="Stripe_test.js"></script>
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+              </div>
+
+              <div class="formboxRightlogin">
+                <label for="formMessage"
+                  style="font-family:sans-serif; font-weight: bold; font-size: larger;">Inloggningsuppgifter </label>
+                <form>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
+                  </div>
+                  <div class="form-group">
+
+                    <input type="losen" class="form-control" id="loginLosen" placeholder="Ditt lösenord">
+                  </div>
+                  <a id="forgotPassword" class="link-warning" href="password">Glömt lösenord?</a>
+                </form>
+                <button id="logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp"
+                  data-dismiss="modal" onclick="login()" style="margin-bottom: 10px;">Logga in</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+      <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="client.js"></script>
+      <script type="text/javascript" src="tools.js"></script>
+      <script type="text/javascript" src="Mybookings.js"></script>
+      <script type="text/javascript" src="Search.js"></script>
+      <script type="text/javascript" src="Stripe_test.js"></script>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

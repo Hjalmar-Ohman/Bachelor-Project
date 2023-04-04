@@ -258,7 +258,7 @@ def delete_user2():
 
 
 @app.route("/user/<int:input_id>/book", methods=["GET", "POST"])
-@jwt_required()
+# @jwt_required()
 def userBook2(input_id):
     userID = input_id
     return user_book(userID, Booking)
