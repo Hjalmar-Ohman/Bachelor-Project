@@ -147,7 +147,7 @@ margin-left: 20%;
 /*Knapparna i navbaren*/
 
  #toolButton {
-  margin-left: 40%;
+  margin-left: 30%;
   transition: 300ms ease;
   font-size: 25px;
  }
@@ -162,6 +162,11 @@ margin-left: 20%;
  }
  
  #accountButton{
+  transition: 300ms ease;
+  font-size: 25px;
+ }
+
+ #howtoButton{
   transition: 300ms ease;
   font-size: 25px;
  }
@@ -192,6 +197,10 @@ margin-left: 20%;
   color:rgb(245, 190, 52);
  }
  #logoutButtonButton:hover{
+  color:rgb(245, 190, 52);
+ }
+
+ #howtoButton:hover, #howtoButton.active{
   color:rgb(245, 190, 52);
  }
 

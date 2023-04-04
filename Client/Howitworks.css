@@ -1,0 +1,28 @@
+.howtoContainer{
+    margin-top: 10%;
+    margin-left: 10%;
+    align-self: auto;
+    height: 240%;
+    width: 140%;
+    background-color: rgba(2, 0, 0, 0.5);
+    padding-top: 2%;
+    padding-bottom: 5%;
+
+  }
+
+  .textbox{
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+   .font6 {
+    font-family: 'Gill Sans';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 150%;
+    color: white;
+    text-align: left;
+    margin-left: 10%;
+  
+   }
+

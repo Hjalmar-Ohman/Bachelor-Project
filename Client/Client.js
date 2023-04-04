@@ -13,6 +13,10 @@ function loadPage() {
     $("div.container-fluid").html($("#view-contact").html())
  }
 
+ function loadHowtoPage() {
+   $("div.container-fluid").html($("#view-howto").html())
+}
+
  function loadToolsPage() {
    $("div.container-fluid").html($("#view-tools").html())
 }
@@ -67,6 +71,11 @@ $('#loginButton').click(function (e) {
 $('#accountButton').click(function (e) {
    e.preventDefault();
    loadAccountPage();
+});
+
+$('#howtoButton').click(function (e) {
+   e.preventDefault();
+   loadHowtoPage();
 });
 
 $('#logoutButton').click(function (e) {
