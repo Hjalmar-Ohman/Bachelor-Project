@@ -90,6 +90,29 @@ function logout(){
 
 }
 
+function getUser() {
+   var email = document.getElementById("loginEmail").value;
+   var password = document.getElementById("losen").value;
+   $.ajax({
+      url: host + '/user/get',
+      type: 'GET',
+      dataType: 'JSON',
+      contentType: 'application/json',
+      headers: {
+         'Authorization': 'Bearer ' + sessionStorage.getItem('auth')
+      },
+      success: function(data) {
+         console.log(data.email);
+      },
+      error: function() {
+         console.log("error")
+      }
+
+   })
+
+}
+
+
 function register(){
   // e.preventDefault();
   var boolean = false;
