@@ -9,7 +9,7 @@ from flask_jwt_extended import (
 )
 
 
-#app.register_blueprint(toolApp)
+# app.register_blueprint(toolApp)
 SQLALCHEMY_DATABASE_URI = "sqlite:///database.db"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 JWT_SECRET_KEY = "Super_secret_key"
@@ -19,6 +19,3 @@ MAIL_USERNAME = "test.toolinabox.test@gmail.com"
 MAIL_PASSWORD = "bpnqqfohzzgeacxi"
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
-
-
-
