@@ -64,6 +64,12 @@ def delete_user(db, User):
         db.session.commit()
         return "user deleted"
 
+def get_user(db, User):
+    if request.method == "GET":
+        data = request.get_json()
+        inputemail = data.get("email")
+        return jsonify(User.query.filter_by(email=inputemail).first_or_404().seralize())
+    
 
 # @User_page.route("/<int:user_id>/mytools", methods=["GET"])
 # def myTools():

@@ -252,6 +252,9 @@ def toolBook2(input_id):
 def delete_user2():
     return delete_user(db, User)
 
+@app.route("/user/get", methods=["GET"])
+def get_user2():
+    return get_user(db, User)
 
 
 #tillfällig lösning
