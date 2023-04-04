@@ -18,7 +18,7 @@ def process_payment(price, quantity, day, week, start_h, finnish_h, tool_id, use
       'price_data': {
         'currency': 'sek',
         'product_data': {
-          'name': user_id + 'Bookning:'+'/'+ day +'/'+ week +'/'+ start_h +'/' + finnish_h + tool_id + '/',
+          'name': user_id + 'Bookning:'+'/'+ day +'/'+ week +'/'+ start_h +'/' + finnish_h + tool_id,
         },
         'unit_amount': price,
       },
