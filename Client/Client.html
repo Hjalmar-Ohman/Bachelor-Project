@@ -251,7 +251,7 @@
                       <div class="price">10 kr/h</div>
                     </div>
                     <div class="btn">
-                      <button class="buy-btn" data-toggle="modal" data-target="#mymodal">Boka nu</button>
+                      <button class="buy-btn" data-toggle="modal" data-target="#mymodal" onclick ="showCalendar(0,0)">Boka nu</button>
                     </div>
                 </div>
       </div>
@@ -340,96 +340,21 @@
                         <!-- <p>Välj start:</p> -->
                         <select required id="selectedDay" onchange="showCalendar(selectedWeek, this)">
                           <option value="" selected disabled>Vilken dag?</option>
-                          <option value="00">Måndag</option>
-                          <option value="01">Tisdag</option>
-                          <option value="02">Onsdag</option>
-                          <option value="03">Torsdag</option>
-                          <option value="04">Fredag</option>
-                          <option value="05">Lördag</option>
-                          <option value="06">Söndag</option>
+                          <option value="mon">Måndag</option>
+                          <option value="tue">Tisdag</option>
+                          <option value="wen">Onsdag</option>
+                          <option value="thu">Torsdag</option>
+                          <option value="fri">Fredag</option>
+                          <option value="sat">Lördag</option>
+                          <option value="sun">Söndag</option>
                         
                         </select>
                       </div>
                     </div>
             </div>
             
-            <div class="calendar">
-              <table>
-                <thead>
-                  <tr class="day">
-                    <th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th><th><p></p></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class ="oddRow">
-                    <td class="hour"><span>00:00 01:00</span></td>
-                    <td id="Må0001" onclick = "klickad()"></td>
-                    <td class="hour"><span>06:00 07:00</span></td>
-                    <td></td>
-                    <td class="hour"><span>12:00 13:00</span></td>
-                    <td></td>
-                    <td class="hour"><span>18:00 19:00</span></td>
-                    <td></td>
-                  
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>01:00 02:00</span></td>
-                    <td></td>
-                    <td class="hour"><span>07:00 08:00</span></td>
-                    <td></td>
-                    <td class="hour"><span>13:00 14:00</span></td>
-                    <td></td>
-                    <td class="hour"><span>19:00 20:00</span></td>
-                    <td></td>
+            <div id="calendar" class="calendar">
 
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>02:00 03:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>08:00 09:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>14:00 15:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>20:00 21:00</span></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>03:00  04:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>09:00 10:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>15:00 16:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>21:00 22:00</span></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>04:00 05:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>10:00 11:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>16:00 17:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>22:00 23:00</span></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>05:00 06:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>11:00 12:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>17:00 18:00</span></td>
-                    <td></td>
-                    <td class="hour" ><span>23:00 24:00</span></td>
-                    <td></td>
-
-                  </tr>
-                 
-                </tbody>
-              </table>
             </div>
             <button class="btn boka-btn" onclick="stripe_ceckout('1','1','1','1','1')">Boka & Betala</button>
           </div>
