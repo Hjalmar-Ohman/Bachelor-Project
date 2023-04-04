@@ -52,5 +52,12 @@ function getBookings() {
 }
 
 function removeBooking(bookingID) {
-    $('#' + bookingID).remove();
+    $.ajax({
+        url: host + '/book/' + bookingID,
+        type: 'DELETE',
+        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+        success: function () {
+            $('#' + bookingID).remove(); //ERROR BOOKINGID UNDEFINED MAN BA ?????
+        }
+    });
 }

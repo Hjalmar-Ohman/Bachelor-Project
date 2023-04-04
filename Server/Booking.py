@@ -86,6 +86,13 @@ def cancel_booking(db, booking, user, tool_id):
     return "Booking cancelled"
 
 
+def delete_booking(db, Booking, bookingID):
+    booking_tmp = Booking.query.filter_by(id=bookingID).first_or_404()
+    db.session.delete(booking_tmp)
+    db.session.commit()
+    return "booking deleted"
+
+
 def edit_booking(db, booking, user, tool_id, start_hour, end_hour):
     current_user_email = get_jwt_identity()
     current_user = user.query.filter_by(email=current_user_email).first()

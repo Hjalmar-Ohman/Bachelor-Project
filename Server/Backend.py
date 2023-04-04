@@ -264,12 +264,12 @@ def userBook2(input_id):
     return user_book(userID, Booking)
 
 
-"""
-@app.route("/user/<int:user_id>/bookings", methods=["GET"])
-@jwt_required()
-def user_bookings2(user_id, Booking):
-    return user_bookings(user_id, Booking)
-"""
+@app.route("/book/<int:input_id>", methods=["DELETE"])
+# @jwt_required()
+def delete_booking2(input_id):
+    bookingID = input_id
+    delete_booking(db, Booking, bookingID)
+
 
 # tillfällig lösning
 def book_tool_redirect(
