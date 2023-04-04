@@ -158,10 +158,10 @@ def payment_hook():
         
         user_id = line_items['data'][0]['description'][0:1]
         day = line_items['data'][0]['description'][11:14]
-        week = line_items['data'][0]['description'][15:17]
-        start_hour = line_items['data'][0]['description'][18:20]
-        end_hour = line_items['data'][0]['description'][21:23]
-        tool_id = line_items['data'][0]['description'][23:-1]
+        week = line_items['data'][0]['description'][15:16]
+        start_hour = line_items['data'][0]['description'][17:19]
+        end_hour = line_items['data'][0]['description'][20:22]
+        tool_id = line_items['data'][0]['description'][22:23]
         
         print(line_items['data'][0]['description'])
         print("day: "+day)

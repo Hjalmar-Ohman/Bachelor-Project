@@ -32,7 +32,7 @@ function get_stripe_public_key(){
 
 }
 
-function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
+function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
     user_id = sessionStorage.getItem('user_id')
     console.log(sessionStorage.getItem('user_id'))
@@ -40,13 +40,19 @@ function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
     quantity = finnish_h - start_h
 
     if (start_h < 10){
-        start_h_str = toString(start_h)
-        start_h_str = "0" + start_h_str
+        start_h_str = start_h.toString()
+        start_h_str = "0" + start_h
     }
 
     if(finnish_h < 10){
-        finnish_h_str = toString(finnish_h)
-        finnish_h_str = "0" + finnish_h_str
+        finnish_h_str = finnish_h.toString()
+        finnish_h_str = "0" + finnish_h
+
+    }
+
+    if(week < 10){
+        week_str = week.toString()
+        week_str = "0" + week_str
     }
 
 
@@ -55,12 +61,12 @@ function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
         url: host + "/test/checkout",
         dataType: "json",
         contentType: "application/json",
-        headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth')},
+        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth')},
         data: JSON.stringify({
             
 
             "user_id" : user_id,
-            "quantity": "1",
+            "quantity": quantity,
             "day": day,
             "week": week,
             "start_h": start_h_str,
