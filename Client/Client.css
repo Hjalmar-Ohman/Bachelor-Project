@@ -147,7 +147,7 @@ margin-left: 20%;
 /*Knapparna i navbaren*/
 
  #toolButton {
-  margin-left: 30%;
+  margin-left: 40%;
   transition: 300ms ease;
   font-size: 25px;
  }
@@ -196,7 +196,7 @@ margin-left: 20%;
  #loginButton:hover, #loginButton.active{
   color:rgb(245, 190, 52);
  }
- #logoutButtonButton:hover{
+ #logoutButton:hover, #logoutButton.active {
   color:rgb(245, 190, 52);
  }
 

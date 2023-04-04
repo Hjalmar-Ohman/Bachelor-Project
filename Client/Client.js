@@ -153,8 +153,11 @@ function navToggle(){
   // alert("toggle check" + signedIn);
    $('#carsButton').toggleClass('d-none', !signedIn);
    $('#regButton').toggleClass('d-none', signedIn);
+   $('#howtoButton').toggleClass('d-none', signedIn);
    $('#loginButton').toggleClass('d-none', signedIn);
    $('#logoutButton').toggleClass('d-none', !signedIn);
+   $('#accountButton').toggleClass('d-none', !signedIn);
+   $('#bookingsButton').toggleClass('d-none', !signedIn);
 }
 
 const links = document.querySelectorAll(".nav-link");
