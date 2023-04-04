@@ -26,8 +26,8 @@ function addBookingRow(booking) {
         contentType: 'application/json',
         success: function (tool) {
             var bookingsContainer = $('.bookingsContainer')
-            var cardBody = $('<div class="cardBody"></div>');
-            var button = $('<a href="#" class="btn btn-primary avbokaknapp">Avboka</a>');
+            var cardBody = $('<div class="cardBody" id = "' + booking.id + '></div>');
+            var button = $('<a href="#" class="btn btn-primary avbokaknapp" onclick="removeBooking(' + booking.id + ')">Avboka</a>');
             var name = $('<h5 class="cardTitle font">' + tool.name + '</h5>');
             var bookingTime = $('<p class="cardText font">' + dayIntConverter(booking.day) + ' ' + booking.start_hour + ':00 - ' + booking.end_hour + ':00 </p > ');
 
@@ -49,4 +49,8 @@ function getBookings() {
             });
         }
     });
+}
+
+function removeBookings(bookingID) {
+    $('#' + bookingID).remove();
 }
