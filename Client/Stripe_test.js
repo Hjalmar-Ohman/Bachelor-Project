@@ -42,17 +42,24 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
     if (start_h < 10){
         start_h_str = start_h.toString()
         start_h_str = "0" + start_h
+    } else {
+        start_h_str = start_h.toString()
     }
 
     if(finnish_h < 10){
         finnish_h_str = finnish_h.toString()
         finnish_h_str = "0" + finnish_h
 
+    }else{
+        finnish_h_str = finnish_h.toString()
     }
 
     if(week < 10){
         week_str = week.toString()
         week_str = "0" + week_str
+    }else{
+        week_str = week.toString()
+
     }
 
 

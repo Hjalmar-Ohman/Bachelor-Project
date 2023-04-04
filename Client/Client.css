@@ -1,295 +1,316 @@
 /* Bakrunden till hela hemsidan */
- body{
-    background-color: blueviolet;
-    background-image: url("/Pictures/hem1.ppeg.jpg");
-    background-repeat: no-repeat;
-    background-attachment:scroll;
-    background-color: rgb(249, 248, 248);
-    background-size:100%;
-    background-position: top;
- }
+body {
+  background-color: blueviolet;
+  background-image: url("/Pictures/hem1.ppeg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-color: rgb(249, 248, 248);
+  background-size: 100%;
+  background-position: top;
+}
 
- /* Containern som fylls på med olika information beroende på vilken sida man är på */
- .container-fluid{
-    width: 100%;
-    margin-left:0px;
-    height: 100%;
-    min-height: 900px;
- }
+/* Containern som fylls på med olika information beroende på vilken sida man är på */
+.container-fluid {
+  width: 100%;
+  margin-left: 0px;
+  height: 100%;
+  min-height: 900px;
+}
 
- /* Containern för "hem" */
- .homeContainer {
-    width: 100%;
-    height: auto;
- }
+/* Containern för "hem" */
+.homeContainer {
+  width: 100%;
+  height: auto;
+}
 
- /* font för texten på hemsidan */
- .font{
-    font-family: 'Gill Sans';
-    font-weight: normal;
-    font-style: normal;
-    color: white;
+/* font för texten på hemsidan */
+.font {
+  font-family: 'Gill Sans';
+  font-weight: normal;
+  font-style: normal;
+  color: white;
 }
 
 /* font för "Om oss" styckena */
-.font3{
- text-align: left;
- font-family: 'Gill Sans';
- color: rgb(124, 124, 124);
- line-height: 60%;
- font-size: 20px;
-margin-left: 20%;
+.font3 {
+  text-align: left;
+  font-family: 'Gill Sans';
+  color: rgb(124, 124, 124);
+  line-height: 60%;
+  font-size: 20px;
+  margin-left: 20%;
 }
- /*First page*/
- .homeBookContainer{
-   margin-top: 5%;
-   margin-left: 10%;
-   height: 20rem;
-   width: 50%;
-   border-radius: 50px;
- }
+
+/*First page*/
+.homeBookContainer {
+  margin-top: 5%;
+  margin-left: 10%;
+  height: 20rem;
+  width: 50%;
+  border-radius: 50px;
+}
 
 
- .text{
+.text {
   text-align: center;
- }
- 
- .map{
+}
+
+.map {
   float: left;
- }
+}
 
 
 /*Font för "Öppettider" */
 
- .welcomeText{
-    text-align: left;
-    color:rgb(114, 114, 114);
-    font-size:40px;
-    line-height: 200%;
-    font-style: bold;
-    margin-top: 10%;
-  }
+.welcomeText {
+  text-align: left;
+  color: rgb(114, 114, 114);
+  font-size: 40px;
+  line-height: 200%;
+  font-style: bold;
+  margin-top: 10%;
+}
 
 
-  .welcomeUnderText{
-    text-align: center;
-    font-size: 30px;
- 
-  }
+.welcomeUnderText {
+  text-align: center;
+  font-size: 30px;
 
-  /* Knappen för "Boka NU" */
+}
 
- .welcomeButton{
-   text-align: center;
-   font-size: 30px;
-   width: 25%;
-   margin-left: 00%;
-   background-color: rgb(245, 190, 52);
-   border-color:  rgb(245, 190, 52);
-   transition: 300ms ease;
- }
+/* Knappen för "Boka NU" */
 
- /* Gör att knappen över ändrar färg när man hovrar över den */
- .welcomeButton:hover{
+.welcomeButton {
+  text-align: center;
+  font-size: 30px;
+  width: 25%;
+  margin-left: 00%;
+  background-color: rgb(245, 190, 52);
+  border-color: rgb(245, 190, 52);
+  transition: 300ms ease;
+}
+
+/* Gör att knappen över ändrar färg när man hovrar över den */
+.welcomeButton:hover {
   background-color: rgb(245, 170, 52);
- }
+}
 
- /* Linjen mellan containerfluid och kontakt/karta */
- .contactBoxLine{
-   margin-top: 5rem;
-   width: 100%;
-   height: 2px;
-   background-color: rgb(78, 78, 77);
-   z-index: 10;
- }
+/* Linjen mellan containerfluid och kontakt/karta */
+.contactBoxLine {
+  margin-top: 5rem;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(78, 78, 77);
+  z-index: 10;
+}
 
 
- /* Hela containern under contactBoxline */
-.contactBox{
-   width: 100%;
-   height: 100%;
-   background-color: rgb(248, 248, 248);
+/* Hela containern under contactBoxline */
+.contactBox {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(248, 248, 248);
 }
 
 /* Vänstra delen */
 
-.leftContactBox{
-   float:left;
-   width: 100%;
-   height: 800px;
-   background-color: rgb(248, 248, 248);
-}
-.openingHoursBox{
-   float: left;
-   width: 50%;
+.leftContactBox {
+  float: left;
+  width: 100%;
+  height: 800px;
+  background-color: rgb(248, 248, 248);
 }
 
+.openingHoursBox {
+  float: left;
+  width: 50%;
+}
 
 
 
- 
+
+
 /*End of first page*/
 
-.aboutUsBox{
-   float: left;
-   width: 50%;
+.aboutUsBox {
+  float: left;
+  width: 50%;
 }
+
 /* Högra delen */
-.rightConactBox{
-   float: right;
-   width: 50%;
-   height: 1000px;
-   padding-top: 50px;
-   background-color: rgb(248, 248, 248);
+.rightConactBox {
+  float: right;
+  width: 50%;
+  height: 1000px;
+  padding-top: 50px;
+  background-color: rgb(248, 248, 248);
 }
 
 
 /*Knapparna i navbaren*/
 
- #toolButton {
-  margin-left: 30%;
+#toolButton {
+  margin-left: 40%;
   transition: 300ms ease;
   font-size: 25px;
- }
- #regButton {
-  transition: 300ms ease;
-  font-size: 25px;
- }
+}
 
- #bookingsButton{
+#regButton {
   transition: 300ms ease;
   font-size: 25px;
- }
- 
- #accountButton{
-  transition: 300ms ease;
-  font-size: 25px;
- }
+}
 
- #howtoButton{
+#bookingsButton {
   transition: 300ms ease;
   font-size: 25px;
- }
+}
 
- #loginButton {
+#accountButton {
+  transition: 300ms ease;
+  font-size: 25px;
+}
+
+#howtoButton {
+  transition: 300ms ease;
+  font-size: 25px;
+}
+
+#loginButton {
   transition: 300ms ease;
   font-size: 25px;
   margin-right: 20rem;
- }
- #logoutButton {
+}
+
+#logoutButton {
   transition: 300ms ease;
   font-size: 25px;
- }
+}
 
- #toolButton:hover, #toolButton.active{
-  color:rgb(245, 190, 52);
- }
- #bookingsButton:hover, #bookingsButton.active{
-  color:rgb(245, 190, 52);
- }
- #accountButton:hover, #accountButton.active{
-  color:rgb(245, 190, 52);
- }
- #regButton:hover, #regButton.active{
-  color:rgb(245, 190, 52);
- }
- #loginButton:hover, #loginButton.active{
-  color:rgb(245, 190, 52);
- }
- #logoutButtonButton:hover{
-  color:rgb(245, 190, 52);
- }
+#toolButton:hover,
+#toolButton.active {
+  color: rgb(245, 190, 52);
+}
 
- #howtoButton:hover, #howtoButton.active{
-  color:rgb(245, 190, 52);
- }
+#bookingsButton:hover,
+#bookingsButton.active {
+  color: rgb(245, 190, 52);
+}
+
+#accountButton:hover,
+#accountButton.active {
+  color: rgb(245, 190, 52);
+}
+
+#regButton:hover,
+#regButton.active {
+  color: rgb(245, 190, 52);
+}
+
+#loginButton:hover,
+#loginButton.active {
+  color: rgb(245, 190, 52);
+}
+
+#logoutButton:hover,
+#logoutButton.active {
+  color: rgb(245, 190, 52);
+}
+
+#howtoButton:hover,
+#howtoButton.active {
+  color: rgb(245, 190, 52);
+}
 
 
 /* Slut på knapparna i navbaren*/
 
-.modalknapp{
+.modalknapp {
   background-color: rgb(245, 190, 52);
   border-color: rgb(245, 190, 52);
 }
+
 /* För placering av loga*/
- .product-image{
-    margin-right: 30%;
- }
+.product-image {
+  margin-right: 30%;
+}
 
- #view-home{
-    margin-left: 100px;
- }
+#view-home {
+  margin-left: 100px;
+}
 
- /* Containern på första sidan för att se hur konceptet fungerar */
- .howitworks{
-   margin-left: auto;
-   margin-right: auto;
-   width: 80%;
-   height: 200px;
-   background-color: rgba(0,0,0,0.5);
-   display: flex;
+/* Containern på första sidan för att se hur konceptet fungerar */
+.howitworks {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 0rem;
- }
+}
 
 /* Här ligger symboler och texter */
- .cards-container {
-   width: 100%;
-   height: 300px;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   margin-left: 0;
- }
+.cards-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 0;
+}
+
 /* Varje "par" av symbol och text sparas i denna */
- .welcomecards {
-   align-items: center;
-   float: left;
-   margin-bottom: 1rem;
-   margin-left: 1rem;
-   text-align: center;
- }
+.welcomecards {
+  align-items: center;
+  float: left;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  text-align: center;
+}
+
 /* Symbolerna */
- .card-img-top{
-   height: 100px;
-   width: 100px;
-   margin-top: 1rem;
-   color: green;
- }
+.card-img-top {
+  height: 100px;
+  width: 100px;
+  margin-top: 1rem;
+  color: green;
+}
+
 /* Texterna */
- .card-text{
-   color: white;
-   margin-top: 1rem;
-   text-align: center;
-   font-size: 30px; 
- }
+.card-text {
+  color: white;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 30px;
+}
 
- /*Ikonen som visas i navbaren när fönstret är mindre*/
- .navbar-toggler-icon{
+/*Ikonen som visas i navbaren när fönstret är mindre*/
+.navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(256, 256, 256)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
- }
- .navbar-toggler-icon:hover{
+}
+
+.navbar-toggler-icon:hover {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 190, 52)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
- }
+}
 
- /* Nedanstående justerar så att symbolerna kan komprimeras */
- @media screen and (max-width: 768px) {
-   .welcomecards {
-     width: 20%;
-   }
- }
- 
- @media screen and (min-width: 768px) {
-   .welcomecards {
-     width: 25%;
-   }
- }
- 
- @media screen and (min-width: 992px) {
-   .welcomecards {
-     width: 25%;
-   }
- }
+/* Nedanstående justerar så att symbolerna kan komprimeras */
+@media screen and (max-width: 768px) {
+  .welcomecards {
+    width: 20%;
+  }
+}
 
+@media screen and (min-width: 768px) {
+  .welcomecards {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .welcomecards {
+    width: 25%;
+  }
+}
