@@ -85,6 +85,11 @@ $('#logoutButton').click(function (e) {
    loadPage();
 });
 
+function logout(){
+
+   sessionStorage.clear();
+
+}
 
 function register() {
    // e.preventDefault();
@@ -129,6 +134,7 @@ function login() {
       success: function (loginResponse) {
 
          sessionStorage.setItem('auth', JSON.stringify(loginResponse.token))
+         sessionStorage.setItem('user_id', JSON.stringify(loginResponse.user_id))
          loadPage();
          alert("Du har loggats in");
       },
