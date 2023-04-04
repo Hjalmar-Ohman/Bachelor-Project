@@ -1,4 +1,5 @@
 var preliminaryBknList = [];
+var bookedList = [10, 11, 12, 13];
 host = window.location.protocol + '//' + location.host
 
 function addToolCard(tool) {
@@ -11,7 +12,7 @@ function addToolCard(tool) {
     var h2 = $('<h2>' + tool.name + '</h2>');
     var p = $('<p>' + tool.properties + '</p>');
     var price = $('<div class="price">' + tool.price + ' kr/h</div>');
-    var btn = $('<div class="btn"><button class="buy-btn" for="ruta">Boka nu</button></div>');
+    var btn = $('<button class="buy-btn" data-toggle="modal" data-target="#mymodal" onclick ="showCalendar(0,0)">Boka nu</button>');
 
     productImage.append(img);
     productInfo.append(h2, p, price);
@@ -84,6 +85,7 @@ function klickad(){
 
 function showCalendar(selectWeek, selectDay){
     $("#calendar").html("");
+    preliminaryBknList = [];
 
     var weekNr = selectWeek.selectedIndex;
     var dayNr = selectDay.selectedIndex;
@@ -110,6 +112,15 @@ function showCalendar(selectWeek, selectDay){
         var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd;
     }
     $('#calendar').append(updatedCalendar);
+
+       for(let i = 0; i<bookedList.length; i++){
+        var bookedSting = bookedList[i].toString();
+        var element = document.getElementById(bookedSting);
+        element.className = "booked";
+        element.onclick = null;
+       }
+        
+    
 
 }
 function addPreliminaryBkn(id){
