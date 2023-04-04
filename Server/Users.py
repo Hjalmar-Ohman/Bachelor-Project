@@ -66,9 +66,14 @@ def delete_user(db, User):
 
 def get_user(db, User):
     if request.method == "GET":
+        current_user_email = get_jwt_identity()
+        return jsonify(User.query.filter_by(email=current_user_email).first_or_404().seralize())
+
+def edit_user(db, User):
+    if request.method == "PUT":
+        user_tmp = User.query.filter_by(email=toolID).first_or_404()
         data = request.get_json()
-        inputemail = data.get("email")
-        return jsonify(User.query.filter_by(email=inputemail).first_or_404().seralize())
+
     
 
 # @User_page.route("/<int:user_id>/mytools", methods=["GET"])
