@@ -85,7 +85,7 @@ function klickad() {
 
 function showCalendar(selectWeek, selectDay) {
     $("#calendar").html("");
-
+    preliminaryBknList = [];
     var weekNr = selectWeek.selectedIndex;
     var dayNr = selectDay.selectedIndex;
     var selectedTimes = [];
