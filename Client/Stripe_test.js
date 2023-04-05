@@ -39,6 +39,11 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
     user_id = sessionStorage.getItem('user_id')
     console.log(sessionStorage.getItem('user_id'))
+    console.log(tool_id)
+    console.log(day)
+    console.log(week)
+    console.log(start_h)
+    console.log(finnish_h)
 
     quantity = finnish_h - start_h
     quantity_str = quantity.toString()
