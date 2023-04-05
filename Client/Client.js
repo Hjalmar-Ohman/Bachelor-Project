@@ -159,7 +159,7 @@ function navToggle() {
    $('#loginButton').toggleClass('d-none', signedIn);
    $('#logoutButton').toggleClass('d-none', !signedIn);
    $('#accountButton').toggleClass('d-none', !signedIn);
-   $('#bookingsButton').toggleClass('d-none', signedIn);
+   $('#bookingsButton').toggleClass('d-none', !signedIn);
 }
 
 const links = document.querySelectorAll(".nav-link");
