@@ -221,6 +221,12 @@ td{
 .selected{
   background-color: rgb(0, 255, 0);
 }
+.booked{
+  background-color: red;
+}
+.booked:hover{
+  cursor: auto;
+}
 
 #Må0001{
     background-color: brown;
