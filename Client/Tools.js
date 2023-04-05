@@ -80,10 +80,6 @@ $('#searchText').on('keyup', function (e) {
     }
 });
 
-function klickad() {
-    alert(klickad);
-}
-
 function showBookModalLeft(toolID) {
     $.ajax({
         url: host + '/tools/' + toolID,
@@ -169,7 +165,7 @@ function showBookModalLeft(toolID) {
                         <!-- <p>Välj start:</p> -->
                         <select required id="selectedDay" onchange="showCalendar(selectedWeek, this,`+ toolID+`)">
                           <option value="" selected disabled>Vilken dag?</option>
-                          <option value="mon">Måndag</option>
+                          <option value="mon" id="mon">Måndag</option>
                           <option value="tue">Tisdag</option>
                           <option value="wen">Onsdag</option>
                           <option value="thu">Torsdag</option>
@@ -224,7 +220,7 @@ function getBookedHours(selectWeek, selectDay, tool_id) {
                     var hour = booking.start_hour;
                     if (selectWeek.selectedIndex == booking.week) { 
                         if (selectDay.selectedIndex == booking.day) { 
-                            while (hour <= booking.end_hour) {
+                            while (hour < booking.end_hour) {
                                 hour++;
                                 booked_hours.push(hour);
                             }
@@ -248,6 +244,7 @@ function showCalendar(selectWeek, selectDay, tool_id) {
     $("#calendar").html("");
     preliminaryBknList = [];
     var weekNr = selectWeek.selectedIndex;
+    var dayString = selectDay.value;
     var dayNr = selectDay.selectedIndex;
     var selectedTimes = [];
 
@@ -260,7 +257,8 @@ function showCalendar(selectWeek, selectDay, tool_id) {
         var tableRowTree = ' <tr class ="oddRow">  <td class="hour" id = "13" onclick="addPreliminaryBkn(this)"><span>12:00 13:00</span></td>  <td class="hour" id = "14" onclick="addPreliminaryBkn(this)"><span>13:00 14:00</span></td>  <td class="hour" id = "15" onclick="addPreliminaryBkn(this)"><span>14:00 15:00</span></td>  <td class="hour" id = "16" onclick="addPreliminaryBkn(this)"><span>15:00 16:00</span></td>    <td class="hour" id = "17" onclick="addPreliminaryBkn(this)"><span>16:00 17:00</span></td>    <td class="hour" id = "18" onclick="addPreliminaryBkn(this)"><span>17:00 18:00</span></td>  </tr>';
         var tableRowFour = '<tr class ="evenRow">    <td class="hour" id = "19" onclick="addPreliminaryBkn(this)"><span>18:00 19:00</span></td>    <td class="hour" id = "20" onclick="addPreliminaryBkn(this)"><span>19:00 20:00</span></td>    <td class="hour" id = "21" onclick="addPreliminaryBkn(this)"><span>20:00 21:00</span></td>    <td class="hour" id = "22" onclick="addPreliminaryBkn(this)"><span>21:00 22:00</span></td>    <td class="hour" id = "23" onclick="addPreliminaryBkn(this)"><span>22:00 23:00</span></td>    <td class="hour" id = "24" onclick="addPreliminaryBkn(this)"><span>23:00 24:00</span></td>  </tr>';
         var tableEnd = '</tbody> </table>';
-        var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd;
+        var button = '<button class="btn boka-btn" onclick="sendBooking('+tool_id+','+selectDay.selectedIndex+','+selectWeek.selectedIndex+')">Boka & Betala</button>';
+        var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd + button;
 
         $('#calendar').append(updatedCalendar);
     getBookedHours(selectWeek, selectDay, tool_id).then(function(booked_hours) {
@@ -283,7 +281,8 @@ function showCalendar(selectWeek, selectDay, tool_id) {
         var tableRowTree = ' <tr class ="oddRowInactive">  <td class=""><span>12:00 13:00</span></td>  <td class=""><span>13:00 14:00</span></td>  <td class=""><span>14:00 15:00</span></td>  <td class=""><span>15:00 16:00</span></td>    <td class=""><span>16:00 17:00</span></td>    <td class=""><span>17:00 18:00</span></td>  </tr>';
         var tableRowFour = '<tr class ="evenRowInactive">    <td class=""><span>18:00 19:00</span></td>    <td class=""><span>19:00 20:00</span></td>    <td class=""><span>20:00 21:00</span></td>    <td class=""><span>21:00 22:00</span></td>    <td class=""><span>22:00 23:00</span></td>    <td class=""><span>23:00 24:00</span></td>  </tr>';
         var tableEnd = '</tbody> </table>';
-        var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd;
+        var button = '<button class="btn boka-btn-inactive">Boka & Betala</button>';
+        var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd + button;
         $('#calendar').append(updatedCalendar);
     }
 }
@@ -298,9 +297,30 @@ function addPreliminaryBkn(id) {
             return item !== id.id
         })
     }
-    var idInList = "Id:n i listan: ";
-    for (let i = 0; i < preliminaryBknList.length; i++) {
-        idInList += preliminaryBknList[i];
+}
+
+function sendBooking(toolID,selectedDay,selectedWeek){
+    var startTime;
+    var endTime;
+    var isSorted = true;
+
+    const sortedList = preliminaryBknList.slice().sort((a,b)=>a-b);
+    
+    if(sortedList.length>1){
+        for (var i = 0; i < sortedList.length-1; i++) {
+            if (sortedList[i+1]-sortedList[i] != 1){
+                isSorted = false;
+            }
+        }
     }
-    alert(idInList);
+
+    if (preliminaryBknList.length == 0){
+        alert("Vänligen välj en tid!") 
+    } else if(!isSorted) {
+        alert("Du kan bara boka en sammanhängande bokning åt gången, vänligen försök igen!")
+    } else {
+        startTime = sortedList[0]-1;
+        endTime = sortedList[sortedList.length-1];
+        stripe_ceckout(toolID,selectedDay,selectedWeek,startTime,endTime);
+    }
 }

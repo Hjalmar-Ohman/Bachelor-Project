@@ -36,17 +36,27 @@ function stripe_ceckout(tool_id, day, week, start_h, finnish_h){
 
     user_id = sessionStorage.getItem('user_id')
     console.log(sessionStorage.getItem('user_id'))
+    console.log(tool_id)
+    console.log(day)
+    console.log(week)
+    console.log(start_h)
+    console.log(finnish_h)
 
     quantity = finnish_h - start_h
 
     if (start_h < 10){
-        start_h_str = toString(start_h)
+        start_h_str = start_h.toString()
         start_h_str = "0" + start_h_str
+    }
+    else{
+        start_h_str = start_h.toString()
     }
 
     if(finnish_h < 10){
-        finnish_h_str = toString(finnish_h)
+        finnish_h_str = finnish_h.toString()
         finnish_h_str = "0" + finnish_h_str
+    }else{
+        finnish_h_str = finnish_h.toString()
     }
 
 

@@ -253,10 +253,10 @@ def tool2(input_id):
 
 
 @app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
-@jwt_required()
+#@jwt_required()
 def toolBook2(input_id):
     toolID = input_id
-    return tool_book(toolID)
+    return tool_book(toolID, Booking)
 
 
 @app.route("/user/delete", methods=["DELETE"])
