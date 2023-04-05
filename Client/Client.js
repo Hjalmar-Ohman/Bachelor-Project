@@ -26,6 +26,7 @@ function loadBookingsPage() {
 }
 function loadAccountPage() {
    $("div.container-fluid").html($("#view-account").html())
+   getUser()
 }
 
 function loadRegPage() {
@@ -91,18 +92,26 @@ function logout(){
 }
 
 function getUser() {
-   var email = document.getElementById("loginEmail").value;
-   var password = document.getElementById("losen").value;
+   console.log(sessionStorage.getItem('auth'))
    $.ajax({
-      url: host + '/user/get',
+      url: host + '/user/get/' + sessionStorage.getItem('user_id'),
       type: 'GET',
-      dataType: 'JSON',
+      dataType: 'json',
       contentType: 'application/json',
-      headers: {
-         'Authorization': 'Bearer ' + sessionStorage.getItem('auth')
-      },
-      success: function(data) {
-         console.log(data.email);
+      headers: {'Authorization': 'Bearer ' + sessionStorage.getItem('auth')},
+      success: function(user) {
+         console.log(user);
+         var accountContainer = $('.accountContainer')
+         var cardBody = $('<div class="cardBody" id = "' + user.id + '"></div>');
+         var button = $('<a href="#" class="font accountButton btn" onclick="editUser(' + user.id + ')">Ändra</a>');
+         var myaccount =$('<h1 class = "font4 Rubrik"> Mitt konto</h1>')
+         var name = $('<p class="font5">' + user.name + '</p>');
+         var nametitle = $('<h5 class="font5"> Namn </h5>');
+         var email = $('<p class="font5">' + user.email + '</p>');
+         var emailtitle = $('<h5 class="font5"> Email </h5>');
+         cardBody.append(myaccount, nametitle, name, emailtitle, email, button)
+         accountContainer.append(cardBody);
+
       },
       error: function() {
          console.log("error")

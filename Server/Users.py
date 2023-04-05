@@ -64,10 +64,13 @@ def delete_user(db, User):
         db.session.commit()
         return "user deleted"
 
-def get_user(db, User):
+def get_user(db, User, usedID):
     if request.method == "GET":
-        current_user_email = get_jwt_identity()
-        return jsonify(User.query.filter_by(email=current_user_email).first_or_404().seralize())
+        user = User.query.filter_by(id=usedID).first()
+        if user:
+            return jsonify(user.seralize())
+        else:
+            return "User not found"
 
 def edit_user(db, User):
     if request.method == "PUT":
