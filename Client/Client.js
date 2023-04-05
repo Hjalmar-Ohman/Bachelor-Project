@@ -24,6 +24,7 @@ function loadToolsPage() {
 
 function loadBookingsPage() {
    $("div.container-fluid").html($("#view-bookings").html())
+   getBookings();
 }
 function loadAccountPage() {
    $("div.container-fluid").html($("#view-account").html())
@@ -85,7 +86,7 @@ $('#logoutButton').click(function (e) {
    loadPage();
 });
 
-function logout(){
+function logout() {
 
    sessionStorage.clear();
 
@@ -173,5 +174,3 @@ links.forEach(link => {
       link.classList.add("active");
    });
 });
-
-

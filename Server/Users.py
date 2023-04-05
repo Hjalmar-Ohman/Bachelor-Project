@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import request
 
 from EmailFunctionality import *
+from Booking import *
 
 from flask_jwt_extended import (
     JWTManager,
@@ -36,25 +37,25 @@ def signUp(db, User, mail):
 
 
 def login(db, bcrypt, User, inputemail, password):
-       
-        usr_temp = User.query.filter_by(email=inputemail).first_or_404()
-        if usr_temp!=None:
-            print(usr_temp)
-        else:
-            print(42)
 
-        if (inputemail == usr_temp.email) & (
-            bcrypt.check_password_hash(usr_temp.password_hash, password)
-        ):
-            
-            access_token = create_access_token(identity=inputemail)
-            dict = {"token": access_token, "user_id": usr_temp.id}
-            print(dict["user_id"])
-            return jsonify(dict)
-        else:
+    usr_temp = User.query.filter_by(email=inputemail).first_or_404()
+    if usr_temp != None:
+        print(usr_temp)
+    else:
+        print(42)
 
-            return jsonify("fel lösenord eller användarnamn"), 401
-        
+    if (inputemail == usr_temp.email) & (
+        bcrypt.check_password_hash(usr_temp.password_hash, password)
+    ):
+
+        access_token = create_access_token(identity=inputemail)
+        dict = {"token": access_token, "user_id": usr_temp.id}
+        print(dict["user_id"])
+        return jsonify(dict)
+    else:
+
+        return jsonify("fel lösenord eller användarnamn"), 401
+
 
 def delete_user(db, User):
     if request.method == "DELETE":
@@ -63,6 +64,13 @@ def delete_user(db, User):
         db.session.delete(User.query.filter_by(email=inputemail).first_or_404())
         db.session.commit()
         return "user deleted"
+
+
+def user_book(userID, Booking):
+    if request.method == "GET":
+        return user_bookings(userID, Booking)
+    elif request.method == "DELETE":
+        return  # delete_tool_bookings()
 
 
 # @User_page.route("/<int:user_id>/mytools", methods=["GET"])
