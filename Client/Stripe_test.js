@@ -35,9 +35,15 @@ function get_stripe_public_key(){
 function stripe_checkout(tool_id, day, week, start_h, finnish_h){
     var finnish_h_str
     var start_h_str
+    var day_str
 
     user_id = sessionStorage.getItem('user_id')
     console.log(sessionStorage.getItem('user_id'))
+    console.log(tool_id)
+    console.log(day)
+    console.log(week)
+    console.log(start_h)
+    console.log(finnish_h)
 
     quantity = finnish_h - start_h
     quantity_str = quantity.toString()
@@ -65,6 +71,27 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
     }
 
+    expression = day
+    switch (expression) {
+        case 1:
+            day_str = "mon"
+        case 2:
+            day_str = "tue"
+        case 3:
+            day_str = "wen"
+        case 4:
+            day_str = "thu"
+        case 5:
+            day_str = "fri"
+        case 6:
+            day_str = "sat"
+        case 7:
+            day_str = "sun"
+        default:
+          console.log("felaktigt värde på day")
+      }
+
+
     console.log(week_str)
     console.log(start_h_str)
     console.log(finnish_h_str)
@@ -83,7 +110,7 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
             "user_id" : user_id,
             "quantity": "1",
-            "day": day,
+            "day": day_str,
             "week": week_str,
             "start_h": start_h_str,
             "finnish_h": finnish_h_str,

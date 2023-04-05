@@ -48,7 +48,7 @@
       <a id="loginButton" class="nav-item nav-link my-2 my-sm-0 font" style="margin-right: 10px" href="login"
         data-toggle="modal" data-target="#myModal" onclick="this.classList.toggle('active')">Logga in</a>
       <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font" href="logout" onclick="logout()">Logga ut</a>
-     
+      <a id="buy-button" onclick="stripe_checkout(1, 5, 2, 3, 4)">buy</a>
     </div>
 
   </nav>
@@ -143,23 +143,13 @@
       <script id="view-bookings" type="text/html" style="padding: 0px">
       <div class ="bookingsContainer">
         <h1 class = "font mybookingstext">Mina bokningar</h1>
-               
-                <div class="bookedTool">
-                    <div class="cardBody">
-                      <!--När man trycker på denna knapp ska bokningen försvinna och kommunicera det till databasen-->
-                      <a href="#" class="btn btn-primary avbokaknapp " onclick="alert ('Avbokad');">Avboka</a>
-                      <h5 class="cardTitle font">Hammare</h5>
-                      <p class="cardText font">Torsdag 15:00 - Torsdag 19:00</p>
-                    </div>
-                  </div>
-                  
-                  <div class="bookedTool">
+<!--                  
                     <div class="cardBody">
                       <a href="#" class="btn btn-primary avbokaknapp">Avboka</a>
                       <h5 class="cardTitle font"> Såg</h5>
                       <p class="cardText font">Lördag 11:00 - Söndag 15:00</p>
                     </div>
-                  </div>
+                  -->
       </div>
   </script>
 
@@ -216,20 +206,8 @@
            </form>
            <!--Detta ska egentligen uppdateras dynamiskt-->
            <div class="cardsHolder">
-              <!--<div class="card toolcards">
-                  <div class="product-image">
-                    <img src="/Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
-                  </div>
-                  <div class="product-info">
-                    <h2>Hammare Biltema</h2>
-                    <p>Tvofast, pålitlig och användbar!</p>
-                    <div class="price">10 kr/h</div>
-                  </div>
-                  <div class="btn">
-                    <button class="buy-btn" for="ruta">Boka nu</button>
-                  </div>
-              </div>-->
-      </div>
+              
+          </div>
 
       <!-- Modalen för att se mer information om verktyget, kalendern för hur den är bokad samt möjligheten till boka/betala-->
       <div class="modal" tabindex="-1" role="dialog" id="mymodal">
@@ -241,315 +219,21 @@
                 <span aria-hidden="true">&times;</span>
               </button>
               <div class="bookModalLeft">
+                <!--
                 <h1 class="font modalHeader">Hammare Biltema</h1>
                 <div class="product-image">
                   <img src="/Pictures/tools/hammer.png" alt="Tool Image" draggable="false" />
                 </div>
                 <p class ="font modalInfo">En hammare består av huvud och skaft. Skaftet kan vara av trä, metall eller glasfiber. Det fästs i det elliptiskt koniska ögat i huvudet och kilas fast med metall- eller träkil i ett sågat spår i skaftet (om detta är av trä). Det hela kan förstärkas med epoxylim som fyller ut luckor i ögat mellan skaft och huvud. Ytterligare förstärkning kan förekomma med järnhakar genom ögat. Hakarna spikas fast mot skaftet.</p>
-            </div>
+              -->
+          </div>
             <div class="bookModalRight">
-            <!-- Kalendern för de olika verktygen -->
-            <div class="calendar">
-              <table>
-                <thead>
-                  <tr>
-                    <h1 class="font modalHeader">Vecka X</h1>
-                  </tr>
-                  <tr class="day">
-                    <th><-</th>
-                    <th>
-                      <span class="day">Måndag</span>
-                    </th>
-                    <th>
-                      <span class="day">Tisdag</span>
-                    </th>
-                    <th>
-                      <span class="day">Onsdag</span>
-                    </th>
-                    <th>
-                      <span class="day">Torsdag</span>
-                    </th>
-                    <th>
-                      <span class="day">Fredag</span>
-                    </th>
-                    <th>
-                      <span class="day">Lördag</span>
-                    </th>
-                    <th>
-                      <span class="day">Söndag</span>
-                    </th>
-                    <th>-></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class ="oddRow">
-                    <td class="hour"><span>00:00 01:00</span></td>
-                    <td id="Må0001" onclick = "klickad()"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>01:00 02:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>02:00 03:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>03:00  04:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>04:00 05:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>05:00 06:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>06:00 07:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                  
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>07:00 08:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>08:00  09:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>09:00 10:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-  
-                  </tr>                    
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>10:00 11:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>                    
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>11:00 12:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>12:00 13:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>13:00 14:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>14:00 15:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>15:00 16:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>16:00 17:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>17:00 18:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>18:00 19:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>19:00 20:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>20:00 21:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                   
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>21:00 22:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  
-                  </tr>
-                  <tr class ="oddRow">
-                    <td class="hour" ><span>22:00 23:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-            
-                  </tr>
-                  <tr class ="evenRow">
-                    <td class="hour" ><span>23:00 00:00</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                </tbody>
-              </table>
+              <!-- Kalendern för de olika verktygen -->
+                    <div id="rightTop">
+              
+                    </div>
+            <div id="calendar" class="calendar">
             </div>
-            <button class="btn boka-btn" onclick="stripe_checkout('1','mon','2','3','4')">Boka & Betala</button>
           </div>
             <!--
               <div class="modal-header">
@@ -652,6 +336,7 @@
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
       <script type="text/javascript" src="Client.js"></script>
       <script type="text/javascript" src="Tools.js"></script>
+      <script type="text/javascript" src="Mybookings.js"></script>
       <script type="text/javascript" src="Search.js"></script>
       <script type="text/javascript" src="Stripe_test.js"></script>
       <script src="https://js.stripe.com/v3/"></script>

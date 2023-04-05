@@ -58,9 +58,9 @@ def tool(Tool, db, toolID):
         return "tool deleted"
 
 
-def tool_book(toolID):
+def tool_book(toolID, Booking):
     if request.method == "GET":
-        return tool_bookings(toolID)
+        return tool_bookings(toolID, Booking)
     elif request.method == "POST":
         return book_tool(toolID, 1, 1, 1, 1)  # TODO: ta in datan från json front end
     elif request.method == "DELETE":
