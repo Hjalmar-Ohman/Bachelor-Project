@@ -1,5 +1,5 @@
 host = window.location.protocol + '//' + location.host
-
+var x = 0;
 function addToolCard(tool) {
     var cardsHolder = $('.cardsHolder');
 
@@ -32,9 +32,18 @@ function loadTools() {
     });
 }
 
+function searchSilverTejp(){
+    if(x==1){
+       setTimeout(removeTools, 450);
+    }
+    else{
+        removeTools();
+    }
+}
 function search() {
     var keyword = $("#searchText").val();
-    removeTools();
+    console.log(keyword);
+   // removeTools();
 
     $.ajax({
         url: host + '/tools/search?keyword=' + keyword,
@@ -48,9 +57,12 @@ function search() {
             });
         }
     });
+
+    x=0;
 }
 
 function removeTools() {
+    x=1;
     $.ajax({
         url: host + '/tools',
         type: 'GET',
@@ -58,21 +70,11 @@ function removeTools() {
         contentType: 'application/json',
         //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
         success: function (tools) {
+            console.log("tar bort")
             $.each(tools, function (i, tool) {
                 $('#toolID' + tool.id).remove();
-                console.log(tool.id);
             });
+            search();
         }
     });
 }
-
-
-$('#searchText').on('keyup', function (e) {
-    console.log(1);
-    if (e.key === 'Enter') {
-        //e.preventDefault();
-        console.log(1);
-        search();
-        $('#searchText').val('');
-    }
-});
