@@ -19,6 +19,7 @@ function loadHowtoPage() {
 
 function loadToolsPage() {
    $("div.container-fluid").html($("#view-tools").html())
+   loadTools();
 }
 
 function loadBookingsPage() {
