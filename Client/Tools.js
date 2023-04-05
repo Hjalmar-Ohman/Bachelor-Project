@@ -250,6 +250,27 @@ function showCalendar(selectWeek, selectDay, tool_id) {
 
     /*alert("Vecka " + weekNr+ " Dag " + dayNr);*/
 
+    // $.ajax({
+    //     url: host + '/tools/' + tool_id +'/book',
+    //     type: 'GET', 
+
+    //     success: function(bookings) {
+    //         const booked_hours = [];
+    //         for (var i = 0; i < bookings.length; i++) {
+    //             var booking = bookings[i];
+    //             var hour = booking.start_hour;
+    //             if (document.getElementById("selectedWeek").value == booking.week) { 
+    //                 if (document.getElementById("selectedDay").value == booking.day) { 
+    //                     while (hour <= booking.end_hour) {
+    //                         hour++;
+    //                         booked_hours.add(hour);
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // })
+
     if (weekNr > 0 && dayNr > 0) {
         var tableBeginning = '<table> <thead> </thead> <tbody>';
         var tableRowOne = '<tr class ="oddRow"> <td class="hour" id = "01" onclick="addPreliminaryBkn(this)"><span>00:00 01:00</span></td> <td class="hour" id = "02" onclick="addPreliminaryBkn(this)"><span>01:00 02:00</span></td>  <td class="hour"id = "03" onclick="addPreliminaryBkn(this)"><span>02:00 03:00</span></td>   <td class="hour" id = "04" onclick="addPreliminaryBkn(this)"><span>03:00 04:00</span></td>   <td class="hour" id = "05" onclick="addPreliminaryBkn(this)"><span>04:00 05:00</span></td>   <td class="hour" id = "06" onclick="addPreliminaryBkn(this)"><span>05:00 06:00</span></td>    </tr>';
