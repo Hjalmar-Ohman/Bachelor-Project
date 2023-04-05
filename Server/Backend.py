@@ -83,14 +83,20 @@ class Booking(db.Model):
     day = db.Column(db.Integer, nullable=False)
     week = db.Column(db.Integer, nullable=False)
 
-    # user_id = db.Column(db.Integer, db.ForeignKey(User.id))
-    # tool_id = db.Column(db.Integer, db.ForeignKey(Tool.id))
-    # hour = db.Column(db.Integer, nullable=False)
-    # day = db.Column(db.Integer, nullable=False)
-    # year = db.Column(db.Integer, nullable=False)
+    def __repr__(self):
+        return "<Booking {}: {} {} {} {} {} {}".format(
+            self.id,
+            self.user_id,
+            self.tool_id,
+            self.start_hour,
+            self.end_hour,
+            self.day,
+            self.week,
+        )
 
     def serialize(self):
         return dict(
+            id=self.id,
             tool_id=self.tool_id,
             start_hour=self.start_hour,
             end_hour=self.end_hour,
@@ -246,7 +252,7 @@ def tool2(input_id):
 
 
 @app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
-# @jwt_required()
+@jwt_required()
 def toolBook2(input_id):
     toolID = input_id
     return tool_book(toolID, Booking)
@@ -268,7 +274,7 @@ def userBook2(input_id):
 # @jwt_required()
 def delete_booking2(input_id):
     bookingID = input_id
-    delete_booking(db, Booking, bookingID)
+    return delete_booking(db, Booking, bookingID)
 
 
 # tillfällig lösning

@@ -46,6 +46,8 @@ function getBookings() {
         success: function (user_bookings) {
             $.each(user_bookings, function (i, booking) {
                 addBookingRow(booking);
+                console.log(booking.id)
+                console.log(booking.day)
             });
         }
     });
@@ -55,9 +57,9 @@ function removeBooking(bookingID) {
     $.ajax({
         url: host + '/book/' + bookingID,
         type: 'DELETE',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+        headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
         success: function () {
-            $('#' + bookingID).remove(); //ERROR BOOKINGID UNDEFINED MAN BA ?????
+            $('#' + bookingID).remove();
         }
     });
 }
