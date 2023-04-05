@@ -342,6 +342,6 @@ function sendBooking(toolID,selectedDay,selectedWeek){
     } else {
         startTime = sortedList[0]-1;
         endTime = sortedList[sortedList.length-1];
-        stripe_ceckout(toolID,selectedDay,selectedWeek,startTime,endTime);
+        stripe_checkout(toolID,selectedDay,selectedWeek,startTime,endTime);
     }
 }

@@ -90,14 +90,20 @@ class Booking(db.Model):
     day = db.Column(db.Integer, nullable=False)
     week = db.Column(db.Integer, nullable=False)
 
-    # user_id = db.Column(db.Integer, db.ForeignKey(User.id))
-    # tool_id = db.Column(db.Integer, db.ForeignKey(Tool.id))
-    # hour = db.Column(db.Integer, nullable=False)
-    # day = db.Column(db.Integer, nullable=False)
-    # year = db.Column(db.Integer, nullable=False)
+    def __repr__(self):
+        return "<Booking {}: {} {} {} {} {} {}".format(
+            self.id,
+            self.user_id,
+            self.tool_id,
+            self.start_hour,
+            self.end_hour,
+            self.day,
+            self.week,
+        )
 
     def serialize(self):
         return dict(
+            id=self.id,
             tool_id=self.tool_id,
             start_hour=self.start_hour,
             end_hour=self.end_hour,
@@ -167,10 +173,10 @@ def payment_hook():
 
         user_id = line_items["data"][0]["description"][0:1]
         day = line_items["data"][0]["description"][11:14]
-        week = line_items["data"][0]["description"][15:17]
-        start_hour = line_items["data"][0]["description"][18:20]
-        end_hour = line_items["data"][0]["description"][21:23]
-        tool_id = line_items["data"][0]["description"][23:-1]
+        week = line_items["data"][0]["description"][15:16]
+        start_hour = line_items["data"][0]["description"][17:19]
+        end_hour = line_items["data"][0]["description"][20:22]
+        tool_id = line_items["data"][0]["description"][22:23]
 
         print(line_items["data"][0]["description"])
         print("day: " + day)
@@ -262,6 +268,20 @@ def toolBook2(input_id):
 @app.route("/user/delete", methods=["DELETE"])
 def delete_user2():
     return delete_user(db, User)
+
+
+@app.route("/user/<int:input_id>/book", methods=["GET", "POST"])
+# @jwt_required()
+def userBook2(input_id):
+    userID = input_id
+    return user_book(userID, Booking)
+
+
+@app.route("/book/<int:input_id>", methods=["DELETE"])
+# @jwt_required()
+def delete_booking2(input_id):
+    bookingID = input_id
+    return delete_booking(db, Booking, bookingID)
 
 
 # tillfällig lösning
