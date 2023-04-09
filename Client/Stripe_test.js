@@ -90,6 +90,7 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
         default:
           console.log("felaktigt värde på day")
       }
+    console.log(day_str)
 
 
     console.log(week_str)
@@ -109,7 +110,7 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
             
 
             "user_id" : user_id,
-            "quantity": "1",
+            "quantity": quantity_str,
             "day": day_str,
             "week": week_str,
             "start_h": start_h_str,
