@@ -42,10 +42,16 @@ class Tool(db.Model):
     name = db.Column(db.String, nullable=False)
     properties = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=False)
 
     def __repr__(self):
         return "<Tool {}: {} {} {} {}".format(
-            self.id, self.price, self.name, self.properties, self.description
+            self.id,
+            self.price,
+            self.name,
+            self.properties,
+            self.description,
+            self.image,
         )
 
     def seralize(self):
@@ -55,6 +61,7 @@ class Tool(db.Model):
             name=self.name,
             properties=self.properties,
             description=self.description,
+            image=self.image,
         )
 
 
@@ -71,7 +78,7 @@ class User(db.Model):
         return "<User {}: {} {}".format(self.id, self.name, self.email)
 
     def seralize(self):
-        return dict(id=self.id, name=self.name,  email=self.email)
+        return dict(id=self.id, name=self.name, email=self.email)
 
 
 class Booking(db.Model):
@@ -83,14 +90,26 @@ class Booking(db.Model):
     day = db.Column(db.Integer, nullable=False)
     week = db.Column(db.Integer, nullable=False)
 
-   # user_id = db.Column(db.Integer, db.ForeignKey(User.id))
-   # tool_id = db.Column(db.Integer, db.ForeignKey(Tool.id))
-   # hour = db.Column(db.Integer, nullable=False)
-   # day = db.Column(db.Integer, nullable=False)
-   # year = db.Column(db.Integer, nullable=False)
+    def __repr__(self):
+        return "<Booking {}: {} {} {} {} {} {}".format(
+            self.id,
+            self.user_id,
+            self.tool_id,
+            self.start_hour,
+            self.end_hour,
+            self.day,
+            self.week,
+        )
 
     def serialize(self):
-        return dict(tool_id=self.tool_id, start_hour=self.start_hour, end_hour=self.end_hour, day=self.day, week=self.week)
+        return dict(
+            id=self.id,
+            tool_id=self.tool_id,
+            start_hour=self.start_hour,
+            end_hour=self.end_hour,
+            day=self.day,
+            week=self.week,
+        )
 
 
 @app.route("/")
@@ -100,7 +119,7 @@ def client():
 
 @app.route("/signup", methods=["POST"])
 def signUp2():
-    
+
     return signUp(db, User, mail)
 
 
@@ -110,15 +129,13 @@ def login2():
     inputemail = request.get_json()["email"]
     password = request.get_json()["password"]
 
-
-    
     return login(db, bcrypt, User, inputemail, password)
 
 
 # till för backend testning
 @app.route("/TestEmail", methods=["GET"])
 def test_email():
-    send_mail(mail) 
+    send_mail(mail)
     return "sent"
 
 
@@ -126,20 +143,21 @@ def test_email():
 def checkout(input_id):
     return
 
-@app.route("/payment_web_hook", methods = ["POST"])
+
+@app.route("/payment_web_hook", methods=["POST"])
 def payment_hook():
     print("Web_hook is called")
     payload = request.get_data()
-    sig_header = request.environ.get('HTTP_STRIPE_SIGNATURE')
-    endpoint_secret = "whsec_328c4c96086acd8e809e0a6557c93419bb3610d12ceeb1949be08d674d487da7"
-    event = None       
+    sig_header = request.environ.get("HTTP_STRIPE_SIGNATURE")
+    endpoint_secret = (
+        "whsec_328c4c96086acd8e809e0a6557c93419bb3610d12ceeb1949be08d674d487da7"
+    )
+    event = None
 
     try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
-        )
+        event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
     except ValueError as e:
-    # Error om payload innehåller fel typer
+        # Error om payload innehåller fel typer
         print("invalid payload")
         return {}, 400
     except stripe.error.SignatureVerificationError as e:
@@ -147,34 +165,33 @@ def payment_hook():
         return {}, 400
 
     # hämtar "check_out eventet",
-    if event['type'] == 'checkout.session.completed':
-        session = stripe.checkout.Session.retrieve(
-        event['data']['object']['id']
-        )
-        line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
-        print(line_items['data'][0]['description'])
+    if event["type"] == "checkout.session.completed":
+        session = stripe.checkout.Session.retrieve(event["data"]["object"]["id"])
+        line_items = stripe.checkout.Session.list_line_items(session["id"], limit=1)
+        print(line_items["data"][0]["description"])
         print(session)
 
-        
-        user_id = line_items['data'][0]['description'][0:1]
-        day = line_items['data'][0]['description'][11:14]
-        week = line_items['data'][0]['description'][15:17]
-        start_hour = line_items['data'][0]['description'][18:20]
-        end_hour = line_items['data'][0]['description'][21:23]
-        tool_id = line_items['data'][0]['description'][23:-1]
-        
-        print(line_items['data'][0]['description'])
-        print("day: "+day)
-        print("week: "+week)
+        user_id = line_items["data"][0]["description"][0:1]
+        day = line_items["data"][0]["description"][11:14]
+        week = line_items["data"][0]["description"][15:16]
+        start_hour = line_items["data"][0]["description"][17:19]
+        end_hour = line_items["data"][0]["description"][20:22]
+        tool_id = line_items["data"][0]["description"][22:23]
+
+        print(line_items["data"][0]["description"])
+        print("day: " + day)
+        print("week: " + week)
         print("start_hour: " + start_hour)
         print("end_hour: " + end_hour)
-        print("user_id: "+user_id)
-        print("tool_id: "+tool_id)
-        
-        book_tool_by_ids(db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week)
+        print("user_id: " + user_id)
+        print("tool_id: " + tool_id)
 
+        book_tool_by_ids(
+            db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week
+        )
 
     return {}, 200
+
 
 @app.route("/get_stripe_key")
 def get_key():
@@ -183,29 +200,29 @@ def get_key():
 
 # till för backend testning
 @app.route("/test/checkout", methods=["POST"])
-
 def test_checkout():
 
-   
-   #user_email = get_jwt_identity()
-   #price
-   quantity = request.get_json()["quantity"]
-   day = request.get_json()["day"]
-   week = request.get_json()["week"]
-   start_h = request.get_json()["start_h"]
-   finnish_h = request.get_json()["finnish_h"]
-   tool_id = request.get_json()["tool_id"]
-   user_id = request.get_json()["user_id"]
-   
-   
-   #user_id = User.query.filter_by(email=user_email).first_or_404()
+    # user_email = get_jwt_identity()
+    # price
+    quantity = request.get_json()["quantity"]
+    day = request.get_json()["day"]
+    week = request.get_json()["week"]
+    start_h = request.get_json()["start_h"]
+    finnish_h = request.get_json()["finnish_h"]
+    tool_id = request.get_json()["tool_id"]
+    user_id = request.get_json()["user_id"]
 
-   tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
-   price = tool_temp.price * 100
+    # user_id = User.query.filter_by(email=user_email).first_or_404()
 
-   return process_payment(str(price), quantity, day, week, start_h, finnish_h, tool_id, user_id)
+    tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
+    price = tool_temp.price * 100
 
-#till för backend testning
+    return process_payment(
+        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_id
+    )
+
+
+# till för backend testning
 @app.route("/test/checkout/success", methods=["GET"])
 def checkout_success():
     return "Tack för ditt köp"
@@ -219,7 +236,7 @@ def checkout_failed():
 
 @app.route("/start")
 def start():
-    
+
     return jsonify("Seems to be working just 'bout fine")
 
 
@@ -242,10 +259,10 @@ def tool2(input_id):
 
 
 @app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
-@jwt_required()
+#@jwt_required()
 def toolBook2(input_id):
     toolID = input_id
-    return tool_book(toolID)
+    return tool_book(toolID, Booking)
 
 
 @app.route("/user/delete", methods=["DELETE"])
@@ -262,17 +279,28 @@ def get_user2(input_id):
 def edit_user2():
     return edit_user(db, User)
 
+@app.route("/user/<int:input_id>/book", methods=["GET", "POST"])
+# @jwt_required()
+def userBook2(input_id):
+    userID = input_id
+    return user_book(userID, Booking)
 
-#tillfällig lösning
-def book_tool_redirect(day, week, start_h, finnish_h, tool_id, user_id): #Används till book_tool är klar
-    
+
+@app.route("/book/<int:input_id>", methods=["DELETE"])
+# @jwt_required()
+def delete_booking2(input_id):
+    bookingID = input_id
+    return delete_booking(db, Booking, bookingID)
 
 
-    #book_tool(db, Booking, User, tool_id, start_h, finnish_h, day, 1)
+# tillfällig lösning
+def book_tool_redirect(
+    day, week, start_h, finnish_h, tool_id, user_id
+):  # Används till book_tool är klar
+
+    # book_tool(db, Booking, User, tool_id, start_h, finnish_h, day, 1)
 
     return
-
-
 
 
 if __name__ == "__main__":

@@ -139,8 +139,9 @@
     float: right;
   }
   .calendar{
-    overflow-y: scroll;
-    height:500px;
+    height:auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   .modalHeader{
     color: rgb(245, 190, 52);
@@ -158,49 +159,139 @@
     font-size: 1rem;
     transition: 300ms ease;
     margin:auto;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
+    
     color: white;
     font-style: bold;
   }
   .boka-btn:hover {
     background-color: rgb(250, 170, 118);
   }
+  .boka-btn-inactive{
+    background-color: rgba(140, 140, 140, 0.477);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+    margin:auto;
+    margin-top: 1rem;
+    
+    color: white;
+    font-style: bold;
+  }
 
 table{
   font-family:sans-serif;
-		  width: 100%;
-		  border-spacing: 0;
+		  width:100%;
+		  border-spacing: 1rem;
 	  	border-collapse: separate;
 		  table-layout: fixed;
-		  margin-bottom: 50px;
       border: 0px solid;
       text-align: center;
+      
 }
 
 td{
   height:1rem;
-  width:100%;
+  width:1rem;
   border: 1px solid;
-  cursor: pointer;
+  border-radius: 70%;
+  padding: 5px;
 }
-td:hover{
-  background-color: green;
-}
+
 .day{
   background-color: rgb(245, 190, 52);
   color: white;
 }
-.hour:hover{
-  background-color: transparent;
-  cursor: auto;
-}
 .oddRow{
   background-color: rgb(251, 252, 252);
 }
+.oddRow:hover{
+  cursor: pointer;
+}
 .evenRow{
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(245, 190, 52, 0.15);
+}
+.evenRow:hover{
+  cursor: pointer;
+}
+.hour:hover{
+  background-color: rgb(137, 231, 137);
+}
+.oddRowInactive{
+  background-color: rgb(251, 252, 252);
+}
+.oddRowInactive:hover{
+  cursor: auto;
+}
+.evenRowInactive{
+  background-color: rgba(140, 140, 140, 0.477);
+}
+.evenRowInactive:hover{
+  cursor: auto;
+}
+.selected{
+  background-color: rgb(0, 255, 0);
+}
+.booked{
+  background-color: red;
+}
+.booked:hover{
+  cursor: auto;
 }
 
 #Må0001{
     background-color: brown;
 }
+
+
+
+.bookModalRightHeader{
+  width: 50%;
+  height: auto;
+  float: left;
+}
+.bookModalRightSelector{
+  width: 50%;
+  height: auto;
+  float: right;
+
+}
+
+#rightTop{
+  height: 8rem;
+}
+
+
+
+
+/* Dropdownboxes*/
+
+.dropdowmHeader{
+  color: rgb(245, 190, 52);
+  padding-left: 1rem;
+  text-align: center;
+}
+
+.day-select{
+  margin-left: 22rem;
+  margin-top: 1rem;
+}
+.day-select select {
+  width: 10rem;
+  background-color:rgb(250, 215, 118,0.5);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  text-align-last: center;
+  text-align: center;
+ 
+  /*Tar bort pilen ner*/
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.day-select select:checked{
+  background-color:rgb(36, 27, 170);
+}
+
+

@@ -1,0 +1,78 @@
+from Backend import db, Tool, User, Booking
+db.drop_all()
+db.create_all()
+
+hammer = Tool(price=13, name="Lätt Hammare", properties = "Vikt: 400g; Längd: 20cm.", description = "Vår lättare hammare är perfekt för mindre projekt och hemmabruk. Den väger endast 400g och är tillverkad av högkvalitativt stål för att garantera hållbarhet och prestanda. Den ergonomiska handtaget ger en bekväm grepp och minskar risken för trötthet i händerna. OBS. Spik medföljer EJ", image = "/Pictures/tools/hammer.png")
+
+hammer2 = Tool(price=13, name="Hammare", properties = "Vikt: 1200g; Längd: 20cm.", description = "Vår hammare är det perfekta verktyget för större byggprojekt. Med en vikt på 1,2 kg och tillverkad av högkvalitativt stål, kommer denna hammare att leverera kraftfulla slag med hög precision. Det ergonomiska handtaget ger en bekväm grepp och minskar risken för trötthet i händerna. OBS. Spik medföljer EJ", image = "/Pictures/tools/hammer2.png")
+
+drill = Tool(price=67, name="Skruvdragare", properties = "Vikt: 700g; Längd: 20cm", description = "Vår skruvdragare är ett mångsidigt verktyg för alla typer av projekt. Den har ett kraftfullt batteri som ger lång drifttid och en hög hastighet på upp till 1500 varv per minut. Det ergonomiska handtaget ger en bekväm grepp och minskar risken för trötthet i händerna. Med en justerbar momentinställning kan du enkelt anpassa dragkraften efter projektets krav.", image = "/Pictures/tools/drill.png")
+
+slagDrill = Tool(price=100, name="Slagborr", properties = "Vikt: 1500g; Längd: 35cm", description = "Vår slagborr är det perfekta verktyget för att borra i hårda ytor som betong och sten. Den har en kraftfull motor som levererar upp till 3000 slag per minut och en justerbar hastighet som låter dig anpassa borrningshastigheten efter projektet. Den ergonomiska designen ger en bekväm grepp och minskar risken för trötthet i händerna, även vid längre användningstider. Med en hög precision och pålitlighet, är vår slagborr en nödvändighet för alla stora borrningsprojekt.", image = "/Pictures/tools/slagdrill.png")
+
+circleSaw = Tool(price=74, name="Cirkelsåg", properties="Vikt: 5kg; Längd: 30cm", description="Vår cirkelsåg är ett mångsidigt verktyg som är perfekt för att såga genom trä, metall och plast. Med en hög hastighet på upp till 5 500 varv per minut kan du snabbt och enkelt skära genom tjocka material. Den ergonomiska designen gör den bekväm att använda under längre tid och säkerhetsfunktioner såsom en brytare och skydd ökar användarens säkerhet. Perfekt för alla som vill ta itu med ett byggprojekt hemma.", image="/Pictures/tools/circlesaw.png")
+
+angleGrinder = Tool(price=47, name="Vinkelslip", properties="Vikt: 2,5kg; Längd: 40cm", description="Vår vinkelslip är det perfekta verktyget för slipning och polering av olika ytor. Den har en kraftfull motor som ger en hög hastighet på upp till 3000 varv per minut. Den justerbara hastighetskontrollen ger dig möjlighet att anpassa hastigheten efter projektets krav. Det ergonomiska handtaget ger en bekväm grepp och minskar risken för trötthet i händerna. Med vår slipskiva kan du enkelt ta bort gammal färg, rost och ojämnheter från dina projekt.", image="/Pictures/tools/anglegrinder.png")
+
+# Muttersdragare
+nutDriver = Tool(
+    price=90,
+    name="Muttersdragare",
+    properties="Vikt: 1.5kg; Längd: 25cm",
+    description="Vår muttersdragare gör jobbet snabbt och enkelt. Den är perfekt för att ta bort och dra åt muttrar på bilar, motorcyklar och cyklar. Med den höga hastigheten kan du snabbt och effektivt arbeta dig genom en mängd olika projekt. Den ergonomiska designen ger en bekväm grepp och gör det enkelt att använda verktyget under längre tid.",
+    image="/Pictures/tools/nutdriver.png"
+)
+
+# Spikpistol
+nailGun = Tool(
+    price=110,
+    name="Spikpistol",
+    properties="Vikt: 2.5kg; Längd: 30cm",
+    description="Vår spikpistol är en kraftfull och pålitlig maskin som gör det enkelt att fästa material utan att behöva använda en hammare. Med sin höga hastighet och precision kan du snabbt och enkelt sätta fast trä, gips och andra material. Den är lätt att använda och har ett ergonomiskt handtag som minskar risken för trötthet i händerna.",
+    image="/Pictures/tools/nailgun.png"
+)
+
+# Såg
+handsaw = Tool(
+    price=30,
+    name="Handsåg",
+    properties="Vikt: 400g; Längd: 40cm",
+    description="Vår handsåg är perfekt för mindre projekt som att såga trä och plywood. Den är lätt och enkel att använda och har en skarp sågblad som gör att du kan arbeta dig genom materialen snabbt och enkelt. Sågen har också en ergonomisk design som minskar risken för trötthet i händerna.",
+    image="/Pictures/tools/handsaw.png"
+)
+
+# Multislip
+multiSander = Tool(
+    price=80,
+    name="Multislip",
+    properties="Vikt: 1.2kg; Längd: 20cm",
+    description="Vår multislip är ett mångsidigt verktyg som kan användas för att slipa, polera och ta bort färg från en mängd olika material, inklusive trä, metall och plast. Den är lätt att använda och har flera olika slipdynor som gör att du kan anpassa slipningen till ditt projekt. Den ergonomiska designen minskar risken för trötthet i händerna och gör det enkelt att arbeta med verktyget under längre tid.",
+    image="/Pictures/tools/multisander.png"
+)
+
+
+user1 = User(name = "hjalmar", email= "a@gmail.com", password_hash = "a")
+
+booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = 3, week = 14)
+
+db.session.add(hammer)
+db.session.add(hammer2)
+db.session.add(drill)
+db.session.add(slagDrill)
+db.session.add(circleSaw)
+db.session.add(multiSander)
+db.session.add(handsaw)
+db.session.add(nailGun)
+db.session.add(nutDriver)
+db.session.add(angleGrinder)
+
+
+db.session.add(user1)
+db.session.add(booking1)
+db.session.commit()
+
+Booking.query.all()
+Tool.query.all()
+User.query.all()
+
+quit()
