@@ -39,11 +39,14 @@ def sign_up_mail(mail, user):
     mail.body = "test"
     email.html = SignUpEmailTemplate
     mail.send(email)
-    return "sent"
+    return "sent", 200
 
 
 def booking_mail(mail, user):
-    return
+    email = Message("Bokningsbekräftelse", sender="test.toolinabox.test@gmail.com", recipients=[user.email])
+    email.html = "<html><body><div style=" + "background-color: black; margin: 0px; padding: 20px; height: 70px; widht: 100%" + "><h1 style=" + "color:white;" + ">Tack för din bokning, här kommer en bekräftelse</h1></div><div style=" + "background-color:gray; margin: 0px; padding: 20px; height: 300px; width: 100%;" + "> <p>Detta är din bokningskod som öppnar skåpet: 5836</p></div> </body> </html>"
+    mail.send(email)
+    return "sent", 200
 
 
 def forgot_password_mail(mail, user):
