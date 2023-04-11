@@ -189,7 +189,7 @@ def payment_hook():
         book_tool_by_ids(
             db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week
         )
-
+        print(User.query.filter_by(id=int(user_id)).first_or_404)
         booking_mail(mail, User.query.filter_by(id=int(user_id)).first_or_404)
 
     return {}, 200
@@ -261,7 +261,7 @@ def tool2(input_id):
 
 
 @app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
-#@jwt_required()
+# @jwt_required()
 def toolBook2(input_id):
     toolID = input_id
     return tool_book(toolID, Booking)

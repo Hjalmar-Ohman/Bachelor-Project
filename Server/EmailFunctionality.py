@@ -9,6 +9,9 @@ with open("Test_email.html", "r") as f:
 with open("SignUpEmailTemplate.html", "r") as f:
     SignUpEmailTemplate = f.read()
 
+with open("BookingEmail.html", "r") as f:
+    BookingEmail = f.read()
+
 
 def print_email_creds():  # legacy, behöver ta med app
     # print(app.config['MAIL_USERNAME'])
@@ -43,8 +46,13 @@ def sign_up_mail(mail, user):
 
 
 def booking_mail(mail, user):
-    email = Message("Bokningsbekräftelse", sender="test.toolinabox.test@gmail.com", recipients=[user.email])
-    email.html = "<html><body><div style=" + "background-color: black; margin: 0px; padding: 20px; height: 70px; widht: 100%" + "><h1 style=" + "color:white;" + ">Tack för din bokning, här kommer en bekräftelse</h1></div><div style=" + "background-color:gray; margin: 0px; padding: 20px; height: 300px; width: 100%;" + "> <p>Detta är din bokningskod som öppnar skåpet: 5836</p></div> </body> </html>"
+    email = Message(
+        "Bokningsbekräftelse",
+        sender="test.toolinabox.test@gmail.com",
+        recipients=[user.email],
+    )
+
+    email.html = BookingEmail
     mail.send(email)
     return "sent", 200
 
