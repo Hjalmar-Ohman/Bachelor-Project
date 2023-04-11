@@ -15,18 +15,23 @@ def process_payment(price, quantity, day, week, start_h, finnish_h, tool_id, use
     try:
         session = stripe.checkout.Session.create(
          line_items=[{
+           
       'price_data': {
         'currency': 'sek',
+        
         'product_data': {
-          'name': user_id + 'Bookning:'+'/'+ day +'/'+ week +'/'+ start_h +'/' + finnish_h + tool_id,
+          'name': 'Bokning'
         },
         'unit_amount': price,
       },
       'quantity': quantity,
+    
     }],
+    
+    metadata = {'user_id': user_id, 'day': day, 'week': week, 'start_h': start_h, 'finnish_h': finnish_h, 'tool_id' : tool_id},
     mode='payment',
     success_url='http://localhost:5000/test/checkout/success?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url='http://localhost:5000/test/checkout/cancel',
+    cancel_url='http://localhost:5000',
     )
         print(session['id'])
 

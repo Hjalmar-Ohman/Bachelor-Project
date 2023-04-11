@@ -169,26 +169,32 @@ def payment_hook():
         session = stripe.checkout.Session.retrieve(event["data"]["object"]["id"])
         line_items = stripe.checkout.Session.list_line_items(session["id"], limit=1)
         print(line_items["data"][0]["description"])
-        print(session)
+        print(session["metadata"])
 
-        user_id = line_items["data"][0]["description"][0:1]
-        day = line_items["data"][0]["description"][11:14]
-        week = line_items["data"][0]["description"][15:16]
-        start_hour = line_items["data"][0]["description"][17:19]
-        end_hour = line_items["data"][0]["description"][20:22]
-        tool_id = line_items["data"][0]["description"][22:23]
+        user_id = session["metadata"]["user_id"]
+        day = session["metadata"]["user_id"]
+        week = session["metadata"]["week"]
+        start_hour = session["metadata"]["start_h"]
+        end_hour = session["metadata"]["finnish_h"]
+        tool_id = session["metadata"]["tool_id"]
+
+      
+
 
         print(line_items["data"][0]["description"])
-        print("day: " + day)
-        print("week: " + week)
-        print("start_hour: " + start_hour)
-        print("end_hour: " + end_hour)
-        print("user_id: " + user_id)
-        print("tool_id: " + tool_id)
+      #  print(line_items["data"][0]["metadata"])
+        #print("day: " + day)
+        #print("week: " + week)
+        #print("start_hour: " + start_hour)
+        #print("end_hour: " + end_hour)
+        #print("user_id: " + user_id)
+        #print("tool_id: " + tool_id)
 
         book_tool_by_ids(
             db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week
         )
+
+        booking_mail(mail, User.query.filter_by(id=int(user_id)).first_or_404())
 
     return {}, 200
 

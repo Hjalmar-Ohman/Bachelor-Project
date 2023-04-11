@@ -71,25 +71,33 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
     }
 
-    expression = day
-    switch (expression) {
+    
+    switch (day) {
         case 1:
             day_str = "mon"
+            break;
         case 2:
             day_str = "tue"
+            break;
         case 3:
             day_str = "wen"
+            break;
         case 4:
             day_str = "thu"
+            break;
         case 5:
             day_str = "fri"
+            break;
         case 6:
             day_str = "sat"
+            break;
         case 7:
             day_str = "sun"
+            break;
         default:
           console.log("felaktigt värde på day")
       }
+    console.log(day_str)
 
 
     console.log(week_str)
@@ -109,7 +117,7 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
             
 
             "user_id" : user_id,
-            "quantity": "1",
+            "quantity": quantity_str,
             "day": day_str,
             "week": week_str,
             "start_h": start_h_str,
@@ -123,7 +131,8 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
 
         },
         error: function () {
-            console.log("error2")  
+            console.log("error2")
+            console.log(day_str)  
             //return stripe.redirectToCheckout({session_id: data.session_id}) 
             
         }
