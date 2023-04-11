@@ -171,7 +171,7 @@ function showBookModalLeft(toolID) {
                           <option value="" selected disabled>Vilken dag?</option>
                           <option value="mon" id="mon">Måndag</option>
                           <option value="tue">Tisdag</option>
-                          <option value="wen">Onsdag</option>
+                          <option value="wed">Onsdag</option>
                           <option value="thu">Torsdag</option>
                           <option value="fri">Fredag</option>
                           <option value="sat">Lördag</option>
