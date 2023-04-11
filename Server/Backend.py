@@ -190,6 +190,8 @@ def payment_hook():
             db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week
         )
 
+        booking_mail(mail, User.query.filter_by(id=int(user_id)).first_or_404)
+
     return {}, 200
 
 
