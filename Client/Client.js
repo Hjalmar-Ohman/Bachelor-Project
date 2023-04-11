@@ -93,13 +93,7 @@ function logout() {
 }
 
 function register() {
-   // e.preventDefault();
-   var boolean = false;
-   if ($('#regAdmin').val() == 1) {
-      boolean = true;
-   }
 
-   alert(boolean);
    $.ajax({
       url: host + '/signup',
       type: 'POST',
@@ -137,7 +131,6 @@ function login() {
          sessionStorage.setItem('auth', JSON.stringify(loginResponse.token))
          sessionStorage.setItem('user_id', JSON.stringify(loginResponse.user_id))
          loadPage();
-         alert("Du har loggats in");
       },
       error: function () {
          alert("fel epost eller lösenord")
