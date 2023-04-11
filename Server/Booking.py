@@ -32,7 +32,7 @@ def book_tool_by_ids(
 ):
     # current_user_email = get_jwt_identity()
     current_user = User.query.filter_by(id=user_id).first()
-
+    print(current_user)
     new_booking = Booking(
         user_id=current_user.id,
         tool_id=tool_id,
