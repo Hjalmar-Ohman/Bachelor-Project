@@ -48,7 +48,6 @@
       <a id="loginButton" class="nav-item nav-link my-2 my-sm-0 font" style="margin-right: 10px" href="login"
         data-toggle="modal" data-target="#myModal" onclick="this.classList.toggle('active')">Logga in</a>
       <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font" href="logout" onclick="logout()">Logga ut</a>
-      <a id="buy-button" onclick="stripe_checkout(1, 1, 2, 3, 7)">buy</a>
     </div>
 
   </nav>
@@ -178,10 +177,10 @@
                     <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Ändra uppgifter: </label>
                  <form> 
                      <div class="form-group">
-                       <input type="email" class="form-control" id="regEmail" placeholder="Din e-postadress">
+                       <input type="email" class="form-control" id="editEmail" placeholder="Din e-postadress">
                      </div>
                      <div class="form-group">
-                        <input type="name" class="form-control" id="regName" placeholder="Ditt namn">
+                        <input type="name" class="form-control" id="editName" placeholder="Ditt namn">
                    
                   </div>
                      </form>

@@ -153,8 +153,8 @@ function updateUser(userId, name, email) {
 
    function editUser() {
       // Fill in the form with the user's current details
-      $('#regName').val($('.accountContainer .cardBody .font5:eq(1)').text());
-      $('#regEmail').val($('.accountContainer .cardBody .font5:eq(3)').text());
+      $('#editName').val($('.accountContainer .cardBody .font5:eq(1)').text());
+      $('#editEmail').val($('.accountContainer .cardBody .font5:eq(3)').text());
     
       // Show the modal
       $('#editModal').modal('show');
@@ -162,8 +162,8 @@ function updateUser(userId, name, email) {
  
     function submitEditUser() {
       // Get the updated details from the form
-      var name = $('#regName').val();
-      var email = $('#regEmail').val();
+      var name = $('#editName').val();
+      var email = $('#editEmail').val();
     
       // Get the user id from the card body
       var userId = $('.accountContainer .cardBody').attr('id');
