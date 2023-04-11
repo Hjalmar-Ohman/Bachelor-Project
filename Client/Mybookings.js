@@ -29,7 +29,7 @@ function addBookingRow(booking) {
             var cardBody = $('<div class="cardBody" id = "' + booking.id + '"></div>');
             var button = $('<a href="#" class="btn btn-primary avbokaknapp" onclick="removeBooking(' + booking.id + ')">Avboka</a>');
             var name = $('<h5 class="cardTitle font">' + tool.name + '</h5>');
-            var bookingTime = $('<p class="cardText font">' + dayIntConverter(booking.day) + ' ' + booking.start_hour + ':00 - ' + booking.end_hour + ':00 </p > ');
+            var bookingTime = $('<p class="cardText font">' + 'Vecka ' + booking.week + ' ' + dayIntConverter(booking.day) + ' ' + booking.start_hour + ':00 - ' + booking.end_hour + ':00 </p > ');
 
             cardBody.append(button, name, bookingTime)
             bookingsContainer.append(cardBody);
