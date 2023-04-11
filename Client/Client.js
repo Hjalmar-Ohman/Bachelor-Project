@@ -28,6 +28,7 @@ function loadBookingsPage() {
 }
 function loadAccountPage() {
    $("div.container-fluid").html($("#view-account").html())
+   getUser()
 }
 
 function loadRegPage() {
@@ -92,7 +93,95 @@ function logout() {
 
 }
 
-function register() {
+function getUser() {
+   console.log(sessionStorage.getItem('auth'))
+   $.ajax({
+      url: host + '/user/get/' + sessionStorage.getItem('user_id'),
+      type: 'GET',
+      dataType: 'json',
+      contentType: 'application/json',
+      headers: {'Authorization': 'Bearer ' + sessionStorage.getItem('auth')},
+      success: function(user) {
+         console.log(user);
+         var accountContainer = $('.accountContainer')
+         var cardBody = $('<div class="cardBody" id = "' + user.id + '"></div>');
+         var button = $('<a href="#" class="font accountButton btn" onclick="editUser(' + user.id + ')">Ändra</a>');
+         var myaccount =$('<h1 class = "font4 Rubrik"> Mitt konto</h1>')
+         var name = $('<p class="font5">' + user.name + '</p>');
+         var nametitle = $('<h5 class="font5"> Namn </h5>');
+         var email = $('<p class="font5">' + user.email + '</p>');
+         var emailtitle = $('<h5 class="font5"> Email </h5>');
+         cardBody.append(myaccount, nametitle, name, emailtitle, email, button)
+         accountContainer.append(cardBody);
+
+      },
+      error: function() {
+         console.log("error")
+      }
+
+   })
+
+}
+
+function updateUser(userId, name, email) {
+ 
+   // Skicka AJAX-förfrågan med uppdateringsdata till servern
+   $.ajax({
+     url: host + '/user/edit/' + userId,
+     type: 'PUT',
+     datatype: 'JSON',
+     contentType: 'application/json',
+     headers: {'Authorization': 'Bearer ' + sessionStorage.getItem('auth')},
+     data: JSON.stringify({
+       "name": name,
+       "email": email
+     }),
+     success: function() {
+       // Uppdatera användarens namn och e-postadress på sidan
+      $('.accountContainer').find('.cardBody').find('.font5:eq(1)').text(name);
+      $('.accountContainer').find('.cardBody').find('.font5:eq(3)').text(email);
+      
+       alert("Uppdateringen lyckades!");
+     },
+     error: function() {
+       alert("Uppdateringen misslyckades!");
+     }
+   });
+ }
+ 
+
+
+   function editUser() {
+      // Fill in the form with the user's current details
+      $('#regName').val($('.accountContainer .cardBody .font5:eq(1)').text());
+      $('#regEmail').val($('.accountContainer .cardBody .font5:eq(3)').text());
+    
+      // Show the modal
+      $('#editModal').modal('show');
+    }
+ 
+    function submitEditUser() {
+      // Get the updated details from the form
+      var name = $('#regName').val();
+      var email = $('#regEmail').val();
+    
+      // Get the user id from the card body
+      var userId = $('.accountContainer .cardBody').attr('id');
+      alert(name + email + userId);
+    // Send the update request to the server
+  updateUser(userId, name, email);
+
+  // Hide the modal
+  $('#editModal').modal('hide');
+}
+
+
+function register(){
+  // e.preventDefault();
+  var boolean = false;
+  if ($('#regAdmin').val() == 1){
+   boolean = true;
+  }
 
    $.ajax({
       url: host + '/signup',
