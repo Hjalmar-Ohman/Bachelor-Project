@@ -280,10 +280,10 @@ def get_user2(input_id):
     userID = input_id
     return get_user(db, User, userID)
 
-@app.route("/user/edit", methods=["PUT"])
-@jwt_required()
-def edit_user2():
-    return edit_user(db, User)
+@app.route("/user/edit/<int:input_id>", methods=["PUT"])
+def edit_user2(input_id):
+    userID = input_id
+    return edit_user(db, User, userID)
 
 @app.route("/user/<int:input_id>/book", methods=["GET", "POST"])
 # @jwt_required()
