@@ -39,7 +39,7 @@ function addBookingRow(booking) {
 
 function getBookings() {
     $.ajax({
-        url: host + '/user/1/book',
+        url: host + '/user/' + sessionStorage.getItem('user_id') + '/book',
         type: 'GET',
         datatype: 'JSON',
         contentType: 'application/json',

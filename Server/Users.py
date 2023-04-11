@@ -65,6 +65,33 @@ def delete_user(db, User):
         db.session.commit()
         return "user deleted"
 
+def get_user(db, User, usedID):
+    if request.method == "GET":
+        user = User.query.filter_by(id=usedID).first()
+        if user:
+            return jsonify(user.seralize())
+        else:
+            return "User not found"
+
+def edit_user(db, User, userID):
+    if request.method == "PUT":
+      
+        user = User.query.filter_by(id=userID).first()
+        if "name" in request.get_json():
+            setattr(user, "name", request.get_json()["name"] )
+
+        if "email" in request.get_json():
+            setattr(user, "email", request.get_json()["email"] )
+
+        if "password" in request.get_json():
+            setattr(user, "password", request.get_json()["password"] )
+    
+    db.session.commit()
+
+    return "User changed." + str(user)
+
+
+    
 
 def user_book(userID, Booking):
     if request.method == "GET":
