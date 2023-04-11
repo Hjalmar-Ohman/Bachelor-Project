@@ -200,9 +200,9 @@
       <!-- Sidan för att se alla verktyg som finns att boka -->
       <script id="view-tools" type="text/html">
       <div style="width: 80%; margin-left:10%;">
-           <form action="" class="searchBar">
-                  <input type="text" id="searchText" placeholder="Sök efter ditt verktyg" class="font" />
-                  <button type="reset" id="searchButton"><img src="/Pictures/search.png" onclick="search()"></button>
+           <form action="" class="searchBar" onSubmit="return false;">
+                  <input type="text" onkeyup="return searchSilverTejp()" id="searchText" placeholder="Sök efter ditt verktyg" class="font" />
+                  <button type="reset"  id="searchButton"><img src="/Pictures/search.png"></button>
            </form>
            <!--Detta ska egentligen uppdateras dynamiskt-->
            <div class="cardsHolder">
