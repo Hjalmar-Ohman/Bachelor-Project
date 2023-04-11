@@ -212,6 +212,25 @@ function showBookModalLeft(toolID) {
         }
     })
 }*/
+
+function dayIntToString(dayint){
+    if (dayint == "1") {
+        return "mon"
+    } else if (dayint == "2") {
+        return "tue"
+    } else if (dayint == "3") {
+        return "wed"
+    } else if (dayint == "4") {
+        return "thu"
+    } else if (dayint == "5") {
+        return "fri"
+    } else if (dayint == "6") {
+        return "sat";
+    } else if (dayint == "7") {
+        return "sun";
+    }
+}
+
 function getBookedHours(selectWeek, selectDay, tool_id) {
     return new Promise(function(resolve, reject) {
         var booked_hours = [];
@@ -222,8 +241,9 @@ function getBookedHours(selectWeek, selectDay, tool_id) {
                 for (var i = 0; i < bookings.length; i++) {
                     var booking = bookings[i];
                     var hour = booking.start_hour;
-                    if (selectWeek.selectedIndex == booking.week) { 
-                        if (selectDay.selectedIndex == booking.day) { 
+                    if (selectWeek.selectedIndex == booking.week) {
+                        var intDay = selectDay.selectedIndex;
+                        if (dayIntToString(intDay) == booking.day) { 
                             while (hour < booking.end_hour) {
                                 hour++;
                                 booked_hours.push(hour);
@@ -277,8 +297,8 @@ function showCalendar(selectWeek, selectDay, tool_id) {
 
     if (weekNr > 0 && dayNr > 0) {
         var tableBeginning = '<table> <thead> </thead> <tbody>';
-        var tableRowOne = '<tr class ="oddRow"> <td class="hour" id = "01" onclick="addPreliminaryBkn(this)"><span>00:00 01:00</span></td> <td class="hour" id = "02" onclick="addPreliminaryBkn(this)"><span>01:00 02:00</span></td>  <td class="hour"id = "03" onclick="addPreliminaryBkn(this)"><span>02:00 03:00</span></td>   <td class="hour" id = "04" onclick="addPreliminaryBkn(this)"><span>03:00 04:00</span></td>   <td class="hour" id = "05" onclick="addPreliminaryBkn(this)"><span>04:00 05:00</span></td>   <td class="hour" id = "06" onclick="addPreliminaryBkn(this)"><span>05:00 06:00</span></td>    </tr>';
-        var tableRowTwo = '<tr class ="evenRow">  <td class="hour" id = "07" onclick="addPreliminaryBkn(this)"><span>06:00 07:00</span></td>  <td class="hour" id = "08" onclick="addPreliminaryBkn(this)"><span>07:00 08:00</span></td>  <td class="hour" id = "09" onclick="addPreliminaryBkn(this)"><span>08:00 09:00</span></td>  <td class="hour" id = "10" onclick="addPreliminaryBkn(this)"><span>09:00 10:00</span></td>  <td class="hour" id = "11" onclick="addPreliminaryBkn(this)"><span>10:00 11:00</span></td>  <td class="hour" id = "12" onclick="addPreliminaryBkn(this)"><span>11:00 12:00</span></td>    </tr>';
+        var tableRowOne = '<tr class ="oddRow"> <td class="hour" id = "1" onclick="addPreliminaryBkn(this)"><span>00:00 01:00</span></td> <td class="hour" id = "2" onclick="addPreliminaryBkn(this)"><span>01:00 02:00</span></td>  <td class="hour"id = "3" onclick="addPreliminaryBkn(this)"><span>02:00 03:00</span></td>   <td class="hour" id = "4" onclick="addPreliminaryBkn(this)"><span>03:00 04:00</span></td>   <td class="hour" id = "5" onclick="addPreliminaryBkn(this)"><span>04:00 05:00</span></td>   <td class="hour" id = "6" onclick="addPreliminaryBkn(this)"><span>05:00 06:00</span></td>    </tr>';
+        var tableRowTwo = '<tr class ="evenRow">  <td class="hour" id = "7" onclick="addPreliminaryBkn(this)"><span>06:00 07:00</span></td>  <td class="hour" id = "8" onclick="addPreliminaryBkn(this)"><span>07:00 08:00</span></td>  <td class="hour" id = "9" onclick="addPreliminaryBkn(this)"><span>08:00 09:00</span></td>  <td class="hour" id = "10" onclick="addPreliminaryBkn(this)"><span>09:00 10:00</span></td>  <td class="hour" id = "11" onclick="addPreliminaryBkn(this)"><span>10:00 11:00</span></td>  <td class="hour" id = "12" onclick="addPreliminaryBkn(this)"><span>11:00 12:00</span></td>    </tr>';
         var tableRowTree = ' <tr class ="oddRow">  <td class="hour" id = "13" onclick="addPreliminaryBkn(this)"><span>12:00 13:00</span></td>  <td class="hour" id = "14" onclick="addPreliminaryBkn(this)"><span>13:00 14:00</span></td>  <td class="hour" id = "15" onclick="addPreliminaryBkn(this)"><span>14:00 15:00</span></td>  <td class="hour" id = "16" onclick="addPreliminaryBkn(this)"><span>15:00 16:00</span></td>    <td class="hour" id = "17" onclick="addPreliminaryBkn(this)"><span>16:00 17:00</span></td>    <td class="hour" id = "18" onclick="addPreliminaryBkn(this)"><span>17:00 18:00</span></td>  </tr>';
         var tableRowFour = '<tr class ="evenRow">    <td class="hour" id = "19" onclick="addPreliminaryBkn(this)"><span>18:00 19:00</span></td>    <td class="hour" id = "20" onclick="addPreliminaryBkn(this)"><span>19:00 20:00</span></td>    <td class="hour" id = "21" onclick="addPreliminaryBkn(this)"><span>20:00 21:00</span></td>    <td class="hour" id = "22" onclick="addPreliminaryBkn(this)"><span>21:00 22:00</span></td>    <td class="hour" id = "23" onclick="addPreliminaryBkn(this)"><span>22:00 23:00</span></td>    <td class="hour" id = "24" onclick="addPreliminaryBkn(this)"><span>23:00 24:00</span></td>  </tr>';
         var tableEnd = '</tbody> </table>';
