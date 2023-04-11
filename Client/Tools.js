@@ -34,7 +34,7 @@ function loadTools() {
 
 function searchSilverTejp(){
     if(x==1){
-       setTimeout(removeTools, 450);
+       setTimeout(removeTools, 550);
     }
     else{
         removeTools();
