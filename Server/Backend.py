@@ -172,7 +172,7 @@ def payment_hook():
         print(session["metadata"])
 
         user_id = session["metadata"]["user_id"]
-        day = session["metadata"]["user_id"]
+        day = session["metadata"]["day"]
         week = session["metadata"]["week"]
         start_hour = session["metadata"]["start_h"]
         end_hour = session["metadata"]["finnish_h"]
