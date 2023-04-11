@@ -9,7 +9,7 @@ with open("Test_email.html", "r") as f:
 with open("SignUpEmailTemplate.html", "r") as f:
     SignUpEmailTemplate = f.read()
 
-with open("BookingEmail.html", "r") as f:
+with open("BookingEmail.html", "r", encoding="utf-8") as f:
     BookingEmail = f.read()
 
 
@@ -53,7 +53,9 @@ def booking_mail(mail, user):
     )
 
     email.html = BookingEmail
+    email.charset = "utf-8"
     mail.send(email)
+    print("Bokningsmail skickat!")
     return "sent", 200
 
 
