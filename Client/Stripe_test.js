@@ -80,7 +80,7 @@ function stripe_checkout(tool_id, day, week, start_h, finnish_h){
             day_str = "tue"
             break;
         case 3:
-            day_str = "wen"
+            day_str = "wed"
             break;
         case 4:
             day_str = "thu"
