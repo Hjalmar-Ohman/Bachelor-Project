@@ -149,6 +149,22 @@ body {
 
 /*Knapparna i navbaren*/
 
+.navButton{
+  transition: 300ms ease;
+  font-size: 25px;
+}
+.navButton:hover,
+.navButton.active {
+  color: rgb(245, 190, 52);
+}
+#toolButton {
+  margin-left: 40%;
+}
+#loginButton {
+  margin-right: 20rem;
+}
+
+/*
 #toolButton {
   margin-left: 40%;
   transition: 300ms ease;
@@ -219,7 +235,7 @@ body {
 #howtoButton:hover,
 #howtoButton.active {
   color: rgb(245, 190, 52);
-}
+}*/
 
 
 /* Slut på knapparna i navbaren*/
