@@ -51,7 +51,7 @@ multiSander = Tool(
 )
 
 
-booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = 4, week = 14)
+booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = 5, week = 14)
 
 db.session.add(hammer)
 db.session.add(hammer2)
@@ -70,6 +70,5 @@ db.session.commit()
 
 Booking.query.all()
 Tool.query.all()
-User.query.all()
 
 quit()
