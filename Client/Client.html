@@ -35,19 +35,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-      <a id="toolButton" class="nav-item nav-link font navButton" href="verktyg" onclick="this.classList.toggle('active')">Verktyg
+      <a id="toolButton" class="nav-item nav-link font navButton" href="verktyg"
+        onclick="this.classList.toggle('active')">Verktyg
       </a>
-      <a id="regButton" class="nav-item nav-link font navButton" href="reg" data-toggle="modal" data-target="#myRegModal"
-        onclick="this.classList.toggle('active')">Registrera</a>
+      <a id="regButton" class="nav-item nav-link font navButton" href="reg" data-toggle="modal"
+        data-target="#myRegModal" onclick="this.classList.toggle('active')">Registrera</a>
       <a id="bookingsButton" class="nav-item nav-link font navButton" href="bokningar"
         onclick="this.classList.toggle('active')">Mina bokningar</a>
-      <a id="accountButton" class="nav-item nav-link font navButton" href="konto" onclick="this.classList.toggle('active')">Mitt
+      <a id="accountButton" class="nav-item nav-link font navButton" href="konto"
+        onclick="this.classList.toggle('active')">Mitt
         konto</a>
-      <a id="howtoButton" class="nav-item nav-link font navButton" href="howto" onclick="this.classList.toggle('active')">Så
+      <a id="howtoButton" class="nav-item nav-link font navButton" href="howto"
+        onclick="this.classList.toggle('active')">Så
         funkar det</a>
       <a id="loginButton" class="nav-item nav-link my-2 my-sm-0 font navButton" style="margin-right: 10px" href="login"
         data-toggle="modal" data-target="#myModal" onclick="this.classList.toggle('active')">Logga in</a>
-      <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font navButton" href="logout" onclick="logout()">Logga ut</a>
+      <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font navButton" href="logout" onclick="logout()">Logga
+        ut</a>
     </div>
 
   </nav>
@@ -106,11 +110,11 @@
       <script id="view-home" type="text/html" style="padding: 0px">
         <div class ="homeContainer">
             <div class = "homeBookContainer"> 
-                <h1 class = "font welcomeText" style="color: white; margin-top: 18%;" >Gör det själv med hyrda verktyg </h1>
+                <h1 class = "font welcomeText" style="color: white; margin-top: 18%;" >Hyr verktyg, spara pengar </h1>
                 <P> </P>
                 <!-- När man trycker på denna knappen skickas användaren till sidan för "tools" om man är inloggad och 
                 annars ska man skickas till modalen för att logga in-->
-                <button class=" font welcomeButton btn" onclick="loadToolsPage()"> Kom igång</button>
+                <button class=" font welcomeButton btn" onclick="loadToolsPage()">Våra verktyg</button>
             </div>
             <!-- Containern som beskriver, mha symboler, hur processen ser ut för att hyra ett verktyg -->
             <div class="howitworks">
@@ -162,35 +166,37 @@
           </div>
   </script>
 
-  <!-- Modalen för att redigera en användare och ändra namn och e-post -->
-  <div id="editModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1" >
-    <div class="modal-dialog modal-dialog-centered modal-lg">   
-           <div class="modal-content">
+      <!-- Modalen för att redigera en användare och ändra namn och e-post -->
+      <div id="editModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
             <div class="boxaround">
-                <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
-                <div class="pictureLeft" >
-                    <img src="/Pictures/editUser.jpg" alt="pictureregister" width="500px"  height="340px";>
+              <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
+              <div class="pictureLeft">
+                <img src="/Pictures/editUser.jpg" alt="pictureregister" width="500px" height="340px" ;>
 
-    </div>
+              </div>
 
-                <div class="formboxRight">
-                    <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Ändra uppgifter: </label>
-                 <form> 
-                     <div class="form-group">
-                       <input type="email" class="form-control" id="editEmail" placeholder="Din e-postadress">
-                     </div>
-                     <div class="form-group">
-                        <input type="name" class="form-control" id="editName" placeholder="Ditt namn">
-                   
+              <div class="formboxRight">
+                <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Ändra
+                  uppgifter: </label>
+                <form>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="editEmail" placeholder="Din e-postadress">
                   </div>
-                     </form>
-                    
-                     <button id = "logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp" data-dismiss="modal" onclick = "submitEditUser()" style ="margin-bottom: 10px;">Ändra</button>
-                    </div> 
-                </div>     
-             </div>            
-         </div>
-       </div>
+                  <div class="form-group">
+                    <input type="name" class="form-control" id="editName" placeholder="Ditt namn">
+
+                  </div>
+                </form>
+
+                <button id="logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp"
+                  data-dismiss="modal" onclick="submitEditUser()" style="margin-bottom: 10px;">Ändra</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

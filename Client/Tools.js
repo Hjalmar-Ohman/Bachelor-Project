@@ -12,7 +12,7 @@ function addToolCard(tool) {
     var h2 = $('<h2>' + tool.name + '</h2>');
     var p = $('<p>' + tool.properties + '</p>');
     var price = $('<div class="price">' + tool.price + ' kr/h</div>');
-    var btn = $('<button class="buy-btn" data-toggle="modal" data-target="#mymodal" onclick ="showCalendar(0,0,'+tool.id+');showBookModalLeft(' + tool.id + ')">Boka nu</button>');
+    var btn = $('<button class="buy-btn" data-toggle="modal" data-target="#mymodal" onclick ="showCalendar(0,0,' + tool.id + ');showBookModalLeft(' + tool.id + ')">Boka nu</button>');
 
     productImage.append(img);
     productInfo.append(h2, p, price);
@@ -35,18 +35,18 @@ function loadTools() {
     });
 }
 
-function searchSilverTejp(){
-    if(x==1){
-       setTimeout(removeTools, 550);
+function searchSilverTejp() {
+    if (x == 1) {
+        setTimeout(removeTools, 550);
     }
-    else{
+    else {
         removeTools();
     }
 }
 function search() {
     var keyword = $("#searchText").val();
     console.log(keyword);
-   // removeTools();
+    // removeTools();
 
     $.ajax({
         url: host + '/tools/search?keyword=' + keyword,
@@ -61,11 +61,11 @@ function search() {
         }
     });
 
-    x=0;
+    x = 0;
 }
 
 function removeTools() {
-    x=1;
+    x = 1;
     $.ajax({
         url: host + '/tools',
         type: 'GET',
@@ -106,7 +106,7 @@ function showBookModalLeft(toolID) {
     });
     var rightTop = $('#rightTop');
     rightTop.html("");
-    var rightHeader = '<div class="bookModalRightHeader"> <h1 class="font dropdowmHeader">Se tilljängliga tider!</h1></div> <div class="modalBookRightSelector">';
+    var rightHeader = '<div class="bookModalRightHeader"> <h1 class="font dropdowmHeader">Se tillgängliga tider!</h1></div> <div class="modalBookRightSelector">';
     var rightWeekSelect = `<div class="day-select">
                           <select required id="selectedWeek" onchange="showCalendar(this, selectedDay,` + toolID + `)">
                           <option value="" selected disabled>Vilken vecka?</option>
@@ -164,10 +164,10 @@ function showBookModalLeft(toolID) {
                           <option value="52">52</option>
                         </select>
                       </div>`;
-        var rightDaySelect = `                      
+    var rightDaySelect = `                      
                       <div class="day-select">
                         <!-- <p>Välj start:</p> -->
-                        <select required id="selectedDay" onchange="showCalendar(selectedWeek, this,`+ toolID+`)">
+                        <select required id="selectedDay" onchange="showCalendar(selectedWeek, this,`+ toolID + `)">
                           <option value="" selected disabled>Vilken dag?</option>
                           <option value="mon" id="mon">Måndag</option>
                           <option value="tue">Tisdag</option>
@@ -181,8 +181,8 @@ function showBookModalLeft(toolID) {
                       </div>
                     </div>
                     `;
-            totalSelect = rightHeader + rightWeekSelect + rightDaySelect;
-            rightTop.append(totalSelect);
+    totalSelect = rightHeader + rightWeekSelect + rightDaySelect;
+    rightTop.append(totalSelect);
 }
 
 /*function getBookedHours(selectWeek, selectDay, tool_id){
@@ -213,7 +213,7 @@ function showBookModalLeft(toolID) {
     })
 }*/
 
-function dayIntToString(dayint){
+function dayIntToString(dayint) {
     if (dayint == "1") {
         return "mon"
     } else if (dayint == "2") {
@@ -232,18 +232,18 @@ function dayIntToString(dayint){
 }
 
 function getBookedHours(selectWeek, selectDay, tool_id) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         var booked_hours = [];
         $.ajax({
-            url: host + '/tools/' + tool_id +'/book',
+            url: host + '/tools/' + tool_id + '/book',
             type: 'GET',
-            success: function(bookings) {
+            success: function (bookings) {
                 for (var i = 0; i < bookings.length; i++) {
                     var booking = bookings[i];
                     var hour = booking.start_hour;
                     if (selectWeek.selectedIndex == booking.week) {
                         var intDay = selectDay.selectedIndex;
-                        if (dayIntToString(intDay) == booking.day) { 
+                        if (dayIntToString(intDay) == booking.day) {
                             while (hour < booking.end_hour) {
                                 hour++;
                                 booked_hours.push(hour);
@@ -253,7 +253,7 @@ function getBookedHours(selectWeek, selectDay, tool_id) {
                 }
                 resolve(booked_hours);
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 reject(error);
             }
         });
@@ -302,23 +302,23 @@ function showCalendar(selectWeek, selectDay, tool_id) {
         var tableRowTree = ' <tr class ="oddRow">  <td class="hour" id = "13" onclick="addPreliminaryBkn(this)"><span>12:00 13:00</span></td>  <td class="hour" id = "14" onclick="addPreliminaryBkn(this)"><span>13:00 14:00</span></td>  <td class="hour" id = "15" onclick="addPreliminaryBkn(this)"><span>14:00 15:00</span></td>  <td class="hour" id = "16" onclick="addPreliminaryBkn(this)"><span>15:00 16:00</span></td>    <td class="hour" id = "17" onclick="addPreliminaryBkn(this)"><span>16:00 17:00</span></td>    <td class="hour" id = "18" onclick="addPreliminaryBkn(this)"><span>17:00 18:00</span></td>  </tr>';
         var tableRowFour = '<tr class ="evenRow">    <td class="hour" id = "19" onclick="addPreliminaryBkn(this)"><span>18:00 19:00</span></td>    <td class="hour" id = "20" onclick="addPreliminaryBkn(this)"><span>19:00 20:00</span></td>    <td class="hour" id = "21" onclick="addPreliminaryBkn(this)"><span>20:00 21:00</span></td>    <td class="hour" id = "22" onclick="addPreliminaryBkn(this)"><span>21:00 22:00</span></td>    <td class="hour" id = "23" onclick="addPreliminaryBkn(this)"><span>22:00 23:00</span></td>    <td class="hour" id = "24" onclick="addPreliminaryBkn(this)"><span>23:00 24:00</span></td>  </tr>';
         var tableEnd = '</tbody> </table>';
-        var button = '<button class="btn boka-btn" onclick="sendBooking('+tool_id+','+selectDay.selectedIndex+','+selectWeek.selectedIndex+')">Boka & Betala</button>';
+        var button = '<button class="btn boka-btn" onclick="sendBooking(' + tool_id + ',' + selectDay.selectedIndex + ',' + selectWeek.selectedIndex + ')">Boka & Betala</button>';
         var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd + button;
 
         $('#calendar').append(updatedCalendar);
-    getBookedHours(selectWeek, selectDay, tool_id).then(function(booked_hours) {
-        if (booked_hours.length>0){
-            for(let i = 0; i<booked_hours.length; i++){
-                var bookedSting = booked_hours[i].toString();
-                var element = document.getElementById(bookedSting);
-                element.className = "booked";
-                element.onclick = null;
-               }
-        }
+        getBookedHours(selectWeek, selectDay, tool_id).then(function (booked_hours) {
+            if (booked_hours.length > 0) {
+                for (let i = 0; i < booked_hours.length; i++) {
+                    var bookedSting = booked_hours[i].toString();
+                    var element = document.getElementById(bookedSting);
+                    element.className = "booked";
+                    element.onclick = null;
+                }
+            }
             console.log(booked_hours);
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.error(error);
-        });    
+        });
     } else {
         var tableBeginning = '<table> <thead> </thead> <tbody>';
         var tableRowOne = '<tr class ="oddRowInactive"> <td class=""><span>00:00 01:00</span></td> <td class=""><span>01:00 02:00</span></td>  <td class=""><span>02:00 03:00</span></td>   <td class=""><span>03:00 04:00</span></td>   <td class=""><span>04:00 05:00</span></td>   <td class=""><span>05:00 06:00</span></td>    </tr>';
@@ -344,28 +344,28 @@ function addPreliminaryBkn(id) {
     }
 }
 
-function sendBooking(toolID,selectedDay,selectedWeek){
+function sendBooking(toolID, selectedDay, selectedWeek) {
     var startTime;
     var endTime;
     var isSorted = true;
 
-    const sortedList = preliminaryBknList.slice().sort((a,b)=>a-b);
-    
-    if(sortedList.length>1){
-        for (var i = 0; i < sortedList.length-1; i++) {
-            if (sortedList[i+1]-sortedList[i] != 1){
+    const sortedList = preliminaryBknList.slice().sort((a, b) => a - b);
+
+    if (sortedList.length > 1) {
+        for (var i = 0; i < sortedList.length - 1; i++) {
+            if (sortedList[i + 1] - sortedList[i] != 1) {
                 isSorted = false;
             }
         }
     }
 
-    if (preliminaryBknList.length == 0){
-        alert("Vänligen välj en tid!") 
-    } else if(!isSorted) {
+    if (preliminaryBknList.length == 0) {
+        alert("Vänligen välj en tid!")
+    } else if (!isSorted) {
         alert("Du kan bara boka en sammanhängande bokning åt gången, vänligen försök igen!")
     } else {
-        startTime = sortedList[0]-1;
-        endTime = sortedList[sortedList.length-1];
-        stripe_checkout(toolID,selectedDay,selectedWeek,startTime,endTime);
+        startTime = sortedList[0] - 1;
+        endTime = sortedList[sortedList.length - 1];
+        stripe_checkout(toolID, selectedDay, selectedWeek, startTime, endTime);
     }
 }
