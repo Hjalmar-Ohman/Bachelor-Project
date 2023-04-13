@@ -92,7 +92,7 @@ function logout() {
    sessionStorage.clear();
 
 }
-
+//Används för att ladda användare från server till "Mina sidor"
 function getUser() {
    console.log(sessionStorage.getItem('auth'))
    $.ajax({
@@ -113,12 +113,10 @@ function getUser() {
          var emailtitle = $('<h5 class="font5"> Email </h5>');
          cardBody.append(myaccount, nametitle, name, emailtitle, email, button)
          accountContainer.append(cardBody);
-
       },
       error: function() {
          console.log("error")
       }
-
    })
 
 }
