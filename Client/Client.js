@@ -42,7 +42,7 @@ function loadLoginPage() {
 
 $(document).ready(function () {
    // Kod i detta block körs när dokumentet laddats klart.
-   sessionStorage.setItem('auth', '');
+   //sessionStorage.setItem('auth', '');
    loadPage();
 })
 

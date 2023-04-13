@@ -30,7 +30,7 @@ def process_payment(price, quantity, day, week, start_h, finnish_h, tool_id, use
     
     metadata = {'user_id': user_id, 'day': day, 'week': week, 'start_h': start_h, 'finnish_h': finnish_h, 'tool_id' : tool_id},
     mode='payment',
-    success_url='http://localhost:5000/test/checkout/success?session_id={CHECKOUT_SESSION_ID}',
+    success_url='http://localhost:5000',
     cancel_url='http://localhost:5000',
     )
         print(session['id'])
