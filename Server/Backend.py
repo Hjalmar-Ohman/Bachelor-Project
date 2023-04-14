@@ -179,7 +179,7 @@ def payment_hook():
         tool_id = session["metadata"]["tool_id"]
 
         print(line_items["data"][0]["description"])
-        #  print(line_items["data"][0]["metadata"])
+        #print(line_items["data"][0]["metadata"])
         # print("day: " + day)
         # print("week: " + week)
         # print("start_hour: " + start_hour)
@@ -306,5 +306,9 @@ def book_tool_redirect(
     return
 
 
+
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
+
+

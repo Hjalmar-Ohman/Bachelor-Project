@@ -302,7 +302,14 @@ function showCalendar(selectWeek, selectDay, tool_id) {
         var tableRowTree = ' <tr class ="oddRow">  <td class="hour" id = "13" onclick="addPreliminaryBkn(this)"><span>12:00 13:00</span></td>  <td class="hour" id = "14" onclick="addPreliminaryBkn(this)"><span>13:00 14:00</span></td>  <td class="hour" id = "15" onclick="addPreliminaryBkn(this)"><span>14:00 15:00</span></td>  <td class="hour" id = "16" onclick="addPreliminaryBkn(this)"><span>15:00 16:00</span></td>    <td class="hour" id = "17" onclick="addPreliminaryBkn(this)"><span>16:00 17:00</span></td>    <td class="hour" id = "18" onclick="addPreliminaryBkn(this)"><span>17:00 18:00</span></td>  </tr>';
         var tableRowFour = '<tr class ="evenRow">    <td class="hour" id = "19" onclick="addPreliminaryBkn(this)"><span>18:00 19:00</span></td>    <td class="hour" id = "20" onclick="addPreliminaryBkn(this)"><span>19:00 20:00</span></td>    <td class="hour" id = "21" onclick="addPreliminaryBkn(this)"><span>20:00 21:00</span></td>    <td class="hour" id = "22" onclick="addPreliminaryBkn(this)"><span>21:00 22:00</span></td>    <td class="hour" id = "23" onclick="addPreliminaryBkn(this)"><span>22:00 23:00</span></td>    <td class="hour" id = "24" onclick="addPreliminaryBkn(this)"><span>23:00 24:00</span></td>  </tr>';
         var tableEnd = '</tbody> </table>';
+       
+       if(sessionStorage.getItem('auth')){
         var button = '<button class="btn boka-btn" onclick="sendBooking('+tool_id+','+selectDay.selectedIndex+','+selectWeek.selectedIndex+')">Boka & Betala</button>';
+       }
+       else{
+        var button = '<button class="btn boka-btn" data-dismiss="modal" data-toggle="modal" data-target="#myModal" >Boka & Betala</button>';
+       }
+       
         var updatedCalendar = tableBeginning + tableRowOne + tableRowTwo + tableRowTree + tableRowFour + tableEnd + button;
 
         $('#calendar').append(updatedCalendar);
@@ -331,6 +338,12 @@ function showCalendar(selectWeek, selectDay, tool_id) {
         $('#calendar').append(updatedCalendar);
     }
 }
+
+
+
+
+
+
 function addPreliminaryBkn(id) {
 
     if (id.className == "hour") {
@@ -344,10 +357,14 @@ function addPreliminaryBkn(id) {
     }
 }
 
+
+
 function sendBooking(toolID,selectedDay,selectedWeek){
     var startTime;
     var endTime;
     var isSorted = true;
+
+   
 
     const sortedList = preliminaryBknList.slice().sort((a,b)=>a-b);
     
@@ -368,4 +385,8 @@ function sendBooking(toolID,selectedDay,selectedWeek){
         endTime = sortedList[sortedList.length-1];
         stripe_checkout(toolID,selectedDay,selectedWeek,startTime,endTime);
     }
+
+    
+   
+
 }
