@@ -270,6 +270,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 0rem;
+  border-radius: 5px;
 }
 
 /* Här ligger symboler och texter */
@@ -302,9 +303,10 @@ body {
 /* Texterna */
 .card-text {
   color: white;
-  margin-top: 1rem;
+  margin-top: 0rem;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
+  line-height: 2rem;
 }
 
 /*Ikonen som visas i navbaren när fönstret är mindre*/
