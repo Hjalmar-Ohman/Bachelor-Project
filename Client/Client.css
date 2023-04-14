@@ -270,6 +270,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 0rem;
+  border-radius: 5px;
 }
 
 /* Här ligger symboler och texter */
@@ -297,13 +298,19 @@ body {
   margin-top: 1rem;
   color: green;
 }
+.card-img-arrow{
+  height: 75px;
+  width: 75px;
+  margin-top: 3rem;
+}
 
 /* Texterna */
 .card-text {
   color: white;
   margin-top: 1rem;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
+  line-height: 2rem;
 }
 
 /*Ikonen som visas i navbaren när fönstret är mindre*/
