@@ -83,7 +83,7 @@ body {
 .welcomeButton {
   text-align: center;
   font-size: 30px;
-  width: 30rem;
+  width: 25rem;
   height: 4rem;
   margin-left: 00%;
   background-color: rgb(245, 190, 52);
@@ -148,7 +148,6 @@ body {
 }
 
 
-/*Knapparna i navbaren*/
 
 .navButton {
   transition: 300ms ease;
@@ -161,11 +160,16 @@ body {
 }
 
 #toolButton {
-  margin-left: 33rem;
+  margin-left: 0rem;
+  ;
 }
 
 #loginButton {
-  margin-right: 20rem;
+  padding-right: 7rem;
+}
+
+#logoutButton {
+  padding-right: 8rem
 }
 
 /*
@@ -263,7 +267,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  height: 200px;
+  height: 11rem;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-wrap: wrap;
@@ -277,18 +281,17 @@ body {
 .cards-container {
   width: 100%;
   height: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 0;
+  text-align: center;
 }
 
 /* Varje "par" av symbol och text sparas i denna */
 .welcomecards {
-  align-items: center;
-  float: left;
+  max-width: 12rem;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
   margin-bottom: 1rem;
-  margin-left: 1rem;
+  margin-left: 0rem;
   text-align: center;
 }
 
@@ -300,14 +303,21 @@ body {
   color: green;
 }
 
+.card-img-arrow {
+  height: 75px;
+  width: 75px;
+  margin-top: 3rem;
+}
+
 /* Texterna */
 .card-text {
   color: white;
-  margin-top: 0rem;
+  margin-top: 1rem;
   text-align: center;
   font-size: 25px;
   line-height: 2rem;
 }
+
 
 /*Ikonen som visas i navbaren när fönstret är mindre*/
 .navbar-toggler-icon {
