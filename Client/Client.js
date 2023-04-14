@@ -254,3 +254,12 @@ links.forEach(link => {
       link.classList.add("active");
    });
 });
+
+function arrowDownScroll() {
+   let e = document.getElementById("howItWorks");
+   e.scrollIntoView({
+     block: 'start',
+     behavior: 'smooth',
+     inline: 'start'
+   });
+ }

@@ -117,9 +117,14 @@
                 <button class=" font welcomeButton btn" onclick="loadToolsPage()">Våra verktyg</button>
             </div>
             <!-- Containern som beskriver, mha symboler, hur processen ser ut för att hyra ett verktyg -->
-            <div class="howitworks">
+            <div class="arrowDown"  type ="button" onclick="arrowDownScroll()">
+              <p class=" font card-text">SÅ FUNKAR DET</p>
+              <img class="imgArrowDown" src="/Pictures/arrow down.png" alt="Card image cap">
+            </div>
+            
+            <div class="howitworks" id="howItWorks">
                 <div class="cards-container">
-                  <div class="welcomecards" data-bs-toggle="popover" data-bs-trigger="hover focus" data-placement="top" data-bs-content="HEJ HEJ HEJ">
+                  <div class="welcomecards">
                     <img class="card-img-top" src="/Pictures/iconboka.png" alt="Card image cap" >
                     <div >
                       <p class=" font card-text">BOKA </p>
@@ -145,6 +150,7 @@
                   </div>
              </div>
             </div>
+            <div id="howItWorksText"></div>
           </div>
     </script>
 

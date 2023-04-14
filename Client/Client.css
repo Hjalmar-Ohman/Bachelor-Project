@@ -127,10 +127,6 @@ body {
   width: 50%;
 }
 
-
-
-
-
 /*End of first page*/
 
 .aboutUsBox {
@@ -168,82 +164,6 @@ body {
   margin-right: 20rem;
 }
 
-/*
-#toolButton {
-  margin-left: 40%;
-  transition: 300ms ease;
-  font-size: 25px;
-}
-
-#regButton {
-  transition: 300ms ease;
-  font-size: 25px;
-}
-
-#bookingsButton {
-  transition: 300ms ease;
-  font-size: 25px;
-}
-
-#accountButton {
-  transition: 300ms ease;
-  font-size: 25px;
-}
-
-#howtoButton {
-  transition: 300ms ease;
-  font-size: 25px;
-}
-
-#loginButton {
-  transition: 300ms ease;
-  font-size: 25px;
-  margin-right: 20rem;
-}
-
-#logoutButton {
-  transition: 300ms ease;
-  font-size: 25px;
-}
-
-#toolButton:hover,
-#toolButton.active {
-  color: rgb(245, 190, 52);
-}
-
-#bookingsButton:hover,
-#bookingsButton.active {
-  color: rgb(245, 190, 52);
-}
-
-#accountButton:hover,
-#accountButton.active {
-  color: rgb(245, 190, 52);
-}
-
-#regButton:hover,
-#regButton.active {
-  color: rgb(245, 190, 52);
-}
-
-#loginButton:hover,
-#loginButton.active {
-  color: rgb(245, 190, 52);
-}
-
-#logoutButton:hover,
-#logoutButton.active {
-  color: rgb(245, 190, 52);
-}
-
-#howtoButton:hover,
-#howtoButton.active {
-  color: rgb(245, 190, 52);
-}*/
-
-
-/* Slut på knapparna i navbaren*/
-
 .modalknapp {
   background-color: rgb(245, 190, 52);
   border-color: rgb(245, 190, 52);
@@ -263,7 +183,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  height: 200px;
+  height: auto;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-wrap: wrap;
@@ -276,7 +196,7 @@ body {
 /* Här ligger symboler och texter */
 .cards-container {
   width: 100%;
-  height: 300px;
+  height: auto;
   text-align: center;
 }
 
@@ -302,6 +222,18 @@ body {
   height: 75px;
   width: 75px;
   margin-top: 3rem;
+}
+.arrowDown{
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+.imgArrowDown{
+  height: 2rem;
+  width: 20rem;
+  margin-bottom: 1rem;
 }
 
 /* Texterna */
