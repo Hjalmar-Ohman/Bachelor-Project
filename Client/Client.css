@@ -144,7 +144,6 @@ body {
 }
 
 
-/*Knapparna i navbaren*/
 
 .navButton {
   transition: 300ms ease;
@@ -157,11 +156,16 @@ body {
 }
 
 #toolButton {
-  margin-left: 40%;
+  margin-left: 0rem;
+  ;
 }
 
 #loginButton {
-  margin-right: 20rem;
+  padding-right: 7rem;
+}
+
+#logoutButton {
+  padding-right: 8rem
 }
 
 .modalknapp {
@@ -218,7 +222,8 @@ body {
   margin-top: 1rem;
   color: green;
 }
-.card-img-arrow{
+
+.card-img-arrow {
   height: 75px;
   width: 75px;
   margin-top: 3rem;
@@ -244,6 +249,7 @@ body {
   font-size: 25px;
   line-height: 2rem;
 }
+
 
 /*Ikonen som visas i navbaren när fönstret är mindre*/
 .navbar-toggler-icon {
