@@ -25,7 +25,7 @@ body {
 
 /* font för texten på hemsidan */
 .font {
-  font-family: 'Gill Sans';
+  font-family: 'Gill Sans MT';
   font-weight: normal;
   font-style: normal;
   color: white;
@@ -34,7 +34,7 @@ body {
 /* font för "Om oss" styckena */
 .font3 {
   text-align: left;
-  font-family: 'Gill Sans';
+  font-family: 'Gill Sans MT';
   color: rgb(124, 124, 124);
   line-height: 60%;
   font-size: 20px;

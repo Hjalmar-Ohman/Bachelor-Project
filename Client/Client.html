@@ -171,22 +171,23 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="boxaround">
-              <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <div class="pictureLeft">
                 <img src="/Pictures/editUser.jpg" alt="pictureregister" width="500px" height="340px" ;>
 
               </div>
 
               <div class="formboxRight">
-                <label for="formMessage" style="font-family:sans-serif; font-weight: bold; font-size: larger;">Ändra
-                  uppgifter: </label>
+                <label for="formMessage" style="font-family:Gill Sans MT; font-weight: bold; font-size: larger;">Ändra
+                  uppgifter </label>
                 <form>
                   <div class="form-group">
-                    <input type="email" class="form-control" id="editEmail" placeholder="Din e-postadress">
+                    <label for="formMessage" style="font-family:Gill Sans MT; font-weight: bold;"> Namn </label>
+                    <input type="name" class="form-control" id="editName" placeholder="Ditt namn">
                   </div>
                   <div class="form-group">
-                    <input type="name" class="form-control" id="editName" placeholder="Ditt namn">
-
+                    <label for="formMessage" style="font-family:Gill Sans MT; font-weight: bold;"> Email </label>
+                    <input type="email" class="form-control" id="editEmail" placeholder="Din e-postadress">
                   </div>
                 </form>
 
@@ -294,7 +295,7 @@
 
               <div class="formboxRight">
                 <label for="formMessage"
-                  style="font-family:sans-serif; font-weight: bold; font-size: larger;">Registrera dig </label>
+                  style="font-family:Gill Sans MT; font-weight: bold; font-size: larger;">Användaruppgifter</label>
                 <form>
                   <div class="form-group">
                     <input type="email" class="form-control" id="regEmail" placeholder="Din e-postadress">
@@ -311,7 +312,7 @@
                 </form>
 
                 <button id="logInButton" type="button" class="btn btn-primary btn-lg btn-block modalknapp"
-                  data-dismiss="modal" onclick="register()" style="margin-bottom: 10px;">Skicka</button>
+                  data-dismiss="modal" onclick="register()" style="margin-bottom: 10px;">Registrera</button>
               </div>
             </div>
           </div>
@@ -332,7 +333,7 @@
 
               <div class="formboxRightlogin">
                 <label for="formMessage"
-                  style="font-family:sans-serif; font-weight: bold; font-size: larger;">Inloggningsuppgifter </label>
+                  style="font-family:Gill Sans MT; font-weight: bold; font-size: larger;">Inloggningsuppgifter </label>
                 <form>
                   <div class="form-group">
                     <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
