@@ -45,7 +45,7 @@ body {
 .homeBookContainer {
   margin-top: 5%;
   margin-left: 10%;
-  height: 20rem;
+  height: 15rem;
   width: 50%;
   border-radius: 50px;
 }
@@ -83,7 +83,8 @@ body {
 .welcomeButton {
   text-align: center;
   font-size: 30px;
-  width: 25%;
+  width: 30rem;
+  height: 4rem;
   margin-left: 00%;
   background-color: rgb(245, 190, 52);
   border-color: rgb(245, 190, 52);
