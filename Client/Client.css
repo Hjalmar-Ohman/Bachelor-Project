@@ -25,7 +25,7 @@ body {
 
 /* font för texten på hemsidan */
 .font {
-  font-family: 'Gill Sans';
+  font-family: 'Gill Sans MT';
   font-weight: normal;
   font-style: normal;
   color: white;
@@ -34,7 +34,7 @@ body {
 /* font för "Om oss" styckena */
 .font3 {
   text-align: left;
-  font-family: 'Gill Sans';
+  font-family: 'Gill Sans MT';
   color: rgb(124, 124, 124);
   line-height: 60%;
   font-size: 20px;
@@ -65,7 +65,7 @@ body {
 .welcomeText {
   text-align: left;
   color: rgb(114, 114, 114);
-  font-size: 40px;
+  font-size: 50px;
   line-height: 200%;
   font-style: bold;
   margin-top: 10%;
@@ -149,17 +149,20 @@ body {
 
 /*Knapparna i navbaren*/
 
-.navButton{
+.navButton {
   transition: 300ms ease;
   font-size: 25px;
 }
+
 .navButton:hover,
 .navButton.active {
   color: rgb(245, 190, 52);
 }
+
 #toolButton {
   margin-left: 40%;
 }
+
 #loginButton {
   margin-right: 20rem;
 }

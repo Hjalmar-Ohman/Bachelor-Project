@@ -51,9 +51,8 @@ multiSander = Tool(
 )
 
 
-user1 = User(name = "hjalmar", email= "a@gmail.com", password_hash = "a")
-
-booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = 3, week = 14)
+booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = 5, week = 14)
+user1 = User(name = "grupp10", email = "grupp10@liu.se", password = "$2b$12$pP/KpKWTaYWF4QjQcWyMWuzPRPB69fODdSFraCiNSKx0BM4mp8sdW" )
 
 db.session.add(hammer)
 db.session.add(hammer2)
@@ -66,9 +65,9 @@ db.session.add(nailGun)
 db.session.add(nutDriver)
 db.session.add(angleGrinder)
 
-
-db.session.add(user1)
 db.session.add(booking1)
+db.session.add(user1)
+
 db.session.commit()
 
 Booking.query.all()

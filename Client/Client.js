@@ -165,7 +165,7 @@ function updateUser(userId, name, email) {
     
       // Get the user id from the card body
       var userId = $('.accountContainer .cardBody').attr('id');
-      alert(name + email + userId);
+     
     // Send the update request to the server
   updateUser(userId, name, email);
 
