@@ -217,11 +217,12 @@ def test_checkout():
 
     # user_id = User.query.filter_by(email=user_email).first_or_404()
 
+    user_temp = User.query.filter_by(id=int(user_id)).first_or_404()
     tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
     price = tool_temp.price * 100
 
     return process_payment(
-        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_id
+        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_temp
     )
 
 

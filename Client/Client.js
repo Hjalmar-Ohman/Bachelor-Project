@@ -181,6 +181,9 @@ function register(){
    boolean = true;
   }
 
+  var email = document.getElementById("regEmail").value
+  var password = document.getElementById("regLosen").value
+
    $.ajax({
       url: host + '/signup',
       type: 'POST',
@@ -194,7 +197,7 @@ function register(){
       }),
       success: function () {
          alert("Du är registrerad!");
-         loadPage();
+         auto_login(email, password);
       },
       error: function () {
          alert("nu blev det fel")
@@ -212,6 +215,30 @@ function login() {
       data: JSON.stringify({
          "email": document.getElementById("loginEmail").value,
          "password": document.getElementById("loginLosen").value
+      }),
+      success: function (loginResponse) {
+
+         sessionStorage.setItem('auth', JSON.stringify(loginResponse.token))
+         sessionStorage.setItem('user_id', JSON.stringify(loginResponse.user_id))
+         loadPage();
+      },
+      error: function () {
+         alert("fel epost eller lösenord")
+      }
+   })
+}
+
+//Används vid registrering, tar emot mail och password från register() funktionen
+function auto_login(email, password) { 
+
+   $.ajax({
+      url: host + '/login',
+      type: 'POST',
+      datatype: 'JSON',
+      contentType: 'application/json',
+      data: JSON.stringify({
+         "email": email,
+         "password": password
       }),
       success: function (loginResponse) {
 
