@@ -179,7 +179,7 @@ def payment_hook():
         tool_id = session["metadata"]["tool_id"]
 
         print(line_items["data"][0]["description"])
-        #  print(line_items["data"][0]["metadata"])
+        #print(line_items["data"][0]["metadata"])
         # print("day: " + day)
         # print("week: " + week)
         # print("start_hour: " + start_hour)
@@ -217,11 +217,12 @@ def test_checkout():
 
     # user_id = User.query.filter_by(email=user_email).first_or_404()
 
+    user_temp = User.query.filter_by(id=int(user_id)).first_or_404()
     tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
     price = tool_temp.price * 100
 
     return process_payment(
-        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_id
+        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_temp
     )
 
 
@@ -309,5 +310,9 @@ def book_tool_redirect(
     return
 
 
+
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
+
+
