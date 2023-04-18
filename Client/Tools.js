@@ -26,7 +26,6 @@ function loadTools() {
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
         success: function (tools) {
             $.each(tools, function (i, tool) {
                 addToolCard(tool);
@@ -46,14 +45,14 @@ function searchSilverTejp() {
 function search() {
     var keyword = $("#searchText").val();
     console.log(keyword);
-    // removeTools();
+
 
     $.ajax({
         url: host + '/tools/search?keyword=' + keyword,
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+        
         success: function (tools) {
             $.each(tools, function (i, tool) {
                 addToolCard(tool);
@@ -71,7 +70,6 @@ function removeTools() {
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
         success: function (tools) {
             console.log("tar bort")
             $.each(tools, function (i, tool) {
@@ -106,7 +104,6 @@ function showBookModalLeft(toolID) {
     });
     var rightTop = $('#rightTop');
     rightTop.html("");
-    //var rightHeader = '<div class="bookModalRightHeader"> <h1 class="font dropdowmHeader">Välj vecka och dag för att se tillgängliga tider!</h1></div> <div class="modalBookRightSelector">';
     var rightWeekSelect = `<div class="day-select">
                           <select required id="selectedWeek" onchange="showCalendar(this, selectedDay,` + toolID + `)">
                           <option value="" selected disabled>Vilken vecka?</option>
