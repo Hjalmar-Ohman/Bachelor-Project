@@ -228,14 +228,16 @@ body {
   width: 75px;
   margin-top: 3rem;
 }
-.arrowDown{
-  margin-top: 10rem;
+
+.arrowDown {
+  margin-top: 9rem;
   margin-bottom: 2rem;
   width: auto;
   height: auto;
   text-align: center;
 }
-.imgArrowDown{
+
+.imgArrowDown {
   height: 2rem;
   width: 20rem;
   margin-bottom: 1rem;
