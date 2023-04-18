@@ -1,4 +1,19 @@
 host = window.location.protocol + '//' + location.host
+
+
+function emptyRegLoadPage(){
+   input3.value = "";
+   input4.value = "";
+   input5.value = "";
+   loadPage();
+}
+
+function emptyLoginLoadPage(){
+   input1.value = "";
+   input2.value = "";
+   loadPage();
+}
+
 function loadPage() {
 
    $("div.container-fluid").html($("#view-home").html())
@@ -205,10 +220,36 @@ function register() {
          alert("nu blev det fel")
       }
    })
+   input3.value = "";
+   input4.value = "";
+   input5.value = "";
 }
 
-function login() {
+var input1 = document.getElementById("loginEmail");
+var input2 = document.getElementById("loginLosen");
+var input3 = document.getElementById("regEmail");
+var input4 = document.getElementById("regName");
+var input5 = document.getElementById("regLosen");
 
+input2.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        login();
+        $("#myModal").modal("hide");
+       // document.getElementById("logInButton").click();
+    }
+});
+
+
+input5.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        register();
+        $("#myRegModal").modal("hide");
+    }
+});
+
+function login() {
    $.ajax({
       url: host + '/login',
       type: 'POST',
@@ -228,6 +269,8 @@ function login() {
          alert("fel epost eller lösenord")
       }
    })
+   input1.value = "";
+   input2.value = "";
 }
 
 //Används vid registrering, tar emot mail och password från register() funktionen
