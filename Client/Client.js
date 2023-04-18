@@ -121,6 +121,12 @@ function register() {
    })
 }
 
+$("#loginLosen").keypress(function(event) {
+   if (event.keyCode === 13) {
+       $("#logInButton").click();
+   }
+});
+
 function login() {
 
    $.ajax({
