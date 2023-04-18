@@ -275,12 +275,14 @@ def delete_user2():
 
 
 @app.route("/user/get/<int:input_id>", methods=["GET"])
+#@jwt_required()
 def get_user2(input_id):
     userID = input_id
     return get_user(db, User, userID)
 
 
 @app.route("/user/edit/<int:input_id>", methods=["PUT"])
+#@jwt_required()
 def edit_user2(input_id):
     userID = input_id
     return edit_user(db, User, userID)

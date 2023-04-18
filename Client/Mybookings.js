@@ -61,7 +61,14 @@ function removeBooking(bookingID) {
         type: 'DELETE',
         headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
         success: function () {
-            $('#' + bookingID).remove();
+            if (confirm('Är du säker?')) {
+                $('#' + bookingID).remove();
+                console.log('avbokad');
+              } else {
+               
+                console.log('inte avbokad');
+              }
+           
         }
     });
 }

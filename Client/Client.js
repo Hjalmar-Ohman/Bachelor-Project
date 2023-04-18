@@ -94,13 +94,15 @@ function logout() {
 }
 //Används för att ladda användare från server till "Mina sidor"
 function getUser() {
-   console.log(sessionStorage.getItem('auth'))
+   
+   user_auth = sessionStorage.getItem('auth')
+   console.log(user_auth)
    $.ajax({
       url: host + '/user/get/' + sessionStorage.getItem('user_id'),
       type: 'GET',
       dataType: 'json',
       contentType: 'application/json',
-      headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('auth') },
+      headers: {'Authorization': 'Bearer {' + sessionStorage.getItem('user_id') +'}'},
       success: function (user) {
          console.log(user);
          var accountContainer = $('.accountContainer')
