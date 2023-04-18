@@ -28,6 +28,7 @@ function loadBookingsPage() {
 }
 function loadAccountPage() {
    $("div.container-fluid").html($("#view-account").html())
+   getUser()
 }
 
 function loadRegPage() {
@@ -41,7 +42,7 @@ function loadLoginPage() {
 
 $(document).ready(function () {
    // Kod i detta block körs när dokumentet laddats klart.
-   sessionStorage.setItem('auth', '');
+   //sessionStorage.setItem('auth', '');
    loadPage();
 })
 
@@ -91,6 +92,87 @@ function logout() {
    sessionStorage.clear();
 
 }
+//Används för att ladda användare från server till "Mina sidor"
+function getUser() {
+   console.log(sessionStorage.getItem('auth'))
+   $.ajax({
+      url: host + '/user/get/' + sessionStorage.getItem('user_id'),
+      type: 'GET',
+      dataType: 'json',
+      contentType: 'application/json',
+      headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('auth') },
+      success: function (user) {
+         console.log(user);
+         var accountContainer = $('.accountContainer')
+         var cardBody = $('<div class="cardBody" id = "' + user.id + '"></div>');
+         var button = $('<a href="#" class="font accountButton btn" onclick="editUser(' + user.id + ')">Ändra</a>');
+         var myaccount = $('<h1 class = "font4 Rubrik"> Mitt konto</h1>')
+         var name = $('<p class="font5">' + user.name + '</p>');
+         var nametitle = $('<h5 class="font5"> Namn </h5>');
+         var email = $('<p class="font5">' + user.email + '</p>');
+         var emailtitle = $('<h5 class="font5"> Email </h5>');
+         cardBody.append(myaccount, nametitle, name, emailtitle, email, button)
+         accountContainer.append(cardBody);
+      },
+      error: function () {
+         console.log("error")
+      }
+   })
+
+}
+
+function updateUser(userId, name, email) {
+
+   // Skicka AJAX-förfrågan med uppdateringsdata till servern
+   $.ajax({
+      url: host + '/user/edit/' + userId,
+      type: 'PUT',
+      datatype: 'JSON',
+      contentType: 'application/json',
+      headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('auth') },
+      data: JSON.stringify({
+         "name": name,
+         "email": email
+      }),
+      success: function () {
+         // Uppdatera användarens namn och e-postadress på sidan
+         $('.accountContainer').find('.cardBody').find('.font5:eq(1)').text(name);
+         $('.accountContainer').find('.cardBody').find('.font5:eq(3)').text(email);
+
+         alert("Uppdateringen lyckades!");
+      },
+      error: function () {
+         alert("Uppdateringen misslyckades!");
+      }
+   });
+}
+
+
+
+function editUser() {
+   // Fill in the form with the user's current details
+   $('#editName').val($('.accountContainer .cardBody .font5:eq(1)').text());
+   $('#editEmail').val($('.accountContainer .cardBody .font5:eq(3)').text());
+
+   // Show the modal
+   $('#editModal').modal('show');
+}
+
+function submitEditUser() {
+   // Get the updated details from the form
+   var name = $('#editName').val();
+   var email = $('#editEmail').val();
+
+   // Get the user id from the card body
+   var userId = $('.accountContainer .cardBody').attr('id');
+
+   // Send the update request to the server
+   updateUser(userId, name, email);
+
+   // Hide the modal
+   $('#editModal').modal('hide');
+}
+
 
 function register() {
    // e.preventDefault();
@@ -99,7 +181,9 @@ function register() {
       boolean = true;
    }
 
-   alert(boolean);
+   var email = document.getElementById("regEmail").value
+   var password = document.getElementById("regLosen").value
+
    $.ajax({
       url: host + '/signup',
       type: 'POST',
@@ -113,7 +197,7 @@ function register() {
       }),
       success: function () {
          alert("Du är registrerad!");
-         loadPage();
+         auto_login(email, password);
       },
       error: function () {
          alert("nu blev det fel")
@@ -143,7 +227,30 @@ function login() {
          sessionStorage.setItem('auth', JSON.stringify(loginResponse.token))
          sessionStorage.setItem('user_id', JSON.stringify(loginResponse.user_id))
          loadPage();
-         alert("Du har loggats in");
+      },
+      error: function () {
+         alert("fel epost eller lösenord")
+      }
+   })
+}
+
+//Används vid registrering, tar emot mail och password från register() funktionen
+function auto_login(email, password) {
+
+   $.ajax({
+      url: host + '/login',
+      type: 'POST',
+      datatype: 'JSON',
+      contentType: 'application/json',
+      data: JSON.stringify({
+         "email": email,
+         "password": password
+      }),
+      success: function (loginResponse) {
+
+         sessionStorage.setItem('auth', JSON.stringify(loginResponse.token))
+         sessionStorage.setItem('user_id', JSON.stringify(loginResponse.user_id))
+         loadPage();
       },
       error: function () {
          alert("fel epost eller lösenord")
@@ -180,3 +287,12 @@ links.forEach(link => {
       link.classList.add("active");
    });
 });
+
+function arrowDownScroll() {
+   let e = document.getElementById("arrowDown");
+   e.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+      inline: 'start'
+   });
+}

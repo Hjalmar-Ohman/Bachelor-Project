@@ -16,13 +16,14 @@
 }
 
    .font6 {
-    font-family: 'Gill Sans';
+    font-family: 'Gill Sans MT';
     font-weight: normal;
     font-style: normal;
     font-size: 150%;
     color: white;
     text-align: left;
     margin-left: 10%;
+    margin-right: 10%;
   
    }
 

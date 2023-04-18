@@ -169,28 +169,29 @@ def payment_hook():
         session = stripe.checkout.Session.retrieve(event["data"]["object"]["id"])
         line_items = stripe.checkout.Session.list_line_items(session["id"], limit=1)
         print(line_items["data"][0]["description"])
-        print(session)
+        print(session["metadata"])
 
-        user_id = line_items["data"][0]["description"][0:1]
-        day = line_items["data"][0]["description"][11:14]
-        week = line_items["data"][0]["description"][15:16]
-        start_hour = line_items["data"][0]["description"][17:19]
-        end_hour = line_items["data"][0]["description"][20:22]
-        tool_id = line_items["data"][0]["description"][22:23]
+        user_id = session["metadata"]["user_id"]
+        day = session["metadata"]["day"]
+        week = session["metadata"]["week"]
+        start_hour = session["metadata"]["start_h"]
+        end_hour = session["metadata"]["finnish_h"]
+        tool_id = session["metadata"]["tool_id"]
 
         print(line_items["data"][0]["description"])
-        print("day: " + day)
-        print("week: " + week)
-        print("start_hour: " + start_hour)
-        print("end_hour: " + end_hour)
-        print("user_id: " + user_id)
-        print("tool_id: " + tool_id)
+        #print(line_items["data"][0]["metadata"])
+        # print("day: " + day)
+        # print("week: " + week)
+        # print("start_hour: " + start_hour)
+        # print("end_hour: " + end_hour)
+        # print("user_id: " + user_id)
+        # print("tool_id: " + tool_id)
 
         book_tool_by_ids(
             db, Booking, User, user_id, tool_id, start_hour, end_hour, day, week
         )
 
-        booking_mail(mail, User.query.filter_by(id=int(user_id)).first_or_404)
+        booking_mail(mail, User.query.filter_by(id=int(user_id)).first_or_404())
 
     return {}, 200
 
@@ -216,11 +217,12 @@ def test_checkout():
 
     # user_id = User.query.filter_by(email=user_email).first_or_404()
 
+    user_temp = User.query.filter_by(id=int(user_id)).first_or_404()
     tool_temp = Tool.query.filter_by(id=int(tool_id)).first_or_404()
     price = tool_temp.price * 100
 
     return process_payment(
-        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_id
+        str(price), quantity, day, week, start_h, finnish_h, tool_id, user_temp
     )
 
 
@@ -261,7 +263,7 @@ def tool2(input_id):
 
 
 @app.route("/tools/<int:input_id>/book", methods=["GET", "POST"])
-#@jwt_required()
+# @jwt_required()
 def toolBook2(input_id):
     toolID = input_id
     return tool_book(toolID, Booking)
@@ -270,6 +272,18 @@ def toolBook2(input_id):
 @app.route("/user/delete", methods=["DELETE"])
 def delete_user2():
     return delete_user(db, User)
+
+
+@app.route("/user/get/<int:input_id>", methods=["GET"])
+def get_user2(input_id):
+    userID = input_id
+    return get_user(db, User, userID)
+
+
+@app.route("/user/edit/<int:input_id>", methods=["PUT"])
+def edit_user2(input_id):
+    userID = input_id
+    return edit_user(db, User, userID)
 
 
 @app.route("/user/<int:input_id>/book", methods=["GET", "POST"])
@@ -296,5 +310,9 @@ def book_tool_redirect(
     return
 
 
+
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
+
+

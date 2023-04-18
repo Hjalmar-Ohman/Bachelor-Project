@@ -1,19 +1,20 @@
 host = window.location.protocol + '//' + location.host
 
 function dayIntConverter(dayint) {
-    if (dayint == 1) {
+    console.log("efter" + dayint)
+    if (dayint == "mon") {
         return "Måndag"
-    } else if (dayint == 2) {
+    } else if (dayint == "tue") {
         return "Tisdag"
-    } else if (dayint == 3) {
+    } else if (dayint == "wed") {
         return "Onsdag"
-    } else if (dayint == 4) {
+    } else if (dayint == "thu") {
         return "Torsdag"
-    } else if (dayint == 5) {
+    } else if (dayint == "fri") {
         return "Fredag"
-    } else if (dayint == 6) {
+    } else if (dayint == "sat") {
         return "Lördag";
-    } else if (dayint == 7) {
+    } else if (dayint == "sun") {
         return "Söndag";
     }
 }
@@ -25,12 +26,13 @@ function addBookingRow(booking) {
         datatype: 'JSON',
         contentType: 'application/json',
         success: function (tool) {
+            console.log("innan" + booking.day)
             var bookingsContainer = $('.bookingsContainer')
             var cardBody = $('<div class="cardBody" id = "' + booking.id + '"></div>');
             var button = $('<a href="#" class="btn btn-primary avbokaknapp" onclick="removeBooking(' + booking.id + ')">Avboka</a>');
             var name = $('<h5 class="cardTitle font">' + tool.name + '</h5>');
-            var bookingTime = $('<p class="cardText font">' + dayIntConverter(booking.day) + ' ' + booking.start_hour + ':00 - ' + booking.end_hour + ':00 </p > ');
-
+            var bookingTime = $('<p class="cardText font"> Vecka: ' + booking.week +', '+ dayIntConverter(booking.day) + ', ' + booking.start_hour + ':00 - ' + booking.end_hour + ':00 </p > ');
+            
             cardBody.append(button, name, bookingTime)
             bookingsContainer.append(cardBody);
         }
@@ -39,7 +41,7 @@ function addBookingRow(booking) {
 
 function getBookings() {
     $.ajax({
-        url: host + '/user/1/book',
+        url: host + '/user/' + sessionStorage.getItem('user_id') + '/book',
         type: 'GET',
         datatype: 'JSON',
         contentType: 'application/json',
