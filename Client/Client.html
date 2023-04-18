@@ -34,24 +34,41 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
-      <a id="toolButton" class="nav-item nav-link font navButton" href="verktyg"
-        onclick="this.classList.toggle('active')">Verktyg
-      </a>
-      <a id="regButton" class="nav-item nav-link font navButton" href="reg" data-toggle="modal"
-        data-target="#myRegModal" onclick="this.classList.toggle('active')">Registrera</a>
-      <a id="bookingsButton" class="nav-item nav-link font navButton" href="bokningar"
-        onclick="this.classList.toggle('active')">Mina bokningar</a>
-      <a id="accountButton" class="nav-item nav-link font navButton" href="konto"
-        onclick="this.classList.toggle('active')">Mitt
-        konto</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a id="toolButton" class="nav-item nav-link font navButton" href="verktyg"
+            onclick="this.classList.toggle('active')">Verktyg
+          </a>
+        </li>
+        <li class="nav-item">
+          <a id="regButton" class="nav-item nav-link font navButton" href="reg" data-toggle="modal"
+            data-target="#myRegModal" onclick="this.classList.toggle('active')">Registrera</a>
+        </li>
+        <li class="nav-item">
+          <a id="bookingsButton" class="nav-item nav-link font navButton" href="bokningar"
+            onclick="this.classList.toggle('active')">Mina bokningar</a>
+        </li>
+        <li class="nav-item">
+          <a id="accountButton" class="nav-item nav-link font navButton" href="konto"
+            onclick="this.classList.toggle('active')">Mitt
+            konto</a>
+        </li>
+        <!-- 
       <a id="howtoButton" class="nav-item nav-link font navButton" href="howto"
         onclick="this.classList.toggle('active')">Så
         funkar det</a>
-      <a id="loginButton" class="nav-item nav-link my-2 my-sm-0 font navButton" style="margin-right: 10px" href="login"
-        data-toggle="modal" data-target="#myModal" onclick="this.classList.toggle('active')">Logga in</a>
-      <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font navButton" href="logout" onclick="logout()">Logga
-        ut</a>
+      -->
+        <li id="loginButton" class="nav-item">
+          <a id="logInAndOutButton" class="nav-item nav-link my-2 my-sm-0 font navButton" style="margin-right: 10px"
+            href="login" data-toggle="modal" data-target="#myModal" onclick="this.classList.toggle('active')">Logga
+            in</a>
+        </li>
+        <li class="nav-item">
+          <a id="logoutButton" class="nav-item nav-link my-2 my-sm-0 font navButton" href="logout"
+            onclick="logout()">Logga
+            ut</a>
+        </li>
+      </ul>
     </div>
 
   </nav>
@@ -117,29 +134,44 @@
                 <button class=" font welcomeButton btn" onclick="loadToolsPage()">Våra verktyg</button>
             </div>
             <!-- Containern som beskriver, mha symboler, hur processen ser ut för att hyra ett verktyg -->
-            <div class="howitworks">
+            <div class="arrowDown"  id="arrowDown" type ="button" onclick="arrowDownScroll()">
+              <p class=" font card-text">SÅ FUNKAR DET</p>
+              <img class="imgArrowDown" src="/Pictures/arrow down.png" alt="Card image cap">
+            </div>
+            
+            <div class="howitworks" id="howItWorks">
                 <div class="cards-container">
-              <div class="welcomecards">
-                <img class="card-img-top" src="/Pictures/iconboka.png" alt="Card image cap">
-                <div >
-                  <p class=" font card-text">BOKA</p>
-                </div>
-              </div>
-              <div class=" welcomecards">
-                <img class="card-img-top" src="/Pictures/iconmail.png" alt="Card image cap">
-                <div >
-                  <p class=" font card-text">FÅ DIN KOD</p>
-                </div>
-              </div>
-              <div class=" welcomecards" >
-                <img class="card-img-top" src="/Pictures/iconhamta.png" alt="Card image cap">
-                <div ></div>
-                  <p class=" font card-text">HÄMTA</p>
-                </div>
-              </div>
+                  <div class="welcomecards">
+                    <img class="card-img-top" src="/Pictures/iconboka.png" alt="Card image cap" >
+                    <div >
+                      <p class=" font card-text">BOKA </p>
+                      <p class="font ">Boka det verktyg <br> du önskar hyra</p>
+                    </div>
+                  </div>
+                  <div class="welcomecards">
+                    <img class="card-img-arrow" src="/Pictures/stilrenPil2.png" alt="Card image cap">
+                  </div>
+                  <div class=" welcomecards">
+                    <img class="card-img-top" src="/Pictures/iconmail.png" alt="Card image cap">
+                    <div >
+                      <p class=" font card-text">FÅ DIN KOD</p>
+                      <p class="font ">Få en PIN-kod på din mail</p>
+                    </div>
+                  </div>
+                  <div class="welcomecards">
+                    <img class="card-img-arrow" src="/Pictures/stilrenPil2.png" alt="Card image cap">
+                  </div>
+                  <div class=" welcomecards" >
+                    <img class="card-img-top" src="/Pictures/iconhamta.png" alt="Card image cap">
+                    <div >
+                      <p class=" font card-text">HÄMTA</p>
+                      <p class="font ">Ta ditt verktyg från paketboxskåpet</p>
+                    </div>
+                  </div>
              </div>
             </div>
-            </div>
+            <div id="howItWorksText"></div>
+          </div>
     </script>
 
       <!-- Sidan för att visa användarens bokningar, ska kunna hämta alla aktiva bokningar -->

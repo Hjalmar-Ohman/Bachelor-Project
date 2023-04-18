@@ -51,8 +51,8 @@ multiSander = Tool(
 )
 
 
-booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = 5, week = 14)
-user1 = User(name = "grupp10", email = "grupp10@liu.se", password = "$2b$12$pP/KpKWTaYWF4QjQcWyMWuzPRPB69fODdSFraCiNSKx0BM4mp8sdW" )
+booking1 = Booking(user_id = 1, tool_id = 1, start_hour = 15, end_hour = 17, day = "wed", week = 14)
+user1 = User(name = "grupp10", email = "grupp10@liu.se", password_hash = "$2b$12$pP/KpKWTaYWF4QjQcWyMWuzPRPB69fODdSFraCiNSKx0BM4mp8sdW" )
 
 db.session.add(hammer)
 db.session.add(hammer2)
