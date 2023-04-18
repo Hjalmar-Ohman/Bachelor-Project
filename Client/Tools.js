@@ -44,8 +44,6 @@ function searchSilverTejp() {
 }
 function search() {
     var keyword = $("#searchText").val();
-    console.log(keyword);
-
 
     $.ajax({
         url: host + '/tools/search?keyword=' + keyword,
@@ -71,7 +69,6 @@ function removeTools() {
         dataType: 'json',
         contentType: 'application/json',
         success: function (tools) {
-            console.log("tar bort")
             $.each(tools, function (i, tool) {
                 $('#toolID' + tool.id).remove();
             });
