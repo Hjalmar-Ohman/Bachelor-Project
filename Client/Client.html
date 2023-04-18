@@ -319,7 +319,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="boxaround">
-              <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
+              <button type="button" class="close" data-dismiss="modal" onclick="emptyRegLoadPage()">&times;</button>
               <div class="pictureLeft">
                 <img src="/Pictures/registerpic.jpg" alt="pictureregister" width="500px" height="340px" ;>
 
@@ -357,7 +357,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="boxaround">
-              <button type="button" class="close" data-dismiss="modal" onclick="loadPage()">&times;</button>
+              <button type="button" class="close" data-dismiss="modal" onclick="emptyLoginLoadPage()">&times;</button>
               <div class="pictureLeft">
                 <img src="/Pictures/loginpic.jpg" alt="pictureregister" width="500px" height="340px" ;>
 
@@ -366,7 +366,7 @@
               <div class="formboxRightlogin">
                 <label for="formMessage"
                   style="font-family:Gill Sans MT; font-weight: bold; font-size: larger;">Inloggningsuppgifter </label>
-                <form>
+                <form onSubmit="return false;">
                   <div class="form-group">
                     <input type="email" class="form-control" id="loginEmail" placeholder="Din e-postadress">
                   </div>
