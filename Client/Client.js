@@ -256,7 +256,7 @@ links.forEach(link => {
 });
 
 function arrowDownScroll() {
-   let e = document.getElementById("howItWorks");
+   let e = document.getElementById("arrowDown");
    e.scrollIntoView({
      block: 'start',
      behavior: 'smooth',
