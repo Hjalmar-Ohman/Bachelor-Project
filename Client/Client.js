@@ -213,7 +213,7 @@ function register() {
          //"is_admin":boolean
       }),
       success: function () {
-         alert("Du är registrerad!");
+         //alert("Du är registrerad!");
          auto_login(email, password);
       },
       error: function () {
