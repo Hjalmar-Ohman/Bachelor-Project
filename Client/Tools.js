@@ -90,7 +90,7 @@ function showBookModalLeft(toolID) {
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        //headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+        
         success: function (tool) {
 
             console.log("left funciton");
@@ -106,7 +106,7 @@ function showBookModalLeft(toolID) {
     });
     var rightTop = $('#rightTop');
     rightTop.html("");
-    var rightHeader = '<div class="bookModalRightHeader"> <h1 class="font dropdowmHeader">Se tillgängliga tider!</h1></div> <div class="modalBookRightSelector">';
+    //var rightHeader = '<div class="bookModalRightHeader"> <h1 class="font dropdowmHeader">Välj vecka och dag för att se tillgängliga tider!</h1></div> <div class="modalBookRightSelector">';
     var rightWeekSelect = `<div class="day-select">
                           <select required id="selectedWeek" onchange="showCalendar(this, selectedDay,` + toolID + `)">
                           <option value="" selected disabled>Vilken vecka?</option>
@@ -162,56 +162,28 @@ function showBookModalLeft(toolID) {
                           <option value="50">50</option>
                           <option value="51">51</option>
                           <option value="52">52</option>
+
                         </select>
                       </div>`;
     var rightDaySelect = `                      
                       <div class="day-select">
-                        <!-- <p>Välj start:</p> -->
                         <select required id="selectedDay" onchange="showCalendar(selectedWeek, this,`+ toolID + `)">
                           <option value="" selected disabled>Vilken dag?</option>
-                          <option value="mon" id="mon">Måndag</option>
+                          <option value="mon">Måndag</option>
                           <option value="tue">Tisdag</option>
                           <option value="wed">Onsdag</option>
                           <option value="thu">Torsdag</option>
                           <option value="fri">Fredag</option>
                           <option value="sat">Lördag</option>
                           <option value="sun">Söndag</option>
-                        
                         </select>
                       </div>
                     </div>
                     `;
-    totalSelect = rightHeader + rightWeekSelect + rightDaySelect;
+    totalSelect = rightWeekSelect + rightDaySelect;
     rightTop.append(totalSelect);
 }
 
-/*function getBookedHours(selectWeek, selectDay, tool_id){
-    var booked_hours = [];
-    alert(selectWeek.selectedIndex + "  heheheh  " + selectDay.selectedIndex + "  " + tool_id);
-    $.ajax({
-        url: host + '/tools/' + tool_id +'/book',
-        type: 'GET',
-        //headers: {"Authorization": "Bearer " + JSON.parse(sessionStorage.getItem('auth')).token},
-        
-        success: function(bookings) {
-            for (var i = 0; i < bookings.length; i++) {
-                var booking = bookings[i];
-                var hour = booking.start_hour;
-                if (selectWeek.selectedIndex == booking.week) { 
-                    if (selectDay.selectedIndex == booking.day) { 
-                        while (hour <= booking.end_hour) {
-                            alert(hour);
-                            hour++;
-                            booked_hours.push(hour);
-                        }
-                    }
-                }
-            }
-            alert(booked_hours[0]);
-            return booked_hours;
-        }
-    })
-}*/
 
 function dayIntToString(dayint) {
     if (dayint == "1") {
@@ -271,29 +243,6 @@ function showCalendar(selectWeek, selectDay, tool_id) {
     var dayString = selectDay.value;
     var dayNr = selectDay.selectedIndex;
     var selectedTimes = [];
-
-    /*alert("Vecka " + weekNr+ " Dag " + dayNr);*/
-
-    // $.ajax({
-    //     url: host + '/tools/' + tool_id +'/book',
-    //     type: 'GET', 
-
-    //     success: function(bookings) {
-    //         const booked_hours = [];
-    //         for (var i = 0; i < bookings.length; i++) {
-    //             var booking = bookings[i];
-    //             var hour = booking.start_hour;
-    //             if (document.getElementById("selectedWeek").value == booking.week) { 
-    //                 if (document.getElementById("selectedDay").value == booking.day) { 
-    //                     while (hour <= booking.end_hour) {
-    //                         hour++;
-    //                         booked_hours.add(hour);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // })
 
     if (weekNr > 0 && dayNr > 0) {
         var tableBeginning = '<table> <thead> </thead> <tbody>';
