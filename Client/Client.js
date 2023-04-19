@@ -1,14 +1,14 @@
 host = window.location.protocol + '//' + location.host
 
 
-function emptyRegLoadPage(){
+function emptyRegLoadPage() {
    input3.value = "";
    input4.value = "";
    input5.value = "";
    loadPage();
 }
 
-function emptyLoginLoadPage(){
+function emptyLoginLoadPage() {
    input1.value = "";
    input2.value = "";
    loadPage();
@@ -154,7 +154,6 @@ function updateUser(userId, name, email) {
          $('.accountContainer').find('.cardBody').find('.font5:eq(1)').text(name);
          $('.accountContainer').find('.cardBody').find('.font5:eq(3)').text(email);
 
-         alert("Uppdateringen lyckades!");
       },
       error: function () {
          alert("Uppdateringen misslyckades!");
@@ -228,22 +227,22 @@ var input3 = document.getElementById("regEmail");
 var input4 = document.getElementById("regName");
 var input5 = document.getElementById("regLosen");
 
-input2.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        login();
-        $("#myModal").modal("hide");
-       // document.getElementById("logInButton").click();
-    }
+input2.addEventListener("keyup", function (event) {
+   if (event.keyCode === 13) {
+      event.preventDefault();
+      login();
+      $("#myModal").modal("hide");
+      // document.getElementById("logInButton").click();
+   }
 });
 
 
-input5.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        register();
-        $("#myRegModal").modal("hide");
-    }
+input5.addEventListener("keyup", function (event) {
+   if (event.keyCode === 13) {
+      event.preventDefault();
+      register();
+      $("#myRegModal").modal("hide");
+   }
 });
 
 function login() {
