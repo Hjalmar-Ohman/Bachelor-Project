@@ -40,11 +40,13 @@ function addBookingRow(booking) {
 }
 
 function getBookings() {
+    let user_jwt_Token = JSON.parse(sessionStorage.getItem('auth'))
     $.ajax({
         url: host + '/user/' + sessionStorage.getItem('user_id') + '/book',
         type: 'GET',
         datatype: 'JSON',
         contentType: 'application/json',
+        headers: {'Authorization': 'Bearer ' + user_jwt_Token},
         success: function (user_bookings) {
             $.each(user_bookings, function (i, booking) {
                 addBookingRow(booking);
@@ -69,10 +71,13 @@ function Unbook_check(bookingID){
 
 
 function removeBooking(bookingID) {
+
+    let user_jwt_Token = JSON.parse(sessionStorage.getItem('auth'))
+
     $.ajax({
         url: host + '/book/' + bookingID,
         type: 'DELETE',
-        headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
+        headers: { "Authorization": "Bearer " + user_jwt_Token},
         success: function () {
            
                 $('#' + bookingID).remove();
