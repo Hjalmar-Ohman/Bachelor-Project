@@ -110,14 +110,15 @@ function logout() {
 //Används för att ladda användare från server till "Mina sidor"
 function getUser() {
 
-   user_auth = sessionStorage.getItem('auth')
-   console.log(user_auth)
+
+
+   let user_jwt_Token = JSON.parse(sessionStorage.getItem('auth'))
    $.ajax({
       url: host + '/user/get/' + sessionStorage.getItem('user_id'),
       type: 'GET',
       dataType: 'json',
       contentType: 'application/json',
-      headers: { 'Authorization': 'Bearer {' + sessionStorage.getItem('user_id') + '}' },
+      headers: { 'Authorization': 'Bearer ' + user_jwt_Token },
       success: function (user) {
          console.log(user);
          var accountContainer = $('.accountContainer')
@@ -141,12 +142,13 @@ function getUser() {
 function updateUser(userId, name, email) {
 
    // Skicka AJAX-förfrågan med uppdateringsdata till servern
+   let user_jwt_Token = JSON.parse(sessionStorage.getItem('auth'))
    $.ajax({
       url: host + '/user/edit/' + userId,
       type: 'PUT',
       datatype: 'JSON',
       contentType: 'application/json',
-      headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('auth') },
+      headers: { 'Authorization': 'Bearer ' + user_jwt_Token },
       data: JSON.stringify({
          "name": name,
          "email": email
