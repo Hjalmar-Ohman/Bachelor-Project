@@ -29,7 +29,7 @@ function addBookingRow(booking) {
             console.log("innan" + booking.day)
             var bookingsContainer = $('.bookingsContainer')
             var cardBody = $('<div class="cardBody" id = "' + booking.id + '"></div>');
-            var button = $('<a href="#" class="btn btn-primary avbokaknapp" onclick="removeBooking(' + booking.id + ')">Avboka</a>');
+            var button = $('<a href="#" class="btn btn-primary avbokaknapp" onclick="Unbook_check(' + booking.id + ')">Avboka</a>');
             var name = $('<h5 class="cardTitle font">' + tool.name + '</h5>');
             var bookingTime = $('<p class="cardText font"> Vecka: ' + booking.week +', '+ dayIntConverter(booking.day) + ', ' + booking.start_hour + ':00 - ' + booking.end_hour + ':00 </p > ');
             
@@ -55,13 +55,29 @@ function getBookings() {
     });
 }
 
+
+function Unbook_check(bookingID){
+    if (confirm('Tryck "OK" om du vill genomföra avbokningen')) {
+        removeBooking(bookingID)
+     
+    } 
+    else {
+       
+     console.log("nått")
+    }
+}
+
+
 function removeBooking(bookingID) {
     $.ajax({
         url: host + '/book/' + bookingID,
         type: 'DELETE',
         headers: { "Authorization": "Bearer " + sessionStorage.getItem('auth') },
         success: function () {
-            $('#' + bookingID).remove();
+           
+                $('#' + bookingID).remove();
+          
+           
         }
     });
 }
